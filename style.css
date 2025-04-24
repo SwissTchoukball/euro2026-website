@@ -1,0 +1,58 @@
+body {
+  font-family: system, Helvetica, Arial, sans-serif;
+}
+
+main {
+  width: 95vw;
+  max-width: 600px;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+a,
+a:visited {
+  color: #00567c;
+}
+
+a:hover {
+  color: #ff0000;
+}
+
+.logo {
+  width: 80vw;
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+
+.dates {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.location {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-logo {
+  width: 2rem;
+}
+
+.social-logo-link {
+  color: #999;
+  text-decoration: none;
+}
+
+.social-logo-link:hover {
+  color: #000;
+}

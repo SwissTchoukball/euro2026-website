@@ -1,0 +1,21 @@
+body {
+  font-family: system, Helvetica, Arial, sans-serif;
+}
+
+main {
+  width: 95vw;
+  max-width: 600px;
+  margin: auto;
+  margin-top: auto;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+a,
+a:visited {
+  color: #00567c;
+}
+
+a:hover {
+  color: #ff0000;
+}
