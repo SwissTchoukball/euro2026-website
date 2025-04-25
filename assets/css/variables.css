@@ -1,0 +1,29 @@
+:root {
+  /* Colours */
+  --euro-red-100: rgb(255, 0, 0);
+  --euro-blue-100: rgb(0, 86, 124);
+  --euro-sky-blue-100: rgb(107, 226, 228);
+
+  /* Spacings */
+  --euro-spacing-0-5: 0.125rem;
+  --euro-spacing-1: 0.25rem;
+  --euro-spacing-2: 0.5rem;
+  --euro-spacing-3: 0.75rem;
+  --euro-spacing-4: 1rem;
+  --euro-spacing-5: 1.25rem;
+  --euro-spacing-6: 1.5rem;
+  --euro-spacing-7: 1.75rem;
+  --euro-spacing-8: 2rem;
+  --euro-spacing-9: 2.25rem;
+  --euro-spacing-10: 2.5rem;
+  --euro-spacing-12: 3rem;
+  --euro-spacing-14: 3.5rem;
+  --euro-spacing-16: 4rem;
+  --euro-spacing-18: 4.5rem;
+  --euro-spacing-20: 5rem;
+  --euro-spacing-24: 6rem;
+  --euro-spacing-32: 8rem;
+
+  /* Lengths */
+  --euro-header-logo-height: clamp(1.5rem, 3vw, 2rem);
+}
