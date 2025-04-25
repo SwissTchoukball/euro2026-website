@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/icon"],
-  css: ["~/assets/css/main.css"],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image"],
+  css: ["~/assets/css/variables.css", "~/assets/css/typography.css", "~/assets/css/main.css"],
   app: {
     head: {
       charset: "UTF-8",
@@ -34,5 +34,8 @@ export default defineNuxtConfig({
         { rel: "manifest", href: "/site.webmanifest" },
       ],
     },
+  },
+  image: {
+    quality: 80,
   },
 });
