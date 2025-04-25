@@ -60,6 +60,9 @@
           </a>
         </li>
       </ul>
+      <div class="c-index__volunteer-link-wrapper">
+        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link">🤲 Devenir bénévole</a>
+      </div>
     </section>
   </main>
 </template>
@@ -144,6 +147,11 @@ useHead({
   height: 15vw;
   max-height: 5rem;
 }
+
+.c-index__volunteer-link-wrapper {
+  text-align: center;
+}
+
 .c-index__volunteer-link {
   display: inline-block;
   margin-inline: auto;
