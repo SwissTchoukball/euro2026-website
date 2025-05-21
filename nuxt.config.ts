@@ -35,6 +35,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  routeRules: {
+    "/qr": { redirect: "/" },
+  },
   image: {
     quality: 80,
   },
