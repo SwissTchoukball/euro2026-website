@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image"],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt"],
   css: ["~/assets/css/variables.css", "~/assets/css/typography.css", "~/assets/css/main.css"],
   app: {
     head: {
@@ -40,5 +40,8 @@ export default defineNuxtConfig({
   },
   image: {
     quality: 80,
+  },
+  vueEquipment: {
+    composables: ["useCountdown"],
   },
 });

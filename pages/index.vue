@@ -26,6 +26,10 @@
       </div>
     </section>
 
+    <section class="l-section c-index__countdown-section">
+      <EuroCountdown class="c-index__countdown" />
+    </section>
+
     <section class="l-section">
       <p class="l-paragraph c-index__intro-text">
         The <em>European Tchoukball Championships</em> is a competition of the
@@ -102,29 +106,35 @@ useHead({
   background-color: rgb(0 0 0 / 0.5);
   text-align: center;
   color: white;
+  text-shadow: 0 0 1rem black;
 }
 
 .c-index__hero-logo {
   margin-top: calc(
     var(--euro-header-logo-height) + 2 * var(--euro-spacing-4) +
-      clamp(var(--euro-spacing-4), 4vw, var(--euro-spacing-12))
+      clamp(var(--euro-spacing-8), 4vw, var(--euro-spacing-12))
   );
   max-height: 50%;
-  max-width: 20rem;
+  width: clamp(18rem, 40vw, 20rem);
 }
 
 .c-index__hero-dates {
-  margin-top: clamp(1rem, 5vw, 4rem);
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin-top: clamp(2rem, 8vw, 6rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
 }
 
 .c-index__hero-location {
   display: block;
   margin-top: clamp(1rem, 2vw, 3rem);
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-weight: bold;
   color: white;
+}
+
+.c-index__countdown {
+  width: 20rem;
+  margin: auto;
 }
 
 .c-index__intro-text {
@@ -164,5 +174,12 @@ useHead({
   font-weight: bold;
   color: var(--euro-sky-blue-100);
   background-color: var(--euro-blue-100);
+}
+
+@media (min-width: 768px) {
+  .c-index__countdown {
+    width: 90%;
+    max-width: 40rem;
+  }
 }
 </style>
