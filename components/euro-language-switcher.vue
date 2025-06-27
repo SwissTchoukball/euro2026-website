@@ -1,22 +1,25 @@
 <template>
   <SelectRoot v-model="language" v-model:open="isOpen">
-    <SelectTrigger :class="`SelectTrigger u-unstyled-button ${$attrs.class}`" aria-label="Customise options">
+    <SelectTrigger
+      :class="`c-language-switcher__trigger u-unstyled-button ${$attrs.class}`"
+      aria-label="Customise options"
+    >
       <SelectValue />
       <Icon icon="radix-icons:chevron-down" name="chevron down" />
     </SelectTrigger>
 
     <SelectPortal>
-      <SelectContent class="SelectContent" :side-offset="5">
-        <SelectScrollUpButton class="SelectScrollButton">
+      <SelectContent class="c-language-switcher__content" :side-offset="5">
+        <SelectScrollUpButton class="c-language-switcher__scroll-button">
           <Icon icon="radix-icons:chevron-up" />
         </SelectScrollUpButton>
 
-        <SelectViewport class="SelectViewport">
+        <SelectViewport class="c-language-switcher__viewport">
           <SelectGroup>
             <SelectItem
               v-for="(option, index) in options"
               :key="index"
-              class="SelectItem"
+              class="c-language-switcher__select-item"
               :value="option"
               :disabled="option === locale"
               as-child
@@ -26,7 +29,7 @@
               "
             >
               <NuxtLink :to="switchLocalePath(option)">
-                <SelectItemIndicator class="SelectItemIndicator">
+                <SelectItemIndicator class="c-language-switcher__select-item-indicator">
                   <Icon icon="radix-icons:check" />
                 </SelectItemIndicator>
                 <SelectItemText>
@@ -73,10 +76,10 @@ const options = locales.value.map((l) => l.code);
 </script>
 
 <style scoped>
-.SelectTrigger {
+.c-language-switcher__trigger {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   padding: 0.5rem 0.75rem;
   font-size: 0.8rem;
   font-weight: bold;
@@ -86,19 +89,19 @@ const options = locales.value.map((l) => l.code);
   text-transform: uppercase;
 }
 
-.SelectTrigger:hover {
+.c-language-switcher__trigger:hover {
   cursor: pointer;
   color: var(--euro-sky-blue-100) !important;
 }
 
-.SelectTrigger:focus-visible {
+.c-language-switcher__trigger:focus-visible {
   box-shadow: 0 0 0 2px rgb(0, 86, 124);
   outline: none;
 }
 </style>
 
 <style>
-.SelectContent {
+.c-language-switcher__content {
   overflow: hidden;
   background-color: white;
   border-radius: 6px;
@@ -106,11 +109,11 @@ const options = locales.value.map((l) => l.code);
   z-index: 3;
 }
 
-.SelectViewport {
+.c-language-switcher__viewport {
   padding: 5px;
 }
 
-.SelectItem {
+.c-language-switcher__select-item {
   font-size: 0.8rem;
   line-height: 1;
   color: var(--euro-blue-100);
@@ -125,17 +128,17 @@ const options = locales.value.map((l) => l.code);
   text-decoration: none;
   text-transform: uppercase;
 }
-.SelectItem[data-disabled] {
+.c-language-switcher__select-item[data-disabled] {
   color: grey;
   pointer-events: none;
 }
-.SelectItem[data-highlighted] {
+.c-language-switcher__select-item[data-highlighted] {
   outline: none;
   background-color: var(--euro-blue-100);
   color: white;
 }
 
-.SelectItemIndicator {
+.c-language-switcher__select-item-indicator {
   position: absolute;
   left: 0;
   width: 25px;
@@ -144,7 +147,7 @@ const options = locales.value.map((l) => l.code);
   justify-content: center;
 }
 
-.SelectScrollButton {
+.c-language-switcher__scroll-button {
   display: flex;
   align-items: center;
   justify-content: center;
