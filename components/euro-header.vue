@@ -1,6 +1,6 @@
 <template>
   <header class="c-header">
-    <NuxtLink :to="localePath('/')">
+    <NuxtLink :to="localePath('/')" class="c-header__logo-link">
       <img
         class="c-header__logo"
         src="/images/logo_euro2026_horizontal.svg"
@@ -77,6 +77,11 @@ const localePath = useLocalePath();
   display: none;
 }
 
+.c-header__logo-link {
+  max-width: 13rem;
+  flex-grow: 1;
+}
+
 .c-header__logo {
   height: var(--euro-header-logo-height);
   margin: var(--euro-spacing-4);
@@ -84,8 +89,7 @@ const localePath = useLocalePath();
 }
 
 .c-header__nav {
-  margin: var(--euro-spacing-4);
-  margin-left: 0;
+  margin-block: var(--euro-spacing-4);
 }
 
 .c-header__nav-list {
@@ -111,6 +115,8 @@ const localePath = useLocalePath();
 
 .c-header:deep(.c-header__language-switcher) {
   color: black;
+  max-width: 13rem;
+  flex-grow: 1;
 
   .body-header-hover & {
     color: white;
