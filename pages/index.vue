@@ -116,10 +116,7 @@ useHead({
 }
 
 .c-index__hero-logo {
-  margin-top: calc(
-    var(--euro-header-logo-height) + 2 * var(--euro-spacing-4) +
-      clamp(var(--euro-spacing-8), 4vw, var(--euro-spacing-12))
-  );
+  margin-top: calc(var(--euro-header-height) + clamp(var(--euro-spacing-8), 4vw, var(--euro-spacing-12)));
   max-height: 50%;
   width: clamp(18rem, 40vw, 20rem);
 }

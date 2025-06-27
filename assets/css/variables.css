@@ -28,4 +28,6 @@
 
   /* Lengths */
   --euro-header-logo-height: clamp(1.5rem, 3vw, 2rem);
+  --euro-header-logo-margin: var(--euro-spacing-4);
+  --euro-header-height: calc(var(--euro-header-logo-height) + var(--euro-header-logo-margin) * 2);
 }

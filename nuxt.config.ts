@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt", "@nuxtjs/i18n"],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt", "@nuxtjs/i18n", "@vueuse/nuxt"],
   css: ["~/assets/css/variables.css", "~/assets/css/typography.css", "~/assets/css/main.css"],
   app: {
     head: {
