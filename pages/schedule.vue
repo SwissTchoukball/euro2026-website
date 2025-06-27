@@ -1,17 +1,30 @@
 <template>
   <main class="c-schedule">
     <section class="l-section">
-      <h2>Schedule</h2>
-      <h3>Youth competitions</h3>
-      <p class="l-paragraph">1 – 3 August 2026</p>
-      <p class="l-paragraph"><small>Detailed schedule to be defined</small></p>
+      <h2>{{ $t("schedule.title") }}</h2>
+      <h3>{{ $t("schedule.youthCompetitions.title") }}</h3>
+      <p class="l-paragraph">{{ $t("schedule.youthCompetitions.dates") }}</p>
+      <p class="l-paragraph">
+        <small>{{ $t("schedule.detailedScheduleTbd") }}</small>
+      </p>
 
-      <h3>Adults competitions</h3>
-      <p class="l-paragraph">5 – 8 August 2026</p>
-      <p class="l-paragraph"><small>Detailed schedule to be defined</small></p>
+      <h3>{{ $t("schedule.adultsCompetitions.title") }}</h3>
+      <p class="l-paragraph">{{ $t("schedule.adultsCompetitions.dates") }}</p>
+      <p class="l-paragraph">
+        <small>{{ $t("schedule.detailedScheduleTbd") }}</small>
+      </p>
     </section>
   </main>
 </template>
+
+<script setup lang="ts">
+defineI18nRoute({
+  paths: {
+    fr: "/programme",
+    de: "/zeitplan",
+  },
+});
+</script>
 
 <style scoped>
 .c-schedule {
@@ -19,6 +32,10 @@
 
   h2 {
     margin-bottom: var(--euro-spacing-4);
+  }
+
+  h3 {
+    margin-top: var(--euro-spacing-12);
   }
 
   .l-paragraph {

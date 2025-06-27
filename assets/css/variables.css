@@ -4,6 +4,8 @@
   --euro-blue-100: rgb(0, 86, 124);
   --euro-sky-blue-100: rgb(107, 226, 228);
 
+  --euro-black-a20: rgb(0 0 0 / 20%);
+
   /* Spacings */
   --euro-spacing-0-5: 0.125rem;
   --euro-spacing-1: 0.25rem;

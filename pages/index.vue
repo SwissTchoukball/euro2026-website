@@ -14,15 +14,9 @@
         :modifiers="{ blur: 5 }"
       />
       <div class="c-index__hero-overlay">
-        <img
-          src="/images/logo_euro2026_white-red.svg"
-          alt="Logo of the European Tchoukball Championships 2026. Contains the text “Euro Tchoukball Switzerland 2026”"
-          class="c-index__hero-logo"
-        />
-        <div class="c-index__hero-dates">
-          <time datetime="2026-08-01">1</time> – <time datetime="2026-08-08">8 August 2026</time>
-        </div>
-        <div class="c-index__hero-location">Magglingen/Macolin</div>
+        <img src="/images/logo_euro2026_white-red.svg" :alt="$t('logoAltText')" class="c-index__hero-logo" />
+        <div class="c-index__hero-dates">{{ $t("eventDates") }}</div>
+        <div class="c-index__hero-location">{{ $t("eventLocation") }}</div>
       </div>
     </section>
 
@@ -31,31 +25,41 @@
     </section>
 
     <section class="l-section">
-      <p class="l-paragraph c-index__intro-text">
-        The <em>European Tchoukball Championships</em> is a competition of the
-        <a href="https://fitb.org">International Tchoukball Federation</a> (FITB), supervised by the
-        <a href="https://tchoukball.eu">European Tchoukball Federation</a> (ETBF).
-      </p>
-      <p class="l-paragraph c-index__intro-text">
-        <a href="https://tchoukball.ch">Swiss Tchoukball</a> has
-        <a href="https://tchoukball.ch/news/470-la-suisse-va-accueillir-les-championnats-d-europe-de-tchoukball-en-2026"
-          >won</a
-        >
-        the bid to host the event in 2026.
-      </p>
+      <i18n-t keypath="home.intro" tag="p" class="l-paragraph c-index__intro-text">
+        <template #formattedEtc>
+          <em>{{ $t("etc.long") }}</em>
+        </template>
+        <template #formattedFitb>
+          <a href="https://fitb.org">{{ $t("fitb.long") }}</a>
+        </template>
+        <template #formattedEtbf>
+          <a href="https://tchoukball.eu">{{ $t("etbf.long") }}</a>
+        </template>
+      </i18n-t>
+      <i18n-t keypath="home.bidWon" tag="p" class="l-paragraph c-index__intro-text">
+        <template #formattedSwissTchoukball>
+          <a href="https://tchoukball.ch">Swiss Tchoukball</a>
+        </template>
+        <template #wonWithLinkToNews>
+          <a
+            href="https://tchoukball.ch/news/470-la-suisse-va-accueillir-les-championnats-d-europe-de-tchoukball-en-2026"
+            >{{ $t("home.won") }}</a
+          >
+        </template>
+      </i18n-t>
       <ul class="u-unstyled-list c-index__federation-logos">
         <li>
-          <a href="https://fitb.org" title="Website of the International Tchoukball Federation">
+          <a href="https://fitb.org" :title="$t('websiteOf', { name: $t('fitb.longWithDefiniteArticle') })">
             <img class="c-index__federation-logo" src="/images/logo-fitb.svg" alt="Logo of the FITB" />
           </a>
         </li>
         <li>
-          <a href="https://etbf.org" title="Website of the European Tchoukball Federation">
+          <a href="https://etbf.org" :title="$t('websiteOf', { name: $t('etbf.longWithDefiniteArticle') })">
             <img class="c-index__federation-logo" src="/images/logo-etbf.svg" alt="Logo of the ETBF" />
           </a>
         </li>
         <li>
-          <a href="https://tchoukball.ch" title="Website of Swiss Tchoukball">
+          <a href="https://tchoukball.ch" :title="$t('websiteOf', { name: 'Swiss Tchoukball' })">
             <img
               class="c-index__federation-logo"
               src="/images/logo-swiss-tchoukball.svg"
@@ -65,7 +69,9 @@
         </li>
       </ul>
       <div class="c-index__volunteer-link-wrapper">
-        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link">🤲 Devenir bénévole</a>
+        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link"
+          >🤲 {{ $t("home.becomeVolunteer") }}</a
+        >
       </div>
     </section>
   </main>

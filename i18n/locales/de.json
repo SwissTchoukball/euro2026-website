@@ -1,0 +1,62 @@
+{
+  "eventName": "Tchoukball-Europameisterschaften 2026",
+  "eventDates": "1. – 8. August 2026",
+  "eventLocation": "Magglingen",
+  "logoAltText": "Logo der Tchoukball-Europameisterschaft 2026. Enthält den Text „Euro Tchoukball Switzerland 2026“",
+  "websiteOf": "Website von {name}",
+  "navigation": {
+    "schedule": "Zeitplan",
+    "location": "Standort"
+  },
+  "home": {
+    "intro": "Die {formattedEtc} ist ein Wettbewerb der {formattedFitb} (FITB), überwacht von der {formattedEtbf} (ETBF).",
+    "bidWon": "{formattedSwissTchoukball} hat den Zuschlag für die Ausrichtung der Veranstaltung im Jahr 2026 {wonWithLinkToNews}.",
+    "won": "erhalten",
+    "becomeVolunteer": "Freiwilliger werden"
+  },
+  "fitb": {
+    "long": "Internationale Tchoukball-Verband",
+    "longWithDefiniteArticle": "der Internationale Tchoukball-Verband",
+    "short": "FITB"
+  },
+  "etbf": {
+    "long": "Europäische Tchoukball-Verband",
+    "longWithDefiniteArticle": "der Europäischen Tchoukball-Verband",
+    "short": "ETBF"
+  },
+  "etc": {
+    "long": "Tchoukball-Europameisterschaften",
+    "longWithDefiniteArticle": "die Tchoukball-Europameisterschaften"
+  },
+  "countdown": {
+    "days": "Tag | Tage",
+    "hours": "Stunde | Stunden",
+    "minutes": "Minute | Minuten",
+    "seconds": "Sekunde | Sekunden"
+  },
+  "schedule": {
+    "title": "Zeitplan",
+    "detailedScheduleTbd": "Detaillierter Zeitplan wird noch festgelegt",
+    "youthCompetitions": {
+      "title": "Jugendwettbewerbe",
+      "dates": "1. – 3. August 2026"
+    },
+    "adultsCompetitions": {
+      "title": "Erwachsenenwettbewerbe",
+      "dates": "5. – 8. August 2026"
+    }
+  },
+  "location": {
+    "title": "Standort",
+    "description": "Die {eventName} finden in {locationName} in der Schweiz, statt. Die Stadt beherbergt ein {nationalSportsCenterLink} mit professionellen Sporteinrichtungen, das {federalOfficeOfSportLink} und die {swissFederalInstituteOfSportLink}.",
+    "nationalSportsCenter": "nationales Sportzentrum",
+    "nationalSportsCenterUrl": "https://www.baspo.admin.ch/de/nationales-sportzentrum-magglingen",
+    "federalOfficeOfSport": "Bundesamt für Sport",
+    "federalOfficeOfSportUrl": "https://baspo.ch",
+    "swissFederalInstituteOfSport": "Eidgenössische Hochschule für Sport",
+    "swissFederalInstituteOfSportUrl": "https://ehsm.ch",
+    "seeOnOpenStreetMap": "Auf OpenStreetMap anzeigen",
+    "seeOnAppleMaps": "Auf Apple Karten anzeigen",
+    "seeOnGoogleMaps": "Auf Google Maps anzeigen"
+  }
+}

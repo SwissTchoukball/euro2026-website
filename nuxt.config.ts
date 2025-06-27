@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt"],
+  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt", "@nuxtjs/i18n"],
   css: ["~/assets/css/variables.css", "~/assets/css/typography.css", "~/assets/css/main.css"],
   app: {
     head: {
@@ -37,6 +37,18 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/qr": { redirect: "/" },
+  },
+  i18n: {
+    locales: [
+      { code: "en", language: "en-UK", file: "en.json" },
+      { code: "fr", language: "fr-CH", file: "fr.json" },
+      { code: "de", language: "de-CH", file: "de.json" },
+    ],
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
   },
   image: {
     quality: 80,

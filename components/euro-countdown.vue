@@ -3,19 +3,19 @@
     <!-- TODO: Add support for pluralization -->
     <li class="c-euro-countdown__item--days">
       <div class="c-euro-countdown__figure">{{ years * 365 + days }}</div>
-      <div class="c-euro-countdown__label">days</div>
+      <div class="c-euro-countdown__label">{{ $t("countdown.days", years * 365 + days) }}</div>
     </li>
     <li class="c-euro-countdown__item--hours">
       <div class="c-euro-countdown__figure">{{ hours }}</div>
-      <div class="c-euro-countdown__label">hours</div>
+      <div class="c-euro-countdown__label">{{ $t("countdown.hours", hours) }}</div>
     </li>
     <li class="c-euro-countdown__item--minutes">
       <div class="c-euro-countdown__figure">{{ minutes }}</div>
-      <div class="c-euro-countdown__label">minutes</div>
+      <div class="c-euro-countdown__label">{{ $t("countdown.minutes", minutes) }}</div>
     </li>
     <li class="c-euro-countdown__item--seconds">
       <div class="c-euro-countdown__figure">{{ seconds }}</div>
-      <div class="c-euro-countdown__label">seconds</div>
+      <div class="c-euro-countdown__label">{{ $t("countdown.seconds", seconds) }}</div>
     </li>
   </ol>
 </template>

@@ -1,0 +1,62 @@
+{
+  "eventName": "European Tchoukball Championships 2026",
+  "eventDates": "1 – 8 August 2026",
+  "eventLocation": "Magglingen/Macolin",
+  "logoAltText": "Logo of the European Tchoukball Championships 2026. Contains the text “Euro Tchoukball Switzerland 2026”",
+  "websiteOf": "Website of {name}",
+  "navigation": {
+    "schedule": "Schedule",
+    "location": "Location"
+  },
+  "home": {
+    "intro": "The {formattedEtc} is a competition of the {formattedFitb} (FITB), supervised by the {formattedEtbf} (ETBF).",
+    "bidWon": "{formattedSwissTchoukball} has {wonWithLinkToNews} the bid to host the event in 2026.",
+    "won": "won",
+    "becomeVolunteer": "Become a volunteer"
+  },
+  "fitb": {
+    "long": "International Tchoukball Federation",
+    "longWithDefiniteArticle": "the International Tchoukball Federation",
+    "short": "FITB"
+  },
+  "etbf": {
+    "long": "European Tchoukball Federation",
+    "longWithDefiniteArticle": "the European Tchoukball Federation",
+    "short": "ETBF"
+  },
+  "etc": {
+    "long": "European Tchoukball Championships",
+    "longWithDefiniteArticle": "the European Tchoukball Championships"
+  },
+  "countdown": {
+    "days": "day | days",
+    "hours": "hour | hours",
+    "minutes": "minute | minutes",
+    "seconds": "second | seconds"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "detailedScheduleTbd": "Detailed schedule to be defined",
+    "youthCompetitions": {
+      "title": "Youth competitions",
+      "dates": "1 – 3 August 2026"
+    },
+    "adultsCompetitions": {
+      "title": "Adults competitions",
+      "dates": "5 – 8 August 2026"
+    }
+  },
+  "location": {
+    "title": "Location",
+    "description": "The {eventName} will take place in {locationName}, Switzerland. The town is home to a {nationalSportsCenterLink} with professional sports facilities, the {federalOfficeOfSportLink} and the {swissFederalInstituteOfSportLink}.",
+    "nationalSportsCenter": "national sports center",
+    "nationalSportsCenterUrl": "https://www.baspo.admin.ch/fr/centre-national-de-sport-de-macolin",
+    "federalOfficeOfSport": "Federal Office of Sport",
+    "federalOfficeOfSportUrl": "https://www.baspo.admin.ch",
+    "swissFederalInstituteOfSport": "Swiss Federal Institute of Sport",
+    "swissFederalInstituteOfSportUrl": "https://www.ehsm.admin.ch/en",
+    "seeOnOpenStreetMap": "See on OpenStreetMap",
+    "seeOnAppleMaps": "See on Apple Maps",
+    "seeOnGoogleMaps": "See on Google Maps"
+  }
+}
