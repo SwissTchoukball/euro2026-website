@@ -1,5 +1,5 @@
 <template>
-  <ol class="c-euro-countdown u-unstyled-list">
+  <ol v-if="isCountdownActive" class="c-euro-countdown u-unstyled-list">
     <!-- TODO: Add support for pluralization -->
     <li class="c-euro-countdown__item--days">
       <div class="c-euro-countdown__figure">{{ years * 365 + days }}</div>
@@ -22,32 +22,47 @@
 
 <script setup lang="ts">
 import type { DateTimeArray } from "@maas/vue-equipment/composables";
+import JSConfetti from "js-confetti";
 
-const startDate = ref(`2026-08-01 09:00:00`);
+let jsConfetti: JSConfetti;
+
+const startDate = ref(new Date(`2026-08-01 09:00:00`));
 
 const startDateArray = computed<DateTimeArray>(() => {
-  const date = new Date(startDate.value);
   return [
-    date.getFullYear(),
-    date.getMonth() + 1,
-    date.getDate(),
-    date.getHours(),
-    date.getMinutes(),
-    date.getSeconds(),
+    startDate.value.getFullYear(),
+    startDate.value.getMonth() + 1,
+    startDate.value.getDate(),
+    startDate.value.getHours(),
+    startDate.value.getMinutes(),
+    startDate.value.getSeconds(),
   ];
 });
 
-function callback() {
-  console.log("Countdown finished!");
-}
+const wasStartDatePassedOnLoad = startDate.value.getTime() <= Date.now();
+
+onMounted(() => {
+  jsConfetti = new JSConfetti();
+});
 
 const { years, days, hours, minutes, seconds } = useCountdown(
   {
     endDateTime: startDateArray.value,
     timezone: "Europe/Berlin",
   },
-  callback
+  () => {
+    if (wasStartDatePassedOnLoad) {
+      return;
+    }
+    jsConfetti.addConfetti({
+      confettiColors: ["#ff0000", "#00567C", "#6BE2E4"],
+    });
+  }
 );
+
+const isCountdownActive = computed(() => {
+  return years.value > 0 || days.value > 0 || hours.value > 0 || minutes.value > 0 || seconds.value > 0;
+});
 </script>
 
 <style scoped>
