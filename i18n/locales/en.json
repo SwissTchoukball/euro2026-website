@@ -57,6 +57,20 @@
     "swissFederalInstituteOfSportUrl": "https://www.ehsm.admin.ch/en",
     "seeOnOpenStreetMap": "See on OpenStreetMap",
     "seeOnAppleMaps": "See on Apple Maps",
-    "seeOnGoogleMaps": "See on Google Maps"
+    "seeOnGoogleMaps": "See on Google Maps",
+    "sportsHalls": "Sports halls",
+    "picturesWillCome": "Pictures will be added soon.",
+    "sportTotoHall": {
+      "title": "Sport-Toto hall",
+      "description": "Triple hall that will be the main court of the competition."
+    },
+    "oldSportsHall": {
+      "title": "Old sports hall",
+      "description": "Large hall that will be used as the second court for the competition."
+    },
+    "trainingHall": {
+      "title": "Training hall",
+      "description": "New hall built specifically for training purposes. It will be the third court."
+    }
   }
 }

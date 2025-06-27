@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="l-section">
-      <h2>{{ $t("location.title") }}</h2>
+      <h2 class="t-headline-1">{{ $t("location.title") }}</h2>
       <i18n-t keypath="location.description" tag="p" class="l-paragraph">
         <template #eventName>
           <em>{{ $t("etc.long") }} 2026</em>
@@ -43,11 +43,70 @@
       </p>
       <!-- TODO: Add information about sports facilities for the competition -->
     </section>
+    <section class="l-section">
+      <h2 class="t-headline-1">{{ $t("location.sportsHalls") }}</h2>
+
+      <h3 class="t-headline-2">{{ $t("location.sportTotoHall.title") }}</h3>
+      <p class="l-paragraph">{{ $t("location.sportTotoHall.description") }}</p>
+      <div class="c-location__venue-images">
+        <NuxtImg
+          src="/images/sport-toto-outdoor.jpeg"
+          format="webp"
+          class="c-location__venue-image"
+          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
+          aria-hidden="true"
+          alt=""
+          :placeholder="img(`/images/sport-toto-outdoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+        />
+
+        <NuxtImg
+          src="/images/sport-toto-indoor.jpeg"
+          format="webp"
+          class="c-location__venue-image"
+          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
+          aria-hidden="true"
+          alt=""
+          :placeholder="img(`/images/sport-toto-indoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+        />
+      </div>
+
+      <h3 class="t-headline-2">{{ $t("location.oldSportsHall.title") }}</h3>
+      <p class="l-paragraph">{{ $t("location.oldSportsHall.description") }}</p>
+      <p class="l-paragraph">
+        <em>{{ $t("location.picturesWillCome") }}</em>
+      </p>
+
+      <h3 class="t-headline-2">{{ $t("location.trainingHall.title") }}</h3>
+      <p class="l-paragraph">{{ $t("location.trainingHall.description") }}</p>
+
+      <div class="c-location__venue-images">
+        <NuxtImg
+          src="/images/training-hall-outdoor.jpeg"
+          format="webp"
+          class="c-location__venue-image"
+          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
+          aria-hidden="true"
+          alt=""
+          :placeholder="img(`/images/training-hall-outdoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+        />
+
+        <NuxtImg
+          src="/images/training-hall-indoor.jpeg"
+          format="webp"
+          class="c-location__venue-image"
+          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
+          aria-hidden="true"
+          alt=""
+          :placeholder="img(`/images/training-hall-indoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+        />
+      </div>
+    </section>
   </main>
 </template>
 
 <script setup lang="ts">
 const { locale } = useI18n();
+const img = useImage();
 
 defineI18nRoute({
   paths: {
@@ -67,5 +126,19 @@ defineI18nRoute({
   height: 50vh;
   border: none;
   margin-top: var(--euro-spacing-4);
+}
+
+.c-location__venue-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--euro-spacing-4);
+  margin-top: var(--euro-spacing-4);
+}
+
+.c-location__venue-image {
+  max-width: 40rem;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 </style>

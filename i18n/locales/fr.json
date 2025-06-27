@@ -57,6 +57,20 @@
     "swissFederalInstituteOfSportUrl": "https://hefsm.ch",
     "seeOnOpenStreetMap": "Voir sur OpenStreetMap",
     "seeOnAppleMaps": "Voir sur Apple Plans",
-    "seeOnGoogleMaps": "Voir sur Google Maps"
+    "seeOnGoogleMaps": "Voir sur Google Maps",
+    "sportsHalls": "Salles de sport",
+    "picturesWillCome": "Des photos seront prochainement ajoutées.",
+    "sportTotoHall": {
+      "title": "Salle du Sport-Toto",
+      "description": "Salle triple qui sera le terrain principal de la compétition."
+    },
+    "oldSportsHall": {
+      "title": "Ancienne salle de sport",
+      "description": "Grande salle qui sera utilisée comme deuxième terrain pour la compétition."
+    },
+    "trainingHall": {
+      "title": "Salle de formation",
+      "description": "Nouvelle salle construite spécifiquement pour la formation. Ce sera le troisième terrain."
+    }
   }
 }

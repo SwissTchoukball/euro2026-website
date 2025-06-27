@@ -1,14 +1,14 @@
 <template>
   <main class="c-schedule">
     <section class="l-section">
-      <h2>{{ $t("schedule.title") }}</h2>
-      <h3>{{ $t("schedule.youthCompetitions.title") }}</h3>
+      <h2 class="t-headline-1">{{ $t("schedule.title") }}</h2>
+      <h3 class="t-headline-2">{{ $t("schedule.youthCompetitions.title") }}</h3>
       <p class="l-paragraph">{{ $t("schedule.youthCompetitions.dates") }}</p>
       <p class="l-paragraph">
         <small>{{ $t("schedule.detailedScheduleTbd") }}</small>
       </p>
 
-      <h3>{{ $t("schedule.adultsCompetitions.title") }}</h3>
+      <h3 class="t-headline-2">{{ $t("schedule.adultsCompetitions.title") }}</h3>
       <p class="l-paragraph">{{ $t("schedule.adultsCompetitions.dates") }}</p>
       <p class="l-paragraph">
         <small>{{ $t("schedule.detailedScheduleTbd") }}</small>

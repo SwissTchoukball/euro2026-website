@@ -57,6 +57,20 @@
     "swissFederalInstituteOfSportUrl": "https://ehsm.ch",
     "seeOnOpenStreetMap": "Auf OpenStreetMap anzeigen",
     "seeOnAppleMaps": "Auf Apple Karten anzeigen",
-    "seeOnGoogleMaps": "Auf Google Maps anzeigen"
+    "seeOnGoogleMaps": "Auf Google Maps anzeigen",
+    "sportsHalls": "Sporthallen",
+    "picturesWillCome": "Bilder folgen in Kürze",
+    "sportTotoHall": {
+      "title": "Sport-Toto-Halle",
+      "description": "Dreifachhalle, die als Hauptwettkampfstätte dienen wird."
+    },
+    "oldSportsHall": {
+      "title": "Alte Sporthalle",
+      "description": "Grosser Halle, die als zweiter Wettkampfstätte genutzt wird."
+    },
+    "trainingHall": {
+      "title": "Ausbildungshalle",
+      "description": "NeuerHalle, die speziell für die Ausbildung gebaut wurde. Dies wird das dritte Spielfeld sein."
+    }
   }
 }

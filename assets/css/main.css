@@ -36,10 +36,6 @@ a:hover {
   padding: var(--euro-spacing-8);
 }
 
-.l-section:first-child {
-  padding-top: var(--euro-spacing-16);
-}
-
 .l-section:empty {
   padding: 0;
 }
