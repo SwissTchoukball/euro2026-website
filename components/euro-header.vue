@@ -16,7 +16,9 @@
     </nav>
   </DefineNavTemplate>
   <DefineLangSwitcherTemplate>
-    <EuroLanguageSwitcher class="c-header__language-switcher" />
+    <div class="c-header__language-switcher-wrapper">
+      <EuroLanguageSwitcher class="c-header__language-switcher" />
+    </div>
   </DefineLangSwitcherTemplate>
 
   <div v-if="isSidePanelOpen" class="c-header__side-panel-backdrop" @click="isSidePanelOpen = false"></div>
@@ -60,6 +62,7 @@ const isSidePanelOpen = ref(false);
   justify-content: space-between;
   align-items: center;
   line-height: 0;
+  color: var(--euro-blue-100);
 
   position: fixed;
   top: 0;
@@ -150,11 +153,13 @@ const isSidePanelOpen = ref(false);
   background-color: var(--euro-blue-100);
 }
 
-.c-header__bar:deep(.c-header__language-switcher) {
-  color: black;
+.c-header__language-switcher-wrapper {
   max-width: 13rem;
   flex-grow: 1;
+  text-align: right;
+}
 
+.c-header__bar:deep(.c-header__language-switcher) {
   &.c-header__language-switcher {
     display: none;
 
@@ -186,6 +191,7 @@ const isSidePanelOpen = ref(false);
   opacity: 0;
   height: calc(100vh - var(--euro-header-height));
   background-color: white;
+  color: var(--euro-blue-100);
   transition: left 0.25s ease-in-out, opacity 0s 0.25s;
 
   .c-header__nav {
@@ -197,9 +203,10 @@ const isSidePanelOpen = ref(false);
     gap: var(--euro-spacing-1);
   }
 
-  &:deep(.c-header__language-switcher) {
+  .c-header__language-switcher-wrapper {
     margin: var(--euro-spacing-4);
     margin-bottom: 0;
+    max-width: none;
   }
 }
 
