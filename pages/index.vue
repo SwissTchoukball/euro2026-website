@@ -122,14 +122,14 @@ useHead({
 }
 
 .c-index__hero-dates {
-  margin-top: clamp(2rem, 8vw, 6rem);
+  margin-top: clamp(1rem, 4vw, 5rem);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
 }
 
 .c-index__hero-location {
   display: block;
-  margin-top: clamp(1rem, 2vw, 3rem);
+  margin-top: clamp(0.8rem, 2vw, 3rem);
   font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-weight: bold;
   color: white;
