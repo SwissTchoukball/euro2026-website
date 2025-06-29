@@ -7,23 +7,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: "UTF-8",
-      title: "European Tchoukball Championships 2026 · 1 – 8 August · Magglingen/Macolin, Switzerland",
       meta: [
-        {
-          name: "description",
-          content: "FITB European Tchoukball Championships 2026, from 1 to 8 August in Magglingen/Macolin, Switzerland",
-        },
-        {
-          name: "keywords",
-          content:
-            "Tchoukball, Europe, Euro, European championships, championships, FITB, ETBF, Swiss Tchoukball, Switzerland, Macolin, Magglingen",
-        },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { property: "og:url", content: "https://euro2026.com" },
-        { property: "og:locale", content: "en" },
-        { property: "og:type", content: "website" },
-        { property: "og:title", content: "Euro 2026" },
-        { property: "og:description", content: "FITB European Tchoukball Championships 2026" },
         { name: "apple-mobile-web-app-title", content: "Euro 2026" },
       ],
       link: [
