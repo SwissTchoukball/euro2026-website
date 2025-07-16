@@ -1,0 +1,70 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  BUILD_DIR: .output
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Nuxt app
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: nuxt-build
+          path: ${{ env.BUILD_DIR }}
+
+  deploy:
+    name: Deploy to staging
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: nuxt-build
+          path: build
+
+      - name: Install sshpass
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
+      - name: Sync files to server
+        env:
+          SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
+        run: |
+          sshpass -p "$SSH_PASS" rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no -l ${{ vars.SERVER_USER }}" \
+            build/ ${{ vars.SERVER_HOST }}:/sites/next.euro2026.ch
+
+      # We can't do that yet on Infomaniak. And they don't use pm2.
+      # When Infomaniak will support programmatic restart, we should uncomment and adapt this step.
+      # - name: Restart Nuxt service
+      #   env:
+      #     SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
+      #   run: |
+      #     sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
+      #       ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} \
+      #       "cd /var/www/nuxt-app && pm2 reload nuxt-app"
