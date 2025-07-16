@@ -73,14 +73,14 @@ const isCountdownActive = computed(() => {
   row-gap: 0.5rem;
   padding: 1rem 1rem 1.5rem;
   text-align: center;
-  background-color: var(--euro-blue-100);
+  background-color: var(--euro-blue-500);
   border-radius: 3rem;
   color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .c-euro-countdown__label {
-  color: var(--euro-sky-blue-100);
+  color: var(--euro-sky-blue-500);
 }
 
 .c-euro-countdown__figure,

@@ -91,7 +91,7 @@ const options = locales.value.map((l) => l.code);
 
 .c-language-switcher__trigger:hover {
   cursor: pointer;
-  color: var(--euro-sky-blue-100) !important;
+  color: var(--euro-sky-blue-500) !important;
 }
 
 .c-language-switcher__trigger:focus-visible {
@@ -116,7 +116,7 @@ const options = locales.value.map((l) => l.code);
 .c-language-switcher__select-item {
   font-size: 0.8rem;
   line-height: 1;
-  color: var(--euro-blue-100);
+  color: var(--euro-blue-500);
   border-radius: 3px;
   display: flex;
   align-items: center;
@@ -134,7 +134,7 @@ const options = locales.value.map((l) => l.code);
 }
 .c-language-switcher__select-item[data-highlighted] {
   outline: none;
-  background-color: var(--euro-blue-100);
+  background-color: var(--euro-blue-500);
   color: white;
 }
 

@@ -1,8 +1,8 @@
 :root {
   /* Colours */
-  --euro-red-100: rgb(255, 0, 0);
-  --euro-blue-100: rgb(0, 86, 124);
-  --euro-sky-blue-100: rgb(107, 226, 228);
+  --euro-red-500: rgb(255, 0, 0);
+  --euro-blue-500: rgb(0, 86, 124);
+  --euro-sky-blue-500: rgb(107, 226, 228);
 
   --euro-black-a20: rgb(0 0 0 / 20%);
 

@@ -62,7 +62,7 @@ const isSidePanelOpen = ref(false);
   justify-content: space-between;
   align-items: center;
   line-height: 0;
-  color: var(--euro-blue-100);
+  color: var(--euro-blue-500);
 
   position: fixed;
   top: 0;
@@ -98,7 +98,7 @@ const isSidePanelOpen = ref(false);
   }
 
   a:hover {
-    color: var(--euro-sky-blue-100);
+    color: var(--euro-sky-blue-500);
   }
 }
 
@@ -145,12 +145,12 @@ const isSidePanelOpen = ref(false);
 }
 
 .c-header__nav-list a.router-link-active {
-  background-color: var(--euro-sky-blue-100);
+  background-color: var(--euro-sky-blue-500);
 }
 
 .c-header__nav-list a:hover,
 .c-header__nav-list a.router-link-active:hover {
-  background-color: var(--euro-blue-100);
+  background-color: var(--euro-blue-500);
 }
 
 .c-header__language-switcher-wrapper {
@@ -191,7 +191,7 @@ const isSidePanelOpen = ref(false);
   opacity: 0;
   height: calc(100vh - var(--euro-header-height));
   background-color: white;
-  color: var(--euro-blue-100);
+  color: var(--euro-blue-500);
   transition: left 0.25s ease-in-out, opacity 0s 0.25s;
 
   .c-header__nav {

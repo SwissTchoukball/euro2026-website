@@ -175,8 +175,8 @@ useHead({
   font-size: clamp(1rem, 4vw, 2rem);
   text-decoration: none;
   font-weight: bold;
-  color: var(--euro-sky-blue-100);
-  background-color: var(--euro-blue-100);
+  color: var(--euro-sky-blue-500);
+  background-color: var(--euro-blue-500);
 }
 
 @media (min-width: 768px) {
