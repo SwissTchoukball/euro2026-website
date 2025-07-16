@@ -41,65 +41,27 @@
           {{ $t("location.seeOnGoogleMaps") }}
         </a>
       </p>
-      <!-- TODO: Add information about sports facilities for the competition -->
     </section>
     <section class="l-section">
       <h2 class="t-headline-1">{{ $t("location.sportsHalls") }}</h2>
-
-      <h3 class="t-headline-2">{{ $t("location.sportTotoHall.title") }}</h3>
-      <p class="l-paragraph">{{ $t("location.sportTotoHall.description") }}</p>
-      <div class="c-location__venue-images">
-        <NuxtImg
-          src="/images/sport-toto-outdoor.jpeg"
-          format="webp"
-          class="c-location__venue-image"
-          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
-          aria-hidden="true"
-          alt=""
-          :placeholder="img(`/images/sport-toto-outdoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
-        />
-
-        <NuxtImg
-          src="/images/sport-toto-indoor.jpeg"
-          format="webp"
-          class="c-location__venue-image"
-          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
-          aria-hidden="true"
-          alt=""
-          :placeholder="img(`/images/sport-toto-indoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
-        />
-      </div>
-
-      <h3 class="t-headline-2">{{ $t("location.oldSportsHall.title") }}</h3>
-      <p class="l-paragraph">{{ $t("location.oldSportsHall.description") }}</p>
-      <p class="l-paragraph">
-        <em>{{ $t("location.picturesWillCome") }}</em>
-      </p>
-
-      <h3 class="t-headline-2">{{ $t("location.trainingHall.title") }}</h3>
-      <p class="l-paragraph">{{ $t("location.trainingHall.description") }}</p>
-
-      <div class="c-location__venue-images">
-        <NuxtImg
-          src="/images/training-hall-outdoor.jpeg"
-          format="webp"
-          class="c-location__venue-image"
-          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
-          aria-hidden="true"
-          alt=""
-          :placeholder="img(`/images/training-hall-outdoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
-        />
-
-        <NuxtImg
-          src="/images/training-hall-indoor.jpeg"
-          format="webp"
-          class="c-location__venue-image"
-          sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
-          aria-hidden="true"
-          alt=""
-          :placeholder="img(`/images/training-hall-indoor.jpeg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
-        />
-      </div>
+      <template v-for="sportsHall in sportsHalls" :key="sportsHall.key">
+        <h3 class="t-headline-2">{{ $t(`location.${sportsHall.key}.title`) }}</h3>
+        <p class="l-paragraph">{{ $t(`location.${sportsHall.key}.description`) }}</p>
+        <div class="c-location__venue-images">
+          <figure v-for="image in sportsHall.images" :key="image.filename">
+            <NuxtImg
+              :src="`images/${image.filename}`"
+              format="webp"
+              class="c-location__venue-image"
+              sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
+              aria-hidden="true"
+              alt=""
+              :placeholder="img(`/images/${image.filename}`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+            />
+            <figcaption class="c-location__venue-image-caption">{{ image.credit }}</figcaption>
+          </figure>
+        </div>
+      </template>
     </section>
   </main>
 </template>
@@ -114,6 +76,48 @@ defineI18nRoute({
     de: "/standort",
   },
 });
+
+const sportsHalls = ref([
+  {
+    key: "sportTotoHall",
+    images: [
+      {
+        filename: "sport-toto-outdoor.jpg",
+        credit: "© BASPO",
+      },
+      {
+        filename: "sport-toto-indoor.jpg",
+        credit: "© BASPO",
+      },
+    ],
+  },
+  {
+    key: "oldSportsHall",
+    images: [
+      {
+        filename: "old-sports-hall-outdoor.jpg",
+        credit: "© BASPO",
+      },
+      {
+        filename: "old-sports-hall-indoor.jpg",
+        credit: "© BASPO",
+      },
+    ],
+  },
+  {
+    key: "trainingHall",
+    images: [
+      {
+        filename: "training-hall-outdoor.jpg",
+        credit: "© BASPO",
+      },
+      {
+        filename: "training-hall-indoor.jpg",
+        credit: "© BASPO",
+      },
+    ],
+  },
+]);
 </script>
 
 <style scoped>
@@ -140,5 +144,11 @@ defineI18nRoute({
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.c-location__venue-image-caption {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--euro-gray-700);
 }
 </style>
