@@ -57,7 +57,7 @@ jobs:
         env:
           SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
         run: |
-          sshpass -p "$SSH_PASS" rsync -avz --delete \
+          sshpass -p "$SSH_PASS" -- rsync -avz --delete \
             -e "ssh -o StrictHostKeyChecking=no -l ${{ vars.SERVER_USER }}" \
             build/ ${{ vars.SERVER_HOST }}:/sites/next.euro2026.ch
 
@@ -67,6 +67,6 @@ jobs:
       #   env:
       #     SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
       #   run: |
-      #     sshpass -p "$SSH_PASS" ssh -o StrictHostKeyChecking=no \
+      #     sshpass -p "$SSH_PASS" -- ssh -o StrictHostKeyChecking=no \
       #       ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} \
       #       "cd /var/www/nuxt-app && pm2 reload nuxt-app"
