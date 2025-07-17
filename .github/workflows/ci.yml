@@ -41,6 +41,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    environment:
+      name: Staging
+      url: https://next.euro2026.ch
+
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
