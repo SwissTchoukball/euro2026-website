@@ -60,6 +60,8 @@ jobs:
       - name: Sync files to server
         env:
           SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
+          SERVER_USER: ${{ vars.SERVER_USER }}
+          SERVER_HOST: ${{ vars.SERVER_HOST }}
         run: |
           sshpass -p "$SSH_PASS" rsync -avz --delete \
             -e "ssh -o StrictHostKeyChecking=no" \
