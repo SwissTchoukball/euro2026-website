@@ -61,6 +61,6 @@ jobs:
         env:
           SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
         run: |
-          rsync -avz --delete \
-            -e "sshpass -p '$SSH_PASS' ssh -o StrictHostKeyChecking=no -l ${{ secrets.SERVER_USER }}" \
-            build/ ${{ secrets.SERVER_HOST }}:/srv/customer/sites/next.euro2026.ch
+          sshpass -p "$SSH_PASS" rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            build/ "${SERVER_USER}@${SERVER_HOST}:/srv/customer/sites/next.euro2026.ch
