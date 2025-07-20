@@ -52,25 +52,15 @@ jobs:
           name: nuxt-build
           path: build
 
-      - name: Start ssh-agent and add key
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Ensure server SSH host key is known
+      - name: Install sshpass
         run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ vars.SERVER_HOST }} >> ~/.ssh/known_hosts
+          sudo apt-get update
+          sudo apt-get install -y sshpass
 
       - name: Sync files to server
+        env:
+          SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
         run: |
           rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=yes" \
-            build/ ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/srv/customer/sites/next.euro2026.ch
-
-      # We can't do that yet on Infomaniak. And they don't use pm2.
-      # When Infomaniak will support programmatic restart, we should uncomment and adapt this step.
-      # - name: Restart Nuxt service
-      #   run: |
-      #     ssh ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} \
-      #       "cd /srv/customer/sites/next.euro2026.ch && pm2 reload nuxt-app"
+            -e "sshpass -p '$SSH_PASS' ssh -o StrictHostKeyChecking=no -l ${{ secrets.SERVER_USER }}" \
+            build/ ${{ secrets.SERVER_HOST }}:/srv/customer/sites/next.euro2026.ch
