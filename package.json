@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "@maas/vue-equipment": "^1.0.0-beta.32",
-    "@nuxt/eslint": "^1.4.1",
-    "@nuxt/icon": "^1.14.0",
+    "@nuxt/eslint": "^1.7.1",
+    "@nuxt/icon": "^1.15.0",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/i18n": "^9.5.6",
-    "@vueuse/nuxt": "^13.4.0",
-    "eslint": "^9.29.0",
+    "@vueuse/nuxt": "^13.5.0",
+    "eslint": "^9.31.0",
     "js-confetti": "^0.12.0",
-    "nuxt": "^3.17.5",
-    "reka-ui": "^2.3.1",
-    "vue": "^3.5.17",
+    "nuxt": "^3.17.7",
+    "reka-ui": "^2.4.0",
+    "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   }
 }
