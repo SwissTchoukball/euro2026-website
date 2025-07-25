@@ -7,7 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint": "npm run lint:js"
   },
   "dependencies": {
     "@maas/vue-equipment": "^1.0.0-beta.32",
