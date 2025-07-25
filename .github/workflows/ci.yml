@@ -36,28 +36,31 @@ jobs:
       - name: Build 🔨
         run: npm run build
 
-  deploy:
-    name: Deploy to staging
-    needs: CI
-    runs-on: ubuntu-latest
+  # The deploy job doesn't work at the moment.
+  # Running the build manually on the server doesn't work.
+  # It works when we trigger it from the Infomaniak Node.js hosting admin UI.
+  # deploy:
+  #   name: Deploy to staging
+  #   needs: CI
+  #   runs-on: ubuntu-latest
 
-    environment:
-      name: Staging
-      url: https://next.euro2026.ch
+  #   environment:
+  #     name: Staging
+  #     url: https://next.euro2026.ch
 
-    steps:
-      - name: Deploy to staging 🚀
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ vars.SERVER_HOST }}
-          username: ${{ vars.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          script: |
-            set -euo pipefail
-            cd sites/next.euro2026.ch
-            git fetch --all --prune
-            git reset --hard origin/main
-            npm ci
-            # Increase memory limit for build
-            export NODE_OPTIONS=--max_old_space_size=1024
-            npm run build
+  #   steps:
+  #     - name: Deploy to staging 🚀
+  #       uses: appleboy/ssh-action@v1.2.2
+  #       with:
+  #         host: ${{ vars.SERVER_HOST }}
+  #         username: ${{ vars.SERVER_USER }}
+  #         password: ${{ secrets.SERVER_PASSWORD }}
+  #         script: |
+  #           set -euo pipefail
+  #           cd sites/next.euro2026.ch
+  #           git fetch --all --prune
+  #           git reset --hard origin/main
+  #           npm ci
+  #           # Increase memory limit for build
+  #           export NODE_OPTIONS=--max_old_space_size=1024
+  #           npm run build
