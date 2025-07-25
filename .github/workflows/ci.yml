@@ -5,40 +5,39 @@ on:
     branches:
       - main
 
-env:
-  BUILD_DIR: .output
-
 jobs:
-  build:
-    name: Build
+  CI:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout 🛎
         uses: actions/checkout@master
 
-      - name: Setup Node.js 22
+      - name: Setup node env 🏗
         uses: actions/setup-node@v4.4.0
         with:
-          node-version: "22"
+          node-version: 22
+          check-latest: true
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Nuxt app
-        run: npm run build
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Cache node_modules 📦
+        uses: actions/cache@v4.2.3
         with:
-          name: nuxt-build
-          if-no-files-found: error
-          include-hidden-files: true
-          path: ${{ env.BUILD_DIR }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run linter 👀
+        run: npm run lint
+
+      - name: Build 🔨
+        run: npm run build
 
   deploy:
     name: Deploy to staging
-    needs: build
     runs-on: ubuntu-latest
 
     environment:
@@ -46,23 +45,18 @@ jobs:
       url: https://next.euro2026.ch
 
     steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - name: Deploy to staging 🚀
+        uses: appleboy/ssh-action@v1.2.2
         with:
-          name: nuxt-build
-          path: build
-
-      - name: Install sshpass
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-
-      - name: Sync files to server
-        env:
-          SSH_PASS: ${{ secrets.SERVER_PASSWORD }}
-          SERVER_USER: ${{ vars.SERVER_USER }}
-          SERVER_HOST: ${{ vars.SERVER_HOST }}
-        run: |
-          sshpass -p "$SSH_PASS" rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            build/ "${SERVER_USER}@${SERVER_HOST}:/srv/customer/sites/next.euro2026.ch"
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ vars.SERVER_USER }}
+          password: ${{ vars.SERVER_PASSWORD }}
+          script: |
+            set -euo pipefail
+            cd sites/next.euro2026.ch
+            git fetch --all --prune
+            git reset --hard origin/main
+            npm ci
+            # Increase memory limit for build
+            export NODE_OPTIONS=--max_old_space_size=1024
+            npm run build
