@@ -31,9 +31,6 @@ export default defineNuxtConfig({
     ],
     strategy: "prefix_except_default",
     defaultLocale: "en",
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
   },
   image: {
     quality: 80,
