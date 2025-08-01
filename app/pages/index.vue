@@ -92,6 +92,7 @@ useHead({
   position: relative;
   width: 100vw;
   height: max(70vw, 50vh);
+  min-height: 25rem;
   max-height: 70vh;
 }
 
@@ -180,6 +181,10 @@ useHead({
 }
 
 @media (min-width: 768px) {
+  .c-index__hero {
+    min-height: 38rem;
+  }
+
   .c-index__countdown {
     width: 90%;
     max-width: 40rem;
