@@ -12,6 +12,7 @@
   "backHome": "Back to the home page",
   "navigation": {
     "schedule": "Schedule",
+    "competitions": "Competitions",
     "location": "Location"
   },
   "home": {
@@ -37,6 +38,31 @@
     "hours": "hour | hours",
     "minutes": "minute | minutes",
     "seconds": "second | seconds"
+  },
+  "competition": {
+    "title": "Competition | Competitions",
+    "phase": {
+      "title": "Phase | Phases"
+    },
+    "game": {
+      "ongoing": "Ongoing game | Ongoing games",
+      "last": "Last game | Last games",
+      "upcoming": "Upcoming game | Upcoming games"
+    },
+    "standings": {
+      "points": "Points",
+      "played": "Played",
+      "won": "Won",
+      "lost": "Lost",
+      "drawn": "Drawn",
+      "for": "For",
+      "against": "Against",
+      "difference": "Diff."
+    },
+    "team": {
+      "category": "{category} team",
+      "seeAllFromCountry": "See all teams from {countryName}"
+    }
   },
   "sponsors": {
     "main": "Main partners",
