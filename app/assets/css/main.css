@@ -74,7 +74,7 @@ dt {
 }
 
 .l-section {
-  padding: var(--euro-spacing-8);
+  margin: var(--euro-spacing-8);
 }
 
 .l-section--centered-text {

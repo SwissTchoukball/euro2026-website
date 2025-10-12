@@ -8,6 +8,11 @@
           }}</NuxtLink>
         </li>
         <li>
+          <NuxtLink :to="localePath('/competitions')" @click="isSidePanelOpen = false">{{
+            $t("navigation.competitions")
+          }}</NuxtLink>
+        </li>
+        <li>
           <NuxtLink :to="localePath('/location')" @click="isSidePanelOpen = false">{{
             $t("navigation.location")
           }}</NuxtLink>
@@ -82,7 +87,7 @@ const isSidePanelOpen = ref(false);
 
 /* Shifting content after header down */
 .c-header__bar:deep(+ *) {
-  margin-top: var(--euro-header-logo-height);
+  margin-top: var(--euro-header-height);
 }
 
 .body-header-hover .c-header__bar:deep(+ *) {

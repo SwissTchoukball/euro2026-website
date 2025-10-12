@@ -149,6 +149,6 @@ const sportsHalls = ref([
 .c-location__venue-image-caption {
   text-align: right;
   font-size: 0.8rem;
-  color: var(--euro-gray-700);
+  color: var(--euro-gray-600);
 }
 </style>
