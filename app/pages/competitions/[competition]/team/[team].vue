@@ -6,10 +6,10 @@
       <div v-else-if="teamStatus === 'error'">Error loading team data.</div>
       <template v-else-if="teamData">
         <h2 class="t-headline-1">{{ teamData.team.name }}</h2>
-        <p v-if="competitionData?.competition.name">
+        <p v-if="competitionData?.competition.name" class="c-team__description">
           {{ $t("competition.team.category", { category: competitionData.competition.name }) }}
         </p>
-        <p v-if="countrySlug">
+        <p v-if="countrySlug" class="c-team__description">
           <NuxtLink :to="localePath(`/competitions/country/${countrySlug}`)">
             {{ $t("competition.team.seeAllFromCountry", { countryName }) }}
           </NuxtLink>
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCountrySlugFromId, getSlugFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
+import { getCountrySlugFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 
 const route = useRoute();
@@ -63,3 +63,10 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   ];
 });
 </script>
+
+<style scoped>
+.c-team__description {
+  margin-top: 0.5rem;
+  color: var(--euro-gray-700);
+}
+</style>
