@@ -6,6 +6,7 @@
       <div v-else-if="countryStatus === 'error'">Error loading country data.</div>
       <template v-else-if="countryData">
         <h2 class="t-headline-1">{{ countryData.country.name }}</h2>
+        <!-- TODO: Show list of teams -->
       </template>
     </section>
     <euro-game-planning-overview v-if="countryData" :planning-overview="countryData?.overview" />

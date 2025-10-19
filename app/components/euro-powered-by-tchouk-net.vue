@@ -16,7 +16,7 @@
   gap: var(--euro-spacing-2);
   font-size: 0.875rem;
   color: var(--euro-gray-500);
-  margin-block: var(--euro-spacing-4);
+  margin-block: var(--euro-spacing-4) var(--euro-spacing-12);
 }
 
 .c-euro-powered-by-tchouk-net__logo {

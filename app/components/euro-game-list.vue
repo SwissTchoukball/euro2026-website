@@ -1,7 +1,7 @@
 <template>
   <ul class="u-unstyled-list c-game-list">
     <li v-for="game in games" :key="game.id" class="c-game-list__item">
-      <euro-game :game="game" :show-competition="showCompetition || true" />
+      <euro-game :game="game" :show-competition="showCompetition" />
     </li>
   </ul>
 </template>
@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
 
-defineProps<{
+const { showCompetition = true } = defineProps<{
   games: TchoukNetGame[];
   showCompetition?: boolean;
 }>();
