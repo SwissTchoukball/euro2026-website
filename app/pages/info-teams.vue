@@ -28,7 +28,6 @@
             <li><a href="#insurance">Insurance</a></li>
           </ul>
         </li>
-        <li><a href="#nations-cup-referee-course">Referee course at Nations Cup 2025</a></li>
         <li><a href="#competition-rules">Competition rules</a></li>
         <li>
           <a href="#location-and-venues">Location and venues</a>
@@ -55,6 +54,7 @@
             <li><a href="#paying">Paying</a></li>
           </ul>
         </li>
+        <li><a href="#updates">Updates to this page</a></li>
       </ul>
     </section>
 
@@ -578,10 +578,13 @@
 
     <section id="nations-cup-referee-course" class="l-section l-section--centered-text">
       <h3 class="t-headline-2">Referee course at Nations Cup 2025</h3>
+      <p class="l-paragraph"><em>Cancelled</em></p>
       <p class="l-paragraph">
-        We are working hard with ETBF, FITB and the Nations Cup to organize a referee course during the Nations Cup
-        2025. This is a good opportunity for all the NFs to have non-player referees ready for the ETC 2026. More
-        information will be given until the registration deadline.
+        <del>
+          We are working hard with ETBF, FITB and the Nations Cup to organize a referee course during the Nations Cup
+          2025. This is a good opportunity for all the NFs to have non-player referees ready for the ETC 2026. More
+          information will be given until the registration deadline.
+        </del>
       </p>
     </section>
 
@@ -714,6 +717,16 @@
         In Switzerland, the currency is the Swiss Franc (CHF). Credit and debit cards are widely accepted. Euro is
         usually not accepted.
       </p>
+    </section>
+
+    <section id="updates" class="l-section l-section--centered-text">
+      <h3 class="t-headline-2">Notable updates made on this page</h3>
+      <ul>
+        <li>10/09/2025: Initial version of the page.</li>
+        <li>
+          19/10/2025: Cancellation of the <a href="#nations-cup-referee-course">referee course at the Nations Cup</a>.
+        </li>
+      </ul>
     </section>
   </main>
 </template>
