@@ -264,59 +264,93 @@
           <tr>
             <td>26 October 2025</td>
             <td>
-              NFs register the number of teams for each category*<br />
-              <small>*Please contact us on your Discord Chanel to find a solution</small>
+              NFs register the number of teams for each category<br />
+              <small>Please contact us on your Discord Chanel to find a solution</small>
             </td>
           </tr>
           <tr>
             <td>30 November 2025</td>
             <td>
-              NFs have to pay a non-refundable* deposit of 500€ per team registered to
-              <a href="#banking-information">the Euro 26 account</a><br />
-              <small>
-                *The deposit will be refunded only in case of cancellation of the event, but not if caused by the
-                withdrawal of the team
-              </small>
+              <p>
+                NFs have to pay a non-refundable<sup><small>*</small></sup> deposit of 500€ per team registered to
+                <a href="#banking-information">the Euro 26 account</a>
+              </p>
+              <p>
+                <small>
+                  <strong>Reason for this date</strong>: We would like to do group draw during Geneva Indoors Nations
+                  Cup in December. Therefore, we need to know which teams will be participating (at least for the elite
+                  men and elite women teams).
+                </small>
+              </p>
+              <p>
+                <small>
+                  <sup>*</sup>The deposit will be refunded only in case of cancellation of the event, but not if caused
+                  by the withdrawal of the team.
+                </small>
+              </p>
             </td>
           </tr>
           <tr>
-            <td>28 January 2026</td>
             <td>
-              NFs must submit the list of players, staff and supporter.<br />
-              <small>
-                If this deadline is not respected,
-                <strong>
-                  12 players and 0 supporters per team will be registered by default and be counted in the final bill.
-                </strong>
-              </small>
+              28 January 2026<sup><small>*</small></sup>
+            </td>
+            <td>
+              <p>NFs must submit the list of players, staff and supporter.<br /></p>
+              <p>
+                <small>
+                  <strong>Reason for this date</strong>: It's the date until when we have to secure all the rooms in the
+                  hotel. After that, others can book rooms and we cannot ensure availability.
+                </small>
+              </p>
+              <p>
+                <small>
+                  If this deadline is not respected,
+                  <strong>
+                    12 players and 0 supporters per team will be registered by default and be counted in the final bill.
+                  </strong>
+                </small>
+              </p>
+              <p>
+                <small>
+                  <sup>*</sup>For Youth categories we could accept registration until end of March, but we cannot ensure
+                  rooms availabilities, in this case you will have to find accommodation in the area but we can still
+                  arrange the meals if needed.
+                </small>
+              </p>
             </td>
           </tr>
           <tr>
             <td>28 February 2026</td>
             <td>
-              NFs must pay the remaining balance for all players*
-              <br />
-              <small>
-                *OC is allowed to add an additional 300€ fees for administratives tasks if the deadline is not respected
-              </small>
+              <p>NFs must pay the remaining balance for all players*</p>
+              <p>
+                <small>
+                  *OC is allowed to add an additional 300€ fees for administratives tasks if the deadline is not
+                  respected
+                </small>
+              </p>
             </td>
           </tr>
           <tr>
             <td>28 February 2026</td>
             <td>
-              NFs must send the players and teams pictures to the OC.
-              <br />
-              <small>
-                This deadline is important to be able to print competition materials and for social media communication
-              </small>
+              <p>NFs must send the players and teams pictures to the OC.</p>
+              <p>
+                <small>
+                  <strong>Reason for this date</strong>: We would like to promote the event through social media with
+                  teams/roster presentation. After this date only 20 weeks are remaining before the event. Even with
+                  this margin it would be complicated to present all teams in a reasonable pace.
+                </small>
+              </p>
             </td>
           </tr>
           <tr>
             <td>26 April 2026</td>
             <td>
-              NFs must provide the remaining information - Allergies & dietary preferences, etc.
-              <br />
-              <small> Normal food will be ordered if information is not submitted on time </small>
+              <p>NFs must provide the remaining information - Allergies & dietary preferences, etc.</p>
+              <p>
+                <small> Normal food will be ordered if information is not submitted on time </small>
+              </p>
             </td>
           </tr>
         </tbody>
@@ -779,6 +813,10 @@ function togglePeerdomMapVisibility() {
   td,
   th {
     vertical-align: top;
+  }
+
+  td p {
+    margin-bottom: 0.4rem;
   }
 }
 
