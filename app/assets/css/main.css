@@ -75,6 +75,7 @@ dt {
 
 .l-section {
   padding: var(--euro-spacing-8);
+  scroll-margin-top: var(--euro-header-height);
 }
 
 .l-section--centered-text {
@@ -90,6 +91,7 @@ dt {
   dl {
     max-width: 45rem;
     margin-inline: auto;
+    scroll-margin-top: var(--euro-header-height);
   }
 }
 
