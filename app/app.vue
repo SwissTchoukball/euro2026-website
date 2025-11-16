@@ -8,6 +8,12 @@
 const { t, locale } = useI18n();
 const title = ref(`${t("eventName")} · ${t("eventDates")} · ${t("eventLocation")}, ${t("eventCountry")}`);
 
+useHead({
+  htmlAttrs: {
+    lang: () => locale.value,
+  },
+});
+
 useSeoMeta({
   title,
   ogTitle: () => t("eventName"),

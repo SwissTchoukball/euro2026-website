@@ -2,15 +2,14 @@
   <DefineNavTemplate>
     <nav class="c-header__nav">
       <ul class="u-unstyled-list c-header__nav-list">
-        <li>
-          <NuxtLink :to="localePath('/schedule')" @click="isSidePanelOpen = false">{{
-            $t("navigation.schedule")
-          }}</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="localePath('/location')" @click="isSidePanelOpen = false">{{
-            $t("navigation.location")
-          }}</NuxtLink>
+        <li v-for="(item, index) in listedChildren" :key="index">
+          <NuxtLink
+            :to="localePath(`/${item.uri}`)"
+            :aria-current="route.path.startsWith(`/${locale}/${item.uri}`) ? 'page' : undefined"
+            @click="isSidePanelOpen = false"
+          >
+            {{ item.title }}
+          </NuxtLink>
         </li>
       </ul>
     </nav>
@@ -49,9 +48,14 @@
 
 <script setup lang="ts">
 const localePath = useLocalePath();
+const route = useRoute();
+const { locale } = useI18n();
+const site = useSite();
 
 const [DefineNavTemplate, ReuseNavTemplate] = createReusableTemplate();
 const [DefineLangSwitcherTemplate, ReuseLangSwitcherTemplate] = createReusableTemplate();
+
+const listedChildren = computed(() => [...(site.value.children ?? []).filter((i) => i.isListed)]);
 
 const isSidePanelOpen = ref(false);
 </script>

@@ -1,8 +1,19 @@
+import process from "node:process";
+import { prefetchQuery, siteQuery } from "./app/queries";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@nuxt/image", "@maas/vue-equipment/nuxt", "@nuxtjs/i18n", "@vueuse/nuxt"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@maas/vue-equipment/nuxt",
+    "@nuxtjs/i18n",
+    "@vueuse/nuxt",
+    "nuxt-kirby",
+  ],
   css: ["~/assets/css/variables.css", "~/assets/css/typography.css", "~/assets/css/main.css"],
   app: {
     head: {
@@ -20,6 +31,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    public: {
+      siteUrl: "",
+    },
+  },
   routeRules: {
     "/qr": { redirect: "/" },
   },
@@ -35,7 +51,28 @@ export default defineNuxtConfig({
   image: {
     quality: 80,
   },
+  kirby: {
+    auth: "bearer",
+    prefetch: {
+      kirbyStatic: prefetchQuery,
+      // Currently only used to infer the type of the `site` query
+      kirbySite: siteQuery,
+    },
+  },
   vueEquipment: {
     composables: ["useCountdown"],
+  },
+  vite: {
+    server: {
+      // This is only required for the `pnpm dev:tunnel` command
+      // to proxy Kirby requests, especially images
+      proxy: {
+        "/__kirby": {
+          target: process.env.KIRBY_BASE_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/__kirby/, ""),
+        },
+      },
+    },
   },
 });

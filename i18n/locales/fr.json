@@ -35,44 +35,5 @@
     "hours": "heure | heure | heures",
     "minutes": "mintue | minute | minutes",
     "seconds": "seconde | seconde | secondes"
-  },
-  "schedule": {
-    "title": "Programme",
-    "detailedScheduleTbd": "Programme détaillé à définir",
-    "youthCompetitions": {
-      "title": "Compétitions jeunes",
-      "dates": "1 – 3 août 2026"
-    },
-    "adultsCompetitions": {
-      "title": "Compétitions adultes",
-      "dates": "5 – 8 août 2026"
-    }
-  },
-  "location": {
-    "title": "Lieu",
-    "description": "Les {eventName} se dérouleront à {locationName}, en Suisse. La ville abrite un {nationalSportsCenterLink} avec des installations sportives professionnelles, l'{federalOfficeOfSportLink} et la {swissFederalInstituteOfSportLink}.",
-    "nationalSportsCenter": "centre national de sport",
-    "nationalSportsCenterUrl": "https://www.baspo.admin.ch/fr/centre-national-de-sport-de-macolin",
-    "federalOfficeOfSport": "Office fédéral du sport",
-    "federalOfficeOfSportUrl": "https://ofspo.ch",
-    "swissFederalInstituteOfSport": "Haute école fédérale de sport",
-    "swissFederalInstituteOfSportUrl": "https://hefsm.ch",
-    "seeOnOpenStreetMap": "Voir sur OpenStreetMap",
-    "seeOnAppleMaps": "Voir sur Apple Plans",
-    "seeOnGoogleMaps": "Voir sur Google Maps",
-    "sportsHalls": "Salles de sport",
-    "picturesWillCome": "Des photos seront prochainement ajoutées.",
-    "sportTotoHall": {
-      "title": "Salle du Sport-Toto",
-      "description": "Salle triple qui sera le terrain principal de la compétition."
-    },
-    "oldSportsHall": {
-      "title": "Ancienne salle de sport",
-      "description": "Grande salle qui sera utilisée comme deuxième terrain pour la compétition."
-    },
-    "trainingHall": {
-      "title": "Salle de formation",
-      "description": "Nouvelle salle construite spécifiquement pour la formation. Ce sera le troisième terrain."
-    }
   }
 }

@@ -35,44 +35,5 @@
     "hours": "hour | hours",
     "minutes": "minute | minutes",
     "seconds": "second | seconds"
-  },
-  "schedule": {
-    "title": "Schedule",
-    "detailedScheduleTbd": "Detailed schedule to be defined",
-    "youthCompetitions": {
-      "title": "Youth competitions",
-      "dates": "1 – 3 August 2026"
-    },
-    "adultsCompetitions": {
-      "title": "Adults competitions",
-      "dates": "5 – 8 August 2026"
-    }
-  },
-  "location": {
-    "title": "Location",
-    "description": "The {eventName} will take place in {locationName}, Switzerland. The town is home to a {nationalSportsCenterLink} with professional sports facilities, the {federalOfficeOfSportLink} and the {swissFederalInstituteOfSportLink}.",
-    "nationalSportsCenter": "national sports center",
-    "nationalSportsCenterUrl": "https://www.baspo.admin.ch/fr/centre-national-de-sport-de-macolin",
-    "federalOfficeOfSport": "Federal Office of Sport",
-    "federalOfficeOfSportUrl": "https://www.baspo.admin.ch",
-    "swissFederalInstituteOfSport": "Swiss Federal Institute of Sport",
-    "swissFederalInstituteOfSportUrl": "https://www.ehsm.admin.ch/en",
-    "seeOnOpenStreetMap": "See on OpenStreetMap",
-    "seeOnAppleMaps": "See on Apple Maps",
-    "seeOnGoogleMaps": "See on Google Maps",
-    "sportsHalls": "Sports halls",
-    "picturesWillCome": "Pictures will be added soon.",
-    "sportTotoHall": {
-      "title": "Sport-Toto hall",
-      "description": "Triple hall that will be the main court of the competition."
-    },
-    "oldSportsHall": {
-      "title": "Old sports hall",
-      "description": "Large hall that will be used as the second court for the competition."
-    },
-    "trainingHall": {
-      "title": "Training hall",
-      "description": "New hall built specifically for training purposes. It will be the third court."
-    }
   }
 }
