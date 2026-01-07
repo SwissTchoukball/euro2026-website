@@ -36,7 +36,7 @@ export function setPage<T extends KirbySharedPageData & Record<string, any>>(pag
   // Build alternate URL
   const alternateUrls = Object.entries(page.i18nMeta).map(([lang, meta]) => {
     // Remove homepage slug and add leading language prefix
-    const uri = getLocalizedPath(meta.uri.replace(/^home/, "/"), lang);
+    const uri = getLocalizedPath(meta.uri.replace(/^home/, "/"), lang, { ignorePrefix: lang === defaultLocale });
 
     return {
       rel: "alternate",
