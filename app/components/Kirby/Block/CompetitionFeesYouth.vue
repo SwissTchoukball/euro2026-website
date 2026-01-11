@@ -101,5 +101,9 @@
   th:not(:first-child) {
     text-align: center;
   }
+
+  tfoot td {
+    white-space: nowrap;
+  }
 }
 </style>
