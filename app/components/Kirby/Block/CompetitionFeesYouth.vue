@@ -41,6 +41,7 @@
         <td>✅</td>
         <td></td>
         <td></td>
+        <td></td>
       </tr>
       <tr>
         <th>Venue hire</th>
