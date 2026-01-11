@@ -4,6 +4,7 @@
       <tr>
         <th></th>
         <th>Player / Coach</th>
+        <th>Tchouker card</th>
         <th>NF Staff</th>
         <th>Supporter</th>
         <th>Gala</th>
@@ -13,6 +14,7 @@
       <tr>
         <th>Accommodation</th>
         <td>✅</td>
+        <td></td>
         <td>✅</td>
         <td>✅</td>
         <td></td>
@@ -20,12 +22,14 @@
       <tr>
         <th>Food</th>
         <td>✅</td>
+        <td></td>
         <td>✅</td>
         <td>✅</td>
         <td></td>
       </tr>
       <tr>
         <th>Accreditation card and souvenir</th>
+        <td>✅</td>
         <td>✅</td>
         <td>✅</td>
         <td></td>
@@ -41,12 +45,14 @@
       <tr>
         <th>Venue hire</th>
         <td>✅</td>
+        <td>✅</td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <th>Trophies and medals</th>
+        <td>✅</td>
         <td>✅</td>
         <td></td>
         <td></td>
@@ -55,6 +61,7 @@
       <tr>
         <th>Gala dinner</th>
         <td>✅</td>
+        <td></td>
         <td>✅</td>
         <td>✅</td>
         <td>✅</td>
@@ -64,6 +71,7 @@
       <tr>
         <th>Total costs (4 nights)</th>
         <td>CHF 530</td>
+        <td>CHF 210</td>
         <td>CHF 430</td>
         <td>CHF 400</td>
         <td>CHF 50</td>
