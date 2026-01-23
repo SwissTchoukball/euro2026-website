@@ -69,9 +69,9 @@
         </li>
       </ul>
       <div class="c-index__volunteer-link-wrapper">
-        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link"
-          >🤲 {{ $t("home.becomeVolunteer") }}</a
-        >
+        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link">
+          🫶 {{ $t("home.becomeVolunteer") }}
+        </a>
       </div>
     </section>
   </main>
