@@ -38,6 +38,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/qr": { redirect: "/" },
+    "/discord": { redirect: "https://discord.gg/R4mr7tcryy" },
   },
   i18n: {
     locales: [
