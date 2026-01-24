@@ -26,12 +26,7 @@
 .t-headline-1,
 .t-headline-2,
 .t-headline-3,
-.t-headline-4,
-.directus-formatted-content h1,
-.directus-formatted-content h2,
-.directus-formatted-content h3,
-.directus-formatted-content h4,
-.directus-formatted-content h5 {
+.t-headline-4 {
   font-weight: 900;
   padding-top: var(--euro-spacing-6);
 }
@@ -40,29 +35,21 @@
   font-size: 2em;
 }
 
-.t-headline-2,
-.directus-formatted-content h3 {
+.t-headline-2 {
   font-size: 1.5em;
 }
 
-.t-headline-3,
-.directus-formatted-content h4 {
+.t-headline-3 {
   font-size: 1.2em;
 }
 
-.t-headline-4,
-.directus-formatted-content h5 {
+.t-headline-4  {
   font-size: 1em;
 }
 
 .t-headline-1 a,
 .t-headline-2 a,
 .t-headline-3 a,
-.t-headline-4 a,
-.directus-formatted-content h1 a,
-.directus-formatted-content h2 a,
-.directus-formatted-content h3 a,
-.directus-formatted-content h4 a,
-.directus-formatted-content h5 a {
+.t-headline-4 a {
   text-decoration: none;
 }
