@@ -74,7 +74,7 @@ dt {
 }
 
 .l-section {
-  padding: var(--euro-spacing-8);
+  padding: var(--euro-spacing-16) var(--euro-spacing-8);
   scroll-margin-top: var(--euro-header-height);
 }
 
