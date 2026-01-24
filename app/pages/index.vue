@@ -68,10 +68,13 @@
           </a>
         </li>
       </ul>
-      <div class="c-index__volunteer-link-wrapper">
-        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__volunteer-link">
+      <div class="c-index__engagement-links">
+        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__engagement-link-button">
           🫶 {{ $t("home.becomeVolunteer") }}
         </a>
+        <NuxtLink :to="localePath('/support')" class="c-index__engagement-link-button">
+          🌟 {{ $t("home.supportTheEvent") }}
+        </NuxtLink>
       </div>
     </section>
   </main>
@@ -79,6 +82,7 @@
 
 <script setup lang="ts">
 const img = useImage();
+const localePath = useLocalePath();
 
 useHead({
   bodyAttrs: {
@@ -162,17 +166,20 @@ useHead({
   max-height: 5rem;
 }
 
-.c-index__volunteer-link-wrapper {
-  text-align: center;
+.c-index__engagement-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--euro-spacing-6);
+  margin-inline: auto;
+  margin-top: var(--euro-spacing-12);
 }
 
-.c-index__volunteer-link {
+.c-index__engagement-link-button {
   display: inline-block;
-  margin-inline: auto;
   padding: var(--euro-spacing-4) var(--euro-spacing-8);
   border-radius: 1rem;
   text-align: center;
-  margin-top: var(--euro-spacing-12);
   font-size: clamp(1rem, 4vw, 2rem);
   text-decoration: none;
   font-weight: bold;

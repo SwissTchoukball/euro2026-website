@@ -14,7 +14,8 @@
     "intro": "The {formattedEtc} is a competition of the {formattedFitb} (FITB), supervised by the {formattedEtbf} (ETBF).",
     "bidWon": "{formattedSwissTchoukball} has {wonWithLinkToNews} the bid to host the event in 2026.",
     "won": "won",
-    "becomeVolunteer": "Become a volunteer"
+    "becomeVolunteer": "Become a volunteer",
+    "supportTheEvent": "Support the event"
   },
   "fitb": {
     "long": "International Tchoukball Federation",

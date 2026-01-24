@@ -14,7 +14,8 @@
     "intro": "Les {formattedEtc} sont une compétition de la {formattedFitb} (FITB), supervisée par la {formattedEtbf} (ETBF).",
     "bidWon": "{formattedSwissTchoukball} a {wonWithLinkToNews} l'attribution de l'événement en 2026.",
     "won": "remporté",
-    "becomeVolunteer": "Devenir bénévole"
+    "becomeVolunteer": "Devenir bénévole",
+    "supportTheEvent": "Soutenir l'événement"
   },
   "fitb": {
     "long": "Fédération internationale de tchoukball",

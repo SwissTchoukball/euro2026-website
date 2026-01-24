@@ -63,6 +63,11 @@ export default defineNuxtConfig({
   vueEquipment: {
     composables: ["useCountdown"],
   },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith("rnw-"),
+    },
+  },
   vite: {
     server: {
       // This is only required for the `pnpm dev:tunnel` command

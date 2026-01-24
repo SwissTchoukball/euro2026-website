@@ -15,6 +15,7 @@ import {
   LazyKirbyBlockCompetitionFeesYouth,
   LazyKirbyBlockCompetitionFeesAdults,
   LazyKirbyBlockSwisstopoMap,
+  LazyKirbyBlockTwintDonationForm,
 } from "#components";
 
 defineProps<{
@@ -37,6 +38,7 @@ const blockComponents: Record<string, Component> = {
   deadlines: LazyKirbyBlockDeadlines,
   "competition-fees-youth": LazyKirbyBlockCompetitionFeesYouth,
   "competition-fees-adults": LazyKirbyBlockCompetitionFeesAdults,
+  "twint-donation-form": LazyKirbyBlockTwintDonationForm,
 };
 
 const content = useTemplateRef("content");
