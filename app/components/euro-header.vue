@@ -67,6 +67,7 @@ const isSidePanelOpen = ref(false);
   align-items: center;
   line-height: 0;
   color: var(--euro-blue-500);
+  background-color: transparent;
 
   position: fixed;
   top: 0;
@@ -103,6 +104,32 @@ const isSidePanelOpen = ref(false);
 
   a:hover {
     color: var(--euro-sky-blue-500);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .body-header-hover .c-header__bar {
+    animation-name: header-bar-fill;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 0 80vh;
+  }
+
+  @keyframes header-bar-fill {
+    from {
+      background-color: transparent;
+    }
+
+    to {
+      background-color: var(--euro-blue-500);
+    }
+  }
+}
+
+@supports not (animation-timeline: scroll()) {
+  .body-header-hover .c-header__bar {
+    background-color: var(--euro-blue-500);
   }
 }
 
