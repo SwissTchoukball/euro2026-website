@@ -35,5 +35,10 @@
     "hours": "Stunde | Stunden",
     "minutes": "Minute | Minuten",
     "seconds": "Sekunde | Sekunden"
+  },
+  "sponsors": {
+    "main": "Hauptpartner",
+    "operational": "Operative Partner",
+    "federalOfficeOfSport": "Bundesamt für Sport BASPO"
   }
 }

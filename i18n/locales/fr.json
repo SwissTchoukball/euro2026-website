@@ -35,5 +35,10 @@
     "hours": "heure | heure | heures",
     "minutes": "mintue | minute | minutes",
     "seconds": "seconde | seconde | secondes"
+  },
+  "sponsors": {
+    "main": "Partenaires principaux",
+    "operational": "Partenaires opérationnels",
+    "federalOfficeOfSport": "Office fédéral du sport OFSPO"
   }
 }

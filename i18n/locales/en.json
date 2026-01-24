@@ -35,5 +35,10 @@
     "hours": "hour | hours",
     "minutes": "minute | minutes",
     "seconds": "second | seconds"
+  },
+  "sponsors": {
+    "main": "Main partners",
+    "operational": "Operational partners",
+    "federalOfficeOfSport": "Federal Office for Sport FOSPO"
   }
 }
