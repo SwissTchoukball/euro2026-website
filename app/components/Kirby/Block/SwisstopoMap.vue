@@ -1,6 +1,6 @@
 <template>
   <iframe
-    :src="`//map.geo.admin.ch/#/embed?center=${block.content.center}&z=${block.content.zoom}&lang=${locale}&bgLayer=ch.swisstopo.pixelkarte-farbe&featureInfo=tooltip`"
+    :src="`//map.geo.admin.ch/#/embed?center=${block.content.center}&z=${block.content.zoom}&lang=${locale}&layers=${block.content.layers}&bgLayer=ch.swisstopo.pixelkarte-farbe&featureInfo=tooltip`"
     frameborder="0"
     class="kb-swisstopo-map l-cancel-section-padding"
   />
