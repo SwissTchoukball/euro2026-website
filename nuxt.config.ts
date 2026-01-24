@@ -84,7 +84,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // We need to specify here the routes to hidden pages (i.e. the pages from which we cannot navigate to in the website)
-      routes: ["/info-teams", "/fr/info-teams", "/de/info-teams"],
+      routes: ["/info-teams", "/fr/info-teams", "/de/info-teams", "/sitemap.xml"],
     },
   },
 });

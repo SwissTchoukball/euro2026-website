@@ -32,5 +32,8 @@
   },
   "overrides": {
     "nuxt": "^4.2.1"
+  },
+  "dependencies": {
+    "sitemap": "^9.0.0"
   }
 }
