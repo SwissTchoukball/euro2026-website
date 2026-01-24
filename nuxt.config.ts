@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      siteUrl: "",
+      siteUrl: "https://euro2026.ch",
     },
   },
   routeRules: {
