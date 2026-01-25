@@ -171,6 +171,7 @@ useHead({
 .c-index__engagement-links {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--euro-spacing-6);
   margin-inline: auto;
