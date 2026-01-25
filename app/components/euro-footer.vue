@@ -10,7 +10,7 @@
           >
             <img
               class="c-footer__sponsor-logo"
-              src="/images/logo-pro-gaia-invest.png"
+              src="/images/logo-pro-gaia-invest.svg"
               alt="Logo of Pro Gaïa Invest SA"
             />
           </a>
@@ -106,6 +106,7 @@
   margin-top: var(--euro-spacing-4);
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: var(--euro-spacing-8);
