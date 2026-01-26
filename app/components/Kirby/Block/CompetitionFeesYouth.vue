@@ -71,10 +71,10 @@
     <tfoot>
       <tr>
         <th>Total costs (4 nights)</th>
-        <td>CHF 530</td>
-        <td>CHF 210</td>
-        <td>CHF 430</td>
+        <td>CHF 480</td>
+        <td>CHF 190</td>
         <td>CHF 400</td>
+        <td>CHF 390</td>
         <td>CHF 50</td>
       </tr>
     </tfoot>

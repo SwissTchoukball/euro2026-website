@@ -71,10 +71,10 @@
     <tfoot>
       <tr>
         <th>Total costs (5 nights)</th>
-        <td>CHF 660</td>
-        <td>CHF 260</td>
-        <td>CHF 530</td>
-        <td>CHF 495</td>
+        <td>CHF 600</td>
+        <td>CHF 230</td>
+        <td>CHF 500</td>
+        <td>CHF 490</td>
         <td>CHF 50</td>
       </tr>
     </tfoot>
