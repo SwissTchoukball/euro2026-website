@@ -69,6 +69,9 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    optimizeDeps: {
+      include: ["eventemitter3", "vue-matomo"],
+    },
     server: {
       // This is only required for the `pnpm dev:tunnel` command
       // to proxy Kirby requests, especially images
