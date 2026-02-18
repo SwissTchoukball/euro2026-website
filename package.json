@@ -14,24 +14,24 @@
     "lint": "npm run lint:js"
   },
   "devDependencies": {
-    "@maas/vue-equipment": "^1.0.0-beta.47",
-    "@nuxt/eslint": "^1.13.0",
+    "@maas/vue-equipment": "^1.0.0-beta.51",
+    "@nuxt/eslint": "^1.15.1",
     "@nuxt/icon": "^2.2.1",
     "@nuxt/image": "^1.11.0",
-    "@nuxtjs/i18n": "^10.2.1",
+    "@nuxtjs/i18n": "^10.2.3",
     "@sindresorhus/slugify": "^3.0.0",
-    "@types/node": "^24.10.9",
+    "@types/node": "^24.10.13",
     "@vueuse/nuxt": "^13.9.0",
     "eslint": "^9.39.2",
     "js-confetti": "^0.12.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.3.1",
     "nuxt-kirby": "^3.0.3",
-    "reka-ui": "^2.7.0",
-    "vue": "^3.5.27",
+    "reka-ui": "^2.8.0",
+    "vue": "^3.5.28",
     "vue-router": "^4.6.4"
   },
   "overrides": {
-    "nuxt": "^4.3.0"
+    "nuxt": "^4.3.1"
   },
   "dependencies": {
     "sitemap": "^9.0.0",
