@@ -44,10 +44,16 @@
     "phase": {
       "title": "Phase | Phases"
     },
+    "countries": {
+      "title": "Countries"
+    },
     "game": {
       "ongoing": "Ongoing game | Ongoing games",
       "last": "Last game | Last games",
-      "upcoming": "Upcoming game | Upcoming games"
+      "upcoming": "Upcoming game | Upcoming games",
+      "emptyList": "There are no games to show at the moment.",
+      "moreDetails": "More details",
+      "watchVideo": "Watch video"
     },
     "standings": {
       "points": "Points",
@@ -60,6 +66,7 @@
       "difference": "Diff."
     },
     "team": {
+      "title": "Team | Teams",
       "category": "{category} team",
       "seeAllFromCountry": "See all teams from {countryName}"
     }

@@ -1,20 +1,35 @@
 <template>
-  <div class="status-over" v-if="game.has_ended">
+  <div v-if="game.has_ended" class="status-over">
     <b>Finished</b>
   </div>
-  <div class="status-live" v-else-if="game.is_playing">
-    <b>LIVE</b>
-    <!-- TODO: Add icon + link -->
-    <!-- <image-icons-camera v-if="game.link_youtube_url" /> -->
+  <div v-else-if="game.status === 'cancelled'" class="status-cancelled">
+    <b>Cancelled</b>
   </div>
-  <div class="status-date" v-else-if="date">
-    <b>{{ date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }}</b>
-    <small>{{ date.toLocaleDateString() }}</small>
+  <div v-else-if="game.status === 'forfeited'" class="status-forfeited">
+    <b>Forfeited</b>
+  </div>
+  <component
+    :is="game.link_youtube_url ? NuxtLink : 'div'"
+    v-else-if="game.is_playing"
+    class="status-live"
+    :to="`https://tchouk.net/game/${game.id}`"
+  >
+    <b>LIVE</b>
+    <Icon v-if="game.link_youtube_url" icon="streamline:webcam-video-solid" />
+  </component>
+  <div v-else-if="date" class="status-date">
+    <b>{{ date.toLocaleTimeString(`${locale}-CH`, { hour: "2-digit", minute: "2-digit" }) }}</b>
+    <small>{{ date.toLocaleDateString(`${locale}-CH`) }}</small>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
+import { NuxtLink } from "#components";
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
+
+const { locale } = useI18n();
 
 const { game } = defineProps<{ game: TchoukNetGame }>();
 
@@ -37,6 +52,8 @@ const date = computed<Date | undefined>(() => (game.start_at ? new Date(game.sta
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
 
   svg {
     height: 1em;

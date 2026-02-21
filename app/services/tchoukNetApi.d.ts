@@ -13,6 +13,7 @@ export type TchoukNetCompetition = {
   name: string;
   organisation?: TchoukNetOrganisation;
   event?: TchoukNetEvent;
+  participations: TchoukNetParticipation[];
   phases?: TchoukNetCompetitionPhase[];
 };
 
@@ -33,6 +34,12 @@ export type TchoukNetCountry = {
   id: string;
   name: string;
   emoji: string;
+};
+
+export type TchoukNetParticipation = {
+  team: TchoukNetTeam;
+  competition?: TchoukNetCompetition;
+  id: string;
 };
 
 export type TchoukNetTeamType = {
@@ -77,6 +84,7 @@ export interface TchoukNetGame {
   link_youtube_url?: string;
   is_playing?: boolean;
   has_ended?: boolean;
+  status: "announced" | "planned" | "started" | "ended" | "cancelled" | "forfeited";
   organisation?: TchoukNetOrganisation;
   competition_phase?: TchoukNetCompetitionPhase;
 }

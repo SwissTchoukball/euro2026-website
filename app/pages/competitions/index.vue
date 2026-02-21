@@ -12,7 +12,13 @@
       />
     </section>
 
-    <!-- TODO: Show list of countries -->
+    <section v-if="data?.countries" class="l-section">
+      <h3 class="t-headline-2">{{ $t("competition.countries.title") }}</h3>
+      <euro-sub-navigation
+        :title="$t('competition.title', countriesNavigationItems.length)"
+        :items="countriesNavigationItems"
+      />
+    </section>
 
     <section v-if="data" class="l-section">
       <euro-game-planning-overview :planning-overview="data?.overview" />
@@ -25,7 +31,8 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCompetitionSlugFromId } from "@/services/tchoukNetSlugIdMapping";
+import { getCompetitionSlugFromId, getCountrySlugFromId } from "@/services/tchoukNetSlugIdMapping";
+import type { TchoukNetCompetition, TchoukNetCountry } from "~/services/tchoukNetApi";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -42,12 +49,22 @@ const subNavigationItems = computed(() => {
   if (!data.value?.event.competitions) {
     return [];
   }
-  return data.value.event.competitions.map((competition: any) => ({
+  return data.value.event.competitions.map((competition: TchoukNetCompetition) => ({
     text: competition.name,
     to: localePath({
       name: "competitions-competition",
       params: { competition: getCompetitionSlugFromId(competition.id) },
     }),
+  }));
+});
+
+const countriesNavigationItems = computed(() => {
+  if (!data.value?.countries) {
+    return [];
+  }
+  return data.value.countries.map((country: TchoukNetCountry) => ({
+    text: `${country.emoji} ${country.name}`,
+    to: localePath(`/competitions/country/${getCountrySlugFromId(country.id)}`),
   }));
 });
 </script>

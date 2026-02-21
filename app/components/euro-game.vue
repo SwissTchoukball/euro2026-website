@@ -4,7 +4,7 @@
       <div>
         <euro-game-status :game="game" />
       </div>
-      <div class="c-game__phase" v-if="showCompetition">
+      <div v-if="showCompetition" class="c-game__phase">
         {{ phase?.name }}
         <span v-if="phase?.competition" class="c-game__competition">
           <NuxtLink :to="`/competitions/${phase?.competition.id}`">{{ phase?.competition.name }}</NuxtLink>
@@ -52,17 +52,15 @@
       </div>
     </div>
 
-    <div class="c-game__more" v-if="showMore">
-      <nuxt-link :to="`https://tchouk.net/game/${game.id}`" class="btn btn-primary">
-        <!-- TODO: Add icons + link -->
-        <!-- <image-icons-movie v-if="game.link_youtube_url" />
-        <image-icons-more v-else /> -->
-      </nuxt-link>
-    </div>
+    <nuxt-link v-if="showMore" class="c-game__more" :to="`https://tchouk.net/game/${game.id}`" :title="showMoreLabel">
+      <Icon :icon="showMoreIcon" width="24" height="24" />
+    </nuxt-link>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
 
 const {
@@ -80,11 +78,17 @@ const phase = computed(() => {
 });
 
 const teamAWon = computed(() => {
-  return game.has_ended && (game.selection_a?.total_points || 0) > (game.selection_b?.total_points || 0);
+  return (
+    (game.has_ended || game.status === "forfeited") &&
+    (game.selection_a?.total_points || 0) > (game.selection_b?.total_points || 0)
+  );
 });
 
 const teamBWon = computed(() => {
-  return game.has_ended && (game.selection_b?.total_points || 0) > (game.selection_a?.total_points || 0);
+  return (
+    (game.has_ended || game.status === "forfeited") &&
+    (game.selection_b?.total_points || 0) > (game.selection_a?.total_points || 0)
+  );
 });
 
 const periodScores = computed(() => {
@@ -109,6 +113,14 @@ const periodScores = computed(() => {
     });
   }
   return scores;
+});
+
+const showMoreIcon = computed(() => {
+  return game.link_youtube_url ? "streamline:live-video-remix" : "streamline:add-1-solid";
+});
+
+const showMoreLabel = computed(() => {
+  return game.link_youtube_url ? $t("competition.game.watchVideo") : $t("competition.game.moreDetails");
 });
 </script>
 
@@ -162,10 +174,20 @@ const periodScores = computed(() => {
     height: 100%;
     display: flex;
     gap: var(--euro-spacing-2);
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--euro-blue-500);
+    color: white;
+    padding: var(--euro-spacing-2);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 
-    > * {
-      flex: 1;
+    &:hover {
+      background-color: var(--euro-sky-blue-500);
     }
   }
 }

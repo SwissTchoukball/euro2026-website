@@ -1,9 +1,12 @@
 <template>
-  <ul class="u-unstyled-list c-game-list">
+  <ul v-if="games.length > 0" class="u-unstyled-list c-game-list">
     <li v-for="game in games" :key="game.id" class="c-game-list__item">
       <euro-game :game="game" :show-competition="showCompetition" />
     </li>
   </ul>
+  <div v-else class="c-game-list__empty">
+    <p>{{ $t("competition.game.emptyList") }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">

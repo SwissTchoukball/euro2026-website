@@ -27,7 +27,20 @@ export const tchoukNetSlugIdMapping: {
     },
     "nations-cup-men": {
       id: "61c83cea-84be-4d1a-aa6a-7d9094b5c457",
-      phases: {},
+      phases: {
+        "group-a": "1ee82457-5887-6aca-98bf-a9d3ac876893",
+        "group-b": "1ee82457-a524-678e-87fd-ed1079d95740",
+        "group-c": "1ee82457-cd1d-6b1e-9de2-93db90db058e",
+        "group-d": "1ee82458-03ea-6c14-9d97-6f4c362f0ebf",
+        "quarter-final": "1ee9b4dc-1ec0-6e74-90f2-35a4b0f2feed",
+        "ranking9-12th": "1ee9b4e0-9cb4-6430-ac81-1535a221d0e8",
+        "semi-final": "1ee9b4e3-1954-69ac-a9d3-89b2e0d93226",
+        "semi-final-5th": "1ee9b4e3-efb5-6794-a98e-0bb48f5b629c",
+        "final3rd-place": "1ee9b4e5-bfb0-6e84-a83f-d10ba12b3063",
+        final: "1ee9b4e5-e49c-64f0-b90b-0b2612895873",
+        "final5th-place": "1ee9b604-955f-6160-adcf-bd8674b60976",
+        "final7th-place": "1ee9b607-eeee-6bce-9b7f-6734e98fd6a9",
+      },
       teams: {},
     },
     "nations-cup-u18": {
@@ -70,6 +83,52 @@ export const tchoukNetSlugIdMapping: {
       phases: {},
       teams: {},
     },
+    // Euro 2026
+    women: {
+      id: "1f0a5f2f-8deb-610a-aabe-63061465602b",
+      phases: {
+        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
+        "semi-finals": "",
+        "final3rd-place": "",
+        final: "",
+      },
+      teams: {},
+    },
+    men: {
+      id: "1f0a5f2f-a8e0-6848-9a3f-eb6b37b2816a",
+      phases: {
+        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
+        "semi-finals": "",
+        "final3rd-place": "",
+        final: "",
+      },
+      teams: {},
+    },
+    "m18-boys": {
+      id: "1f0a5f31-e587-67ae-9d05-e77a0d457c6e",
+      phases: {},
+      teams: {},
+    },
+    "m18-girls": {
+      id: "1f0a5f32-1119-6930-8daa-afbb08724b79",
+      phases: {},
+      teams: {},
+    },
+    "m40-men": {
+      id: "1f10f179-14fb-697e-8698-81ab971d950e",
+      phases: {
+        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
+        "semi-finals": "1f10f70d-7175-685a-b922-b31a35e69d6f",
+        "final3rd-place": "1f10f70d-c745-673a-bcc3-a3e5b09a2eb1",
+        final: "1f10f70d-fccf-63d8-bbbf-99c66ddc036f",
+      },
+      teams: {
+        switzerland: "1ef45ca7-9f1a-6c50-a381-57f904329d2e",
+        italy: "1ef45ca1-8044-66b0-ba1a-67291116c0c5",
+        "united-kingdom": "1f10f17b-cd83-64cc-b67e-7bcbb87ff1b2",
+        france: "1ef45ca6-8d50-6570-a119-23965875c052",
+      },
+    },
   },
   countries: {
     switzerland: "4c01c6f8-04de-476b-a5b0-cd06bf9188ca",
@@ -86,7 +145,7 @@ export function getCompetitionSlugFromId(id: string | undefined): string | undef
   if (!id) {
     return;
   }
-  const competition = Object.entries(tchoukNetSlugIdMapping.competitions).find(([slug, c]) => c.id === id);
+  const competition = Object.entries(tchoukNetSlugIdMapping.competitions).find(([_slug, c]) => c.id === id);
   return competition?.[0];
 }
 
@@ -94,7 +153,7 @@ export function getCountrySlugFromId(id: string | undefined): string | undefined
   if (!id) {
     return;
   }
-  const country = Object.entries(tchoukNetSlugIdMapping.countries).find(([slug, c]) => c === id);
+  const country = Object.entries(tchoukNetSlugIdMapping.countries).find(([_slug, c]) => c === id);
   return country?.[0];
 }
 

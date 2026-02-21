@@ -1,8 +1,10 @@
 import type {
   TchoukNetCompetition,
   TchoukNetCompetitionPhase,
+  TchoukNetCountry,
   TchoukNetEvent,
   TchoukNetGame,
+  TchoukNetParticipation,
   TchoukNetPlanningOverview,
   TchoukNetTeam,
 } from "./tchoukNetApi";
@@ -11,13 +13,13 @@ class TchoukNetApiService {
   private apiBaseUrl = "https://tchouk.net/api";
 
   // Euro 2026
-  // private eventId = "1f0a5f2c-fb2a-64da-b726-dfb22bf931c9";
+  private eventId = "1f0a5f2c-fb2a-64da-b726-dfb22bf931c9";
   // Ferrara 2024
-  private eventId = "1ef411c5-9e4d-6f5c-b418-2361c26a7c4a";
+  // private eventId = "1ef411c5-9e4d-6f5c-b418-2361c26a7c4a";
   // TGI 2023
   // private eventId = "b9fec05a-2778-4b94-b440-ffd660dbff19";
 
-  private sendRequest = async <T = any>(input: RequestInfo, init: RequestInit): Promise<T> => {
+  private sendRequest = async <T = unknown>(input: RequestInfo, init: RequestInit): Promise<T> => {
     const response = await fetch(input, init);
 
     if (!response.ok) {
@@ -36,12 +38,12 @@ class TchoukNetApiService {
       },
     };
 
-    const responseJson = this.sendRequest(input, init);
-    return responseJson;
+    return await this.sendRequest<T>(input, init);
   };
 
   public getEvent = async (): Promise<{
     event: TchoukNetEvent;
+    countries: TchoukNetCountry[];
     overview: TchoukNetPlanningOverview;
   }> => this.sendGetRequest(`/events/${this.eventId}`);
 
@@ -70,9 +72,10 @@ class TchoukNetApiService {
     countryId: string
   ): Promise<{
     country: { id: string; name: string; emoji: string };
-    teams: TchoukNetTeam[];
+    event: TchoukNetEvent;
+    participations: TchoukNetParticipation[];
     overview: TchoukNetPlanningOverview;
-  }> => this.sendGetRequest(`/games/country/${countryId}`);
+  }> => this.sendGetRequest(`/events/${this.eventId}/countries/${countryId}`);
 }
 
 export const tchoukNetApiService = new TchoukNetApiService();

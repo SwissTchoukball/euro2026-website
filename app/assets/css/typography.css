@@ -28,7 +28,7 @@
 .t-headline-3,
 .t-headline-4 {
   font-weight: 900;
-  padding-top: var(--euro-spacing-6);
+  margin-top: var(--euro-spacing-6);
 }
 
 .t-headline-1 {

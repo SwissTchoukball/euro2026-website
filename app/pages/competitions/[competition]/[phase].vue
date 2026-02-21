@@ -59,9 +59,9 @@ const breadcrumbs = computed(() => {
     },
   ];
 
-  if (phaseSlug) {
+  if (phaseSlug.value) {
     const phaseId = tchoukNetSlugIdMapping.competitions[competitionSlug.value]?.phases?.[phaseSlug.value];
-    const phase = competitionData.value?.competition.phases?.find((p: any) => p.id === phaseId);
+    const phase = competitionData.value?.competition.phases?.find((p) => p.id === phaseId);
     if (phase) {
       items.push({
         text: phase.name,

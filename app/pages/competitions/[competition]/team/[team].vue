@@ -38,7 +38,7 @@ const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[compe
 const teamSlug = computed(() => route.params.team as string);
 const teamId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.teams?.[teamSlug.value]);
 
-const { data: competitionData, status: competitionStatus } = useAsyncCompetitionData(competitionId.value);
+const { data: competitionData } = useAsyncCompetitionData(competitionId.value);
 
 const { data: teamData, status: teamStatus } = useAsyncData(`team-${teamId.value}`, () => {
   if (!teamId.value) {
