@@ -36,11 +36,12 @@ import type { TchoukNetCompetition, TchoukNetCountry } from "~/services/tchoukNe
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const { data, status } = useAsyncData("event", () => tchoukNetApiService.getEvent());
 
 const breadcrumbs = computed(() => {
-  const items = [{ text: t("navigation.competitions"), to: localePath("/competitions") }];
+  const items = [{ text: t("navigation.competitions") }];
 
   return items;
 });
@@ -50,7 +51,7 @@ const subNavigationItems = computed(() => {
     return [];
   }
   return data.value.event.competitions.map((competition: TchoukNetCompetition) => ({
-    text: competition.name,
+    text: localizeCompetitionEntityName(competition.name),
     to: localePath({
       name: "competitions-competition",
       params: { competition: getCompetitionSlugFromId(competition.id) },
@@ -63,7 +64,7 @@ const countriesNavigationItems = computed(() => {
     return [];
   }
   return data.value.countries.map((country: TchoukNetCountry) => ({
-    text: `${country.emoji} ${country.name}`,
+    text: `${country.emoji} ${localizeCompetitionEntityName(country.name)}`,
     to: localePath(`/competitions/country/${getCountrySlugFromId(country.id)}`),
   }));
 });

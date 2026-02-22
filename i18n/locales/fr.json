@@ -12,9 +12,12 @@
   "backHome": "Retour à la page d'accueil",
   "navigation": {
     "schedule": "Programme",
-    "location": "Lieu"
+    "competitions": "Compétitions",
+    "location": "Lieu",
+    "teams": "Équipes"
   },
   "home": {
+    "breadcrumbTitle": "Accueil",
     "becomeVolunteer": "Devenir bénévole",
     "supportTheEvent": "Soutenir l'événement"
   },
@@ -37,6 +40,71 @@
     "hours": "heure | heure | heures",
     "minutes": "mintue | minute | minutes",
     "seconds": "seconde | seconde | secondes"
+  },
+  "competition": {
+    "title": "Compétition | Compétitions",
+    "seeAllGames": "Voir tous les matchs",
+    "poweredBy": "Compétitions propulsées par",
+    "phase": {
+      "title": "Phase | Phases"
+    },
+    "countries": {
+      "title": "Pays"
+    },
+    "game": {
+      "ongoing": "Match en cours | Matchs en cours",
+      "last": "Dernier match | Derniers matchs",
+      "upcoming": "Match à venir | Matchs à venir",
+      "emptyList": "Il n'y a pas de matchs à afficher pour le moment.",
+      "moreDetails": "Plus de détails",
+      "watchVideo": "Regarder la vidéo"
+    },
+    "standings": {
+      "points": "Points",
+      "played": "Joués",
+      "won": "Gagnés",
+      "lost": "Perdus",
+      "drawn": "Nuls",
+      "for": "Marqués",
+      "against": "Reçus",
+      "difference": "Diff."
+    },
+    "team": {
+      "title": "Équipe | Équipes",
+      "seeAllFromCountry": "Voir toutes les équipes du pays «{countryName}»"
+    },
+    "name": {
+      "Switzerland": "Suisse",
+      "Switzerland A": "Suisse A",
+      "Switzerland B": "Suisse B",
+      "Italy": "Italie",
+      "United Kingdom": "Royaume-Uni",
+      "Germany": "Allemagne",
+      "Spain": "Espagne",
+      "Denmark": "Danemark",
+      "France": "France",
+      "Women": "Femmes",
+      "Men": "Hommes",
+      "M18 Boys": "M18 Garçons",
+      "M18 Girls": "M18 Filles",
+      "M40 Men": "P40 Hommes",
+      "Round-robin": "Phase préliminaire",
+      "1st of round-robin": "1ᵉ de la phase préliminaire",
+      "2nd of round-robin": "2ᵉ de la phase préliminaire",
+      "3rd of round-robin": "3ᵉ de la phase préliminaire",
+      "4th of round-robin": "4ᵉ de la phase préliminaire",
+      "Semi-finals": "Demi-finales",
+      "Semi-final 1": "Demi-finale 1",
+      "Semi-final 2": "Demi-finale 2",
+      "Looser of semi-final 1": "Perdant de la demi-finale 1",
+      "Looser of semi-final 2": "Perdant de la demi-finale 2",
+      "Winner of semi-final 1": "Gagnant de la demi-finale 1",
+      "Winner of semi-final 2": "Gagnant de la demi-finale 2",
+      "3rd place final": "Petite finale",
+      "Final": "Finale",
+      "Sport-Toto hall": "Salle du Sport-Toto",
+      "Old sports hall": "Ancienne salle de sport"
+    }
   },
   "sponsors": {
     "main": "Partenaires principaux",

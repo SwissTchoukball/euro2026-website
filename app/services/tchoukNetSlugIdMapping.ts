@@ -1,6 +1,7 @@
 export const tchoukNetSlugIdMapping: {
   competitions: Record<string, { id: string; phases: Record<string, string>; teams: Record<string, string> }>;
   countries: Record<string, string>;
+  fields: Record<string, string>;
 } = {
   competitions: {
     // TGI 2023
@@ -87,22 +88,34 @@ export const tchoukNetSlugIdMapping: {
     women: {
       id: "1f0a5f2f-8deb-610a-aabe-63061465602b",
       phases: {
-        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
-        "semi-finals": "",
-        "final3rd-place": "",
-        final: "",
+        "round-robin": "1f10f746-715e-67ac-b5f8-97a42ff9d1c9",
+        "semi-finals": "1f10f748-00fa-6504-8543-13875c80ef3e",
+        "final3rd-place": "1f10f748-2dc0-6368-ab01-cf4f65ec6eba",
+        final: "1f10f748-4c46-6b7a-af2b-658c4bdd87e7",
       },
-      teams: {},
+      teams: {
+        switzerland: "1ee77445-df48-66bc-974d-d5bfaf60913b",
+        italy: "1ee77446-f196-69da-8e7f-af10bd10cc85",
+        "united-kingdom": "1ef45c93-cb6f-64ae-8266-0134a323160a",
+        germany: "1ee77447-6ee8-6708-8b22-a38ded5a3291",
+      },
     },
     men: {
       id: "1f0a5f2f-a8e0-6848-9a3f-eb6b37b2816a",
       phases: {
-        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
-        "semi-finals": "",
-        "final3rd-place": "",
-        final: "",
+        "round-robin": "1f10f761-477b-694c-b327-a3e51ebaafcf",
+        "semi-finals": "1f10f761-c3af-68f6-b53c-4334030a34cc",
+        "final3rd-place": "1f10f762-3531-66b4-af37-71cc6aa6cac7",
+        final: "1f10f762-848d-6bb8-b909-c9970444127d",
       },
-      teams: {},
+      teams: {
+        switzerland: "1ee77441-e4c5-63a0-b512-334c0ea67a5e",
+        italy: "1ee77444-1c42-6a24-9f4b-b77008012dd6",
+        "united-kingdom": "1ef45c99-2cc0-62b2-b84c-85ee861368e5",
+        germany: "1ee77445-1cf1-6dca-8d07-735f59cc67f0",
+        spain: "1ee77443-0eee-6720-8ca4-a77f08bedd26",
+        denmark: "1f10f175-d99b-6d46-bb5e-47b38a41e09a",
+      },
     },
     "m18-boys": {
       id: "1f0a5f31-e587-67ae-9d05-e77a0d457c6e",
@@ -117,7 +130,7 @@ export const tchoukNetSlugIdMapping: {
     "m40-men": {
       id: "1f10f179-14fb-697e-8698-81ab971d950e",
       phases: {
-        qualifications: "1f10f446-ddad-6596-8431-35b3e22b8e37",
+        "round-robin": "1f10f446-ddad-6596-8431-35b3e22b8e37",
         "semi-finals": "1f10f70d-7175-685a-b922-b31a35e69d6f",
         "final3rd-place": "1f10f70d-c745-673a-bcc3-a3e5b09a2eb1",
         final: "1f10f70d-fccf-63d8-bbbf-99c66ddc036f",
@@ -133,11 +146,16 @@ export const tchoukNetSlugIdMapping: {
   countries: {
     switzerland: "4c01c6f8-04de-476b-a5b0-cd06bf9188ca",
     italy: "23a793c3-ee09-4ac9-86cd-6eecbaa4518f",
-    "united-kingdom": "?uk",
+    "united-kingdom": "bbc9df2b-6f38-4524-a8f7-d3fc6d78306a",
     germany: "0b989d11-c00d-4e8d-bac9-dd9e130559c0",
     france: "262878ad-f5f6-463e-ae1a-28a44fa0b3d4",
-    spain: "?es",
+    spain: "ed5b3058-67a6-48f1-b799-53d1a390a582",
     poland: "61f87a3e-8438-4564-8850-c1a6a73cca82",
+    denmark: "e6d275e2-9f9b-49d1-bd0a-5476f3edb71a",
+  },
+  fields: {
+    "sport-toto-hall": "1f10fe55-a4e3-6120-8a85-ed1887cbefd5",
+    "old-sports-hall": "1f10fe56-81c0-614c-bd63-491f7beb3e0b",
   },
 };
 
@@ -155,6 +173,14 @@ export function getCountrySlugFromId(id: string | undefined): string | undefined
   }
   const country = Object.entries(tchoukNetSlugIdMapping.countries).find(([_slug, c]) => c === id);
   return country?.[0];
+}
+
+export function getFieldSlugFromId(id: string | undefined): string | undefined {
+  if (!id) {
+    return;
+  }
+  const field = Object.entries(tchoukNetSlugIdMapping.fields).find(([_slug, c]) => c === id);
+  return field?.[0];
 }
 
 export function getSlugFromId(

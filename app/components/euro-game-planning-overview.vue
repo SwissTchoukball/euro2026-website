@@ -13,6 +13,17 @@
     <h3 class="t-headline-2">{{ $t("competition.game.last", planningOverview.last_games.length) }}</h3>
     <euro-game-list :games="planningOverview.last_games" />
   </section>
+
+  <section
+    v-if="
+      planningOverview.current_games.length === 0 &&
+      planningOverview.next_games.length === 0 &&
+      planningOverview.last_games.length === 0
+    "
+    class="l-section no-games-section"
+  >
+    <p>{{ $t("competition.game.emptyList") }}</p>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -26,5 +37,9 @@ defineProps<{
 <style scoped>
 .t-headline-2 {
   margin-bottom: var(--euro-spacing-4);
+}
+
+.no-games-section {
+  text-align: center;
 }
 </style>

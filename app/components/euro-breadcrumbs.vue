@@ -2,7 +2,9 @@
   <nav class="c-breadcrumbs">
     <h2 class="u-visually-hidden">{{ $t("breadcrumbs") }}</h2>
     <ol class="u-unstyled-list c-breadcrumbs__list">
-      <li class="c-breadcrumbs__item"><NuxtLink to="/">Home</NuxtLink></li>
+      <li class="c-breadcrumbs__item">
+        <NuxtLink :to="$localePath('/')">{{ $t("home.breadcrumbTitle") }}</NuxtLink>
+      </li>
       <li v-for="item in items" :key="item.to" class="c-breadcrumbs__item">
         <NuxtLink v-if="item.to" :to="item.to">{{ item.text }}</NuxtLink>
         <template v-else>{{ item.text }}</template>

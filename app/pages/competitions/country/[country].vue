@@ -5,7 +5,9 @@
       <euro-loading-indicator v-if="countryStatus === 'pending'" for-section />
       <div v-else-if="countryStatus === 'error'">Error loading country data.</div>
       <template v-else-if="countryData">
-        <h2 class="t-headline-1">{{ countryData.country.name }} {{ countryData.country.emoji }}</h2>
+        <h2 class="t-headline-1">
+          {{ localizeCompetitionEntityName(countryData.country.name) }} {{ countryData.country.emoji }}
+        </h2>
         <h3 class="t-headline-3">{{ $t("competition.team.title", countryData.participations.length) }}</h3>
         <euro-sub-navigation
           :title="$t('competition.team.title', countryData.participations.length)"
@@ -28,6 +30,7 @@ import type { TchoukNetParticipation } from "~/services/tchoukNetApi";
 const route = useRoute();
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const countrySlug = computed(() => route.params.country as string);
 const countryId = computed(() => tchoukNetSlugIdMapping.countries?.[countrySlug.value]);
@@ -43,7 +46,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: countryData.value?.country.name || "",
+      text: countryData.value ? localizeCompetitionEntityName(countryData.value.country.name) : "",
     },
   ];
 });
@@ -55,7 +58,9 @@ const teamsNavigationItems = computed(() => {
   return countryData.value.participations.map((participation: TchoukNetParticipation) => {
     const competitionSlug = getCompetitionSlugFromId(participation.competition?.id);
     return {
-      text: `${participation.team.name} ${participation.competition?.name}`,
+      text: `${localizeCompetitionEntityName(participation.team.name)} ${
+        participation.competition ? localizeCompetitionEntityName(participation.competition?.name) : ""
+      }`,
       to: competitionSlug
         ? localePath(
             `/competitions/${competitionSlug}/team/${getSlugFromId(

@@ -2,7 +2,7 @@
   <section class="l-section">
     <euro-loading-indicator v-if="asyncDataStatus === 'pending'" for-section />
     <div v-else-if="asyncDataStatus === 'error'">Error loading competition data.</div>
-    <h2 class="t-headline-1">{{ competition?.name }}</h2>
+    <h2 v-if="competition" class="t-headline-1">{{ localizeCompetitionEntityName(competition.name) }}</h2>
     <euro-sub-navigation
       :title="$t('competition.phase.title', subNavigationItems.length)"
       :items="subNavigationItems"
@@ -15,6 +15,7 @@ import type { TchoukNetCompetition } from "~/services/tchoukNetApi";
 import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlugIdMapping";
 
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const { competition } = defineProps<{ competition?: TchoukNetCompetition; asyncDataStatus?: string }>();
 
@@ -25,7 +26,7 @@ const subNavigationItems = computed(() => {
     return [];
   }
   return competition.phases.map((phase: any) => ({
-    text: phase.name,
+    text: localizeCompetitionEntityName(phase.name),
     to: localePath({
       name: "competitions-competition-phase",
       params: {

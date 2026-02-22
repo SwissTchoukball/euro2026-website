@@ -4,12 +4,29 @@
       <div>
         <euro-game-status :game="game" />
       </div>
+
+      <div v-if="game.name" class="c-game__name">
+        {{ localizeCompetitionEntityName(game.name) }}
+      </div>
+
       <div v-if="showCompetition" class="c-game__phase">
-        {{ phase?.name }}
+        <span v-if="phase?.name && !game.name">
+          {{ localizeCompetitionEntityName(phase?.name) }}
+        </span>
         <span v-if="phase?.competition" class="c-game__competition">
-          <NuxtLink :to="`/competitions/${phase?.competition.id}`">{{ phase?.competition.name }}</NuxtLink>
+          <NuxtLink :to="$localePath(`/competitions/${getCompetitionSlugFromId(phase?.competition.id)}`)">
+            {{ localizeCompetitionEntityName(phase.competition.name) }}
+          </NuxtLink>
         </span>
       </div>
+      <NuxtLink
+        v-if="game.field && !hideField"
+        :to="$localePath(`/competitions/field/${getFieldSlugFromId(game.field.id)}`)"
+        class="c-game__field"
+      >
+        <Icon icon="ph:court-basketball-fill" width="16" height="16" />
+        {{ localizeCompetitionEntityName(game.field.name) }}
+      </NuxtLink>
     </div>
 
     <div class="c-game__content">
@@ -62,15 +79,19 @@
 import { Icon } from "@iconify/vue";
 
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
+import { getCompetitionSlugFromId, getFieldSlugFromId } from "~/services/tchoukNetSlugIdMapping";
 
+const { localizeCompetitionEntityName } = useI18nHelper();
 const {
   game,
   showMore = true,
   showCompetition = true,
+  hideField = false,
 } = defineProps<{
   game: TchoukNetGame;
   showMore?: boolean;
   showCompetition?: boolean;
+  hideField?: boolean;
 }>();
 
 const phase = computed(() => {
@@ -152,6 +173,14 @@ const showMoreLabel = computed(() => {
         font-size: 0.8em;
       }
     }
+  }
+
+  .c-game__field {
+    display: flex;
+    align-items: center;
+    gap: var(--euro-spacing-1);
+    font-size: 0.8em;
+    color: var(--euro-gray-500);
   }
 
   .c-game__content {

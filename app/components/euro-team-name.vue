@@ -1,13 +1,15 @@
 <template>
   <NuxtLink
     v-if="team"
-    :to="`/competitions/${competitionSlug}/team/${teamSlug}`"
+    :to="$localePath(`/competitions/${competitionSlug}/team/${teamSlug}`)"
     class="c-team-name"
     :class="{ 'c-team-name--winner': winner }"
   >
-    {{ emojis }} {{ team.name }}
+    {{ emojis }} {{ localizeCompetitionEntityName(team.name) }}
   </NuxtLink>
-  <span v-else class="c-team-name c-team-name--placeholder">{{ label || "---" }}</span>
+  <span v-else class="c-team-name c-team-name--placeholder">
+    {{ label ? localizeCompetitionEntityName(label) : "---" }}
+  </span>
 </template>
 
 <script setup lang="ts">
@@ -15,6 +17,7 @@ import type { TchoukNetCompetition, TchoukNetTeam } from "~/services/tchoukNetAp
 import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlugIdMapping";
 
 const route = useRoute();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const { team, competition } = defineProps<{
   team?: TchoukNetTeam;

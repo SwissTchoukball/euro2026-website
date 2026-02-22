@@ -23,6 +23,7 @@ import type { TchoukNetParticipation } from "~/services/tchoukNetApi";
 const route = useRoute();
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const competitionSlug = computed(() => route.params.competition as string);
 const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.id);
@@ -33,8 +34,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: data.value?.competition.name || "",
-      to: localePath(`/competitions/${competitionSlug.value}`),
+      text: data.value ? localizeCompetitionEntityName(data.value.competition.name) : "",
     },
   ];
 });
@@ -44,7 +44,9 @@ const teamsNavigationItems = computed(() => {
     return [];
   }
   return data.value.competition.participations.map((participation: TchoukNetParticipation) => ({
-    text: `${participation.team.countries.map((country) => country.emoji).join("")} ${participation.team.name}`,
+    text: `${participation.team.countries.map((country) => country.emoji).join("")} ${localizeCompetitionEntityName(
+      participation.team.name
+    )}`,
     to: localePath(
       `/competitions/${competitionSlug.value}/team/${getSlugFromId(
         participation.team.identifier,

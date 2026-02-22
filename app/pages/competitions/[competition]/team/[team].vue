@@ -5,13 +5,15 @@
       <euro-loading-indicator v-if="teamStatus === 'pending'" for-section />
       <div v-else-if="teamStatus === 'error'">Error loading team data.</div>
       <template v-else-if="teamData">
-        <h2 class="t-headline-1">{{ teamData.team.name }}</h2>
-        <p v-if="competitionData?.competition.name" class="c-team__description">
-          {{ $t("competition.team.category", { category: competitionData.competition.name }) }}
-        </p>
+        <h2 class="t-headline-1">
+          {{ localizeCompetitionEntityName(teamData.team.name) }}
+          <template v-if="competitionData?.competition.name">
+            {{ localizeCompetitionEntityName(competitionData.competition.name) }}
+          </template>
+        </h2>
         <p v-if="countrySlug" class="c-team__description">
           <NuxtLink :to="localePath(`/competitions/country/${countrySlug}`)">
-            {{ $t("competition.team.seeAllFromCountry", { countryName }) }}
+            {{ $t("competition.team.seeAllFromCountry", { countryName: localizeCompetitionEntityName(countryName) }) }}
           </NuxtLink>
         </p>
       </template>
@@ -32,6 +34,7 @@ import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 const route = useRoute();
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const competitionSlug = computed(() => route.params.competition as string);
 const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.id);
@@ -54,11 +57,11 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: competitionData.value?.competition.name || "",
+      text: competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : "",
       to: localePath(`/competitions/${competitionSlug.value}`),
     },
     {
-      text: teamData.value?.team.name || "",
+      text: teamData.value ? localizeCompetitionEntityName(teamData.value.team.name) : "",
     },
   ];
 });

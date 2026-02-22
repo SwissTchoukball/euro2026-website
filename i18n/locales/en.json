@@ -13,9 +13,11 @@
   "navigation": {
     "schedule": "Schedule",
     "competitions": "Competitions",
-    "location": "Location"
+    "location": "Location",
+    "teams": "Teams"
   },
   "home": {
+    "breadcrumbTitle": "Home",
     "becomeVolunteer": "Become a volunteer",
     "supportTheEvent": "Support the event"
   },
@@ -41,6 +43,8 @@
   },
   "competition": {
     "title": "Competition | Competitions",
+    "seeAllGames": "See all games",
+    "poweredBy": "Competitions powered by",
     "phase": {
       "title": "Phase | Phases"
     },
@@ -67,8 +71,39 @@
     },
     "team": {
       "title": "Team | Teams",
-      "category": "{category} team",
       "seeAllFromCountry": "See all teams from {countryName}"
+    },
+    "name": {
+      "Switzerland": "Switzerland",
+      "Switzerland A": "Switzerland A",
+      "Switzerland B": "Switzerland B",
+      "Italy": "Italy",
+      "United Kingdom": "United Kingdom",
+      "Germany": "Germany",
+      "Spain": "Spain",
+      "Denmark": "Denmark",
+      "France": "France",
+      "Women": "Women",
+      "Men": "Men",
+      "M18 Boys": "M18 Boys",
+      "M18 Girls": "M18 Girls",
+      "M40 Men": "M40 Men",
+      "Round-robin": "Round-robin",
+      "1st of round-robin": "1st of round-robin",
+      "2nd of round-robin": "2nd of round-robin",
+      "3rd of round-robin": "3rd of round-robin",
+      "4th of round-robin": "4th of round-robin",
+      "Semi-finals": "Semi-finals",
+      "Semi-final 1": "Semi-final 1",
+      "Semi-final 2": "Semi-final 2",
+      "Looser of semi-final 1": "Looser of semi-final 1",
+      "Looser of semi-final 2": "Looser of semi-final 2",
+      "Winner of semi-final 1": "Winner of semi-final 1",
+      "Winner of semi-final 2": "Winner of semi-final 2",
+      "3rd place final": "3rd place final",
+      "Final": "Final",
+      "Sport-Toto hall": "Sport-Toto hall",
+      "Old sports hall": "Old sports hall"
     }
   },
   "sponsors": {

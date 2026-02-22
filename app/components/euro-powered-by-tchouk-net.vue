@@ -1,6 +1,6 @@
 <template>
   <div class="c-euro-powered-by-tchouk-net">
-    <span>Competitions powered by</span>
+    <span>{{ $t("competition.poweredBy") }}</span>
     <a href="https://tchouk.net" class="c-euro-powered-by-tchouk-net__link">
       <span class="u-visually-hidden">tchouk.net</span>
       <euro-tchouk-net-logo role="presentation" class="c-euro-powered-by-tchouk-net__logo" />

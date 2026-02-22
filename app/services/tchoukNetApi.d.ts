@@ -67,12 +67,35 @@ export interface TchoukNetGameTeam {
   id: string;
 }
 
+export interface TchoukNetCoordinates {
+  latitude: number;
+  longitude: number;
+}
+
+export interface TchoukNetVenue {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  coordinates: TchoukNetCoordinates;
+}
+
+export interface TchoukNetField {
+  id: string;
+  name: string;
+  code_name: string;
+  has_own_name: boolean;
+  venue: TchoukNetVenue;
+}
+
 export interface TchoukNetGameLog {
   id: string;
 }
 
 export interface TchoukNetGame {
   id: string;
+  name?: string;
+  code?: string;
   selection_a?: TchoukNetGameTeam;
   selection_b?: TchoukNetGameTeam;
   score_a?: number;
@@ -85,6 +108,7 @@ export interface TchoukNetGame {
   is_playing?: boolean;
   has_ended?: boolean;
   status: "announced" | "planned" | "started" | "ended" | "cancelled" | "forfeited";
+  field?: TchoukNetField;
   organisation?: TchoukNetOrganisation;
   competition_phase?: TchoukNetCompetitionPhase;
 }

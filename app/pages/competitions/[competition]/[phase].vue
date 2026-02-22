@@ -8,7 +8,7 @@
       <euro-loading-indicator v-if="status === 'pending'" for-section />
       <div v-else-if="status === 'error'">Error loading competition data.</div>
       <div v-else-if="data">
-        <h2 class="t-headline-1">{{ data.competition_phase.name }}</h2>
+        <h2 class="t-headline-1">{{ localizeCompetitionEntityName(data.competition_phase.name) }}</h2>
       </div>
     </section>
 
@@ -31,6 +31,7 @@ import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
+const { localizeCompetitionEntityName } = useI18nHelper();
 const route = useRoute();
 
 const competitionSlug = computed(() => route.params.competition as string);
@@ -54,7 +55,7 @@ const breadcrumbs = computed(() => {
   const items: BreadcrumbItem[] = [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: competitionData.value?.competition.name || "",
+      text: competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : "",
       to: localePath(`/competitions/${competitionSlug.value}`),
     },
   ];
@@ -64,7 +65,7 @@ const breadcrumbs = computed(() => {
     const phase = competitionData.value?.competition.phases?.find((p) => p.id === phaseId);
     if (phase) {
       items.push({
-        text: phase.name,
+        text: localizeCompetitionEntityName(phase.name),
       });
     }
   }

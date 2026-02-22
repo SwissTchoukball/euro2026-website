@@ -3,6 +3,7 @@ import type {
   TchoukNetCompetitionPhase,
   TchoukNetCountry,
   TchoukNetEvent,
+  TchoukNetField,
   TchoukNetGame,
   TchoukNetParticipation,
   TchoukNetPlanningOverview,
@@ -45,6 +46,7 @@ class TchoukNetApiService {
     event: TchoukNetEvent;
     countries: TchoukNetCountry[];
     overview: TchoukNetPlanningOverview;
+    participations: TchoukNetParticipation[];
   }> => this.sendGetRequest(`/events/${this.eventId}`);
 
   public getCompetition = async (
@@ -66,7 +68,7 @@ class TchoukNetApiService {
   ): Promise<{
     team: TchoukNetTeam;
     games: TchoukNetGame[];
-  }> => this.sendGetRequest(`/games/team/${teamIdentifier}`);
+  }> => this.sendGetRequest(`/games/event/${this.eventId}/teams/${teamIdentifier}`);
 
   public getCountry = async (
     countryId: string
@@ -76,6 +78,13 @@ class TchoukNetApiService {
     participations: TchoukNetParticipation[];
     overview: TchoukNetPlanningOverview;
   }> => this.sendGetRequest(`/events/${this.eventId}/countries/${countryId}`);
+
+  public getField = async (
+    fieldId: string
+  ): Promise<{
+    field: TchoukNetField;
+    games: TchoukNetGame[];
+  }> => this.sendGetRequest(`/games/fields/${fieldId}`);
 }
 
 export const tchoukNetApiService = new TchoukNetApiService();
