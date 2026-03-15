@@ -74,7 +74,7 @@ class TchoukNetApiService {
     countryId: string
   ): Promise<{
     country: { id: string; name: string; emoji: string };
-    event: TchoukNetEvent;
+    event: Pick<TchoukNetEvent, "id" | "name">;
     participations: TchoukNetParticipation[];
     overview: TchoukNetPlanningOverview;
   }> => this.sendGetRequest(`/events/${this.eventId}/countries/${countryId}`);

@@ -27,7 +27,7 @@ export type TchoukNetEvent = {
   id: string;
   name: string;
   organisation: TchoukNetOrganisation;
-  competitions: TchoukNetCompetition[];
+  competitions: Pick<TchoukNetCompetition, "id" | "name">[];
 };
 
 export type TchoukNetCountry = {

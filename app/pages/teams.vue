@@ -5,17 +5,15 @@
     <section class="l-section">
       <h2 class="t-headline-1">{{ $t("competition.team.title", 2) }}</h2>
       <euro-loading-indicator v-if="status === 'pending'" for-section />
-      <template v-for="country in countries" :key="country.id">
+      <template v-for="competition in competitions" :key="competition.id">
         <h3 class="t-headline-2">
-          {{ country.emoji }}
-          {{ localizeCompetitionEntityName(country.name) }}
+          <NuxtLink :to="$localePath(`/competitions/${getCompetitionSlugFromId(competition.id)}`)">
+            {{ localizeCompetitionEntityName(competition.name) }}
+          </NuxtLink>
         </h3>
-        <NuxtLink :to="$localePath(`/competitions/country/${getCountrySlugFromId(country.id)}`)">
-          {{ $t("competition.seeAllGames") }}
-        </NuxtLink>
         <euro-sub-navigation
-          :title="$t('competition.team.title', country.teamsNavigationItems.length)"
-          :items="country.teamsNavigationItems"
+          :title="$t('competition.team.title', competition.teamsNavigationItems.length)"
+          :items="competition.teamsNavigationItems"
         />
       </template>
     </section>
@@ -24,8 +22,8 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCompetitionSlugFromId, getCountrySlugFromId, getSlugFromId } from "@/services/tchoukNetSlugIdMapping";
-import type { TchoukNetCountry, TchoukNetParticipation } from "~/services/tchoukNetApi";
+import { getCompetitionSlugFromId, getSlugFromId } from "@/services/tchoukNetSlugIdMapping";
+import type { TchoukNetCompetition, TchoukNetParticipation } from "~/services/tchoukNetApi";
 
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -39,21 +37,24 @@ const breadcrumbs = computed(() => {
   return items;
 });
 
-const countries = computed<(TchoukNetCountry & { teamsNavigationItems: { text: string; to: string }[] })[]>(() => {
+const competitions = computed<
+  (Pick<TchoukNetCompetition, "id" | "name"> & { teamsNavigationItems: { text: string; to: string }[] })[]
+>(() => {
   return (
-    data.value?.countries.map((country: TchoukNetCountry) => ({
-      ...country,
+    data.value?.event.competitions.map((competition) => ({
+      ...competition,
       teamsNavigationItems:
         data.value?.participations
-          ?.filter((participation: TchoukNetParticipation) =>
-            participation.team.countries.find((c: TchoukNetCountry) => c.id === country.id)
+          .filter((p) => p.competition?.id === competition.id)
+          .sort((a, b) =>
+            localizeCompetitionEntityName(a.team.name).localeCompare(localizeCompetitionEntityName(b.team.name))
           )
           .map((participation: TchoukNetParticipation) => {
             const competitionSlug = getCompetitionSlugFromId(participation.competition?.id);
             return {
-              text: `${localizeCompetitionEntityName(participation.team.name)} ${
-                participation.competition ? localizeCompetitionEntityName(participation.competition?.name) : ""
-              }`,
+              text: `${participation.team.countries
+                .map((country) => country.emoji)
+                .join("")} ${localizeCompetitionEntityName(participation.team.name)}`,
               to: competitionSlug
                 ? localePath(
                     `/competitions/${competitionSlug}/team/${getSlugFromId(
