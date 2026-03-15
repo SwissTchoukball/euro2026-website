@@ -19,7 +19,11 @@ import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlu
 const route = useRoute();
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { team, competition } = defineProps<{
+const {
+  team = undefined,
+  label = undefined,
+  competition = undefined,
+} = defineProps<{
   team?: TchoukNetTeam;
   label?: string;
   winner?: boolean;

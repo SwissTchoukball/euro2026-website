@@ -17,7 +17,10 @@ import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlu
 const localePath = useLocalePath();
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { competition } = defineProps<{ competition?: TchoukNetCompetition; asyncDataStatus?: string }>();
+const { competition = undefined, asyncDataStatus = undefined } = defineProps<{
+  competition?: TchoukNetCompetition;
+  asyncDataStatus?: string;
+}>();
 
 const competitionSlug = computed(() => getCompetitionSlugFromId(competition?.id));
 
