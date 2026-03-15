@@ -2,9 +2,8 @@
   <main>
     <euro-breadcrumbs :items="breadcrumbs" />
     <section class="l-section">
-      <euro-loading-indicator v-if="fieldStatus === 'pending'" for-section />
-      <div v-else-if="fieldStatus === 'error'">Error loading field data.</div>
-      <template v-else-if="fieldData">
+      <div v-if="fieldStatus === 'error'">Error loading field data.</div>
+      <template v-if="fieldData">
         <h2 class="t-headline-1">
           {{ localizeCompetitionEntityName(fieldData.field.name) }}
         </h2>
@@ -13,6 +12,7 @@
         </div>
         <euro-swisstopo-map :center="coordinates" :zoom="10" crosshair="marker" />
       </template>
+      <euro-loading-indicator v-else-if="fieldStatus === 'pending'" for-section />
     </section>
     <euro-game-list v-if="fieldData?.games" :games="fieldData.games" hide-field />
     <euro-powered-by-tchouk-net />
@@ -34,12 +34,17 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 const fieldSlug = computed(() => route.params.field as string);
 const fieldId = computed(() => tchoukNetSlugIdMapping.fields?.[fieldSlug.value]);
 
-const { data: fieldData, status: fieldStatus } = useAsyncData(`field-${fieldId.value}`, () => {
+const {
+  data: fieldData,
+  status: fieldStatus,
+  refresh,
+} = useAsyncData(`field-${fieldId.value}`, () => {
   if (!fieldId.value) {
     throw new Error(`Undefined field ID: ${fieldId.value} / slug: ${fieldSlug.value}`);
   }
   return tchoukNetApiService.getField(fieldId.value);
 });
+usePolling(refresh);
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [

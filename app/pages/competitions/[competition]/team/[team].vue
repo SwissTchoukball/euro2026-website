@@ -2,9 +2,8 @@
   <main>
     <euro-breadcrumbs :items="breadcrumbs" />
     <section class="l-section">
-      <euro-loading-indicator v-if="teamStatus === 'pending'" for-section />
-      <div v-else-if="teamStatus === 'error'">Error loading team data.</div>
-      <template v-else-if="teamData">
+      <div v-if="teamStatus === 'error'">Error loading team data.</div>
+      <template v-if="teamData">
         <h2 class="t-headline-1">
           {{ localizeCompetitionEntityName(teamData.team.name) }}
           <template v-if="competitionData?.competition.name">
@@ -17,6 +16,7 @@
           </NuxtLink>
         </p>
       </template>
+      <euro-loading-indicator v-else-if="teamStatus === 'pending'" for-section />
     </section>
     <section v-if="teamData" class="l-section">
       <euro-game-list :games="teamData.games" :show-competition="false" />
@@ -43,12 +43,17 @@ const teamId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionS
 
 const { data: competitionData } = useAsyncCompetitionData(competitionId.value);
 
-const { data: teamData, status: teamStatus } = useAsyncData(`team-${teamId.value}`, () => {
+const {
+  data: teamData,
+  status: teamStatus,
+  refresh,
+} = useAsyncData(`team-${teamId.value}`, () => {
   if (!teamId.value) {
     throw new Error(`Undefined team ID: ${teamId.value} / slug: ${teamSlug.value}`);
   }
   return tchoukNetApiService.getTeam(teamId.value);
 });
+usePolling(refresh);
 
 const countryName = computed(() => teamData.value?.team.countries[0]?.name || "");
 const countrySlug = computed(() => getCountrySlugFromId(teamData.value?.team.countries[0]?.id));

@@ -28,7 +28,7 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 const competitionSlug = computed(() => route.params.competition as string);
 const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.id);
 
-const { data, status } = useAsyncCompetitionData(competitionId.value);
+const { data, status } = useAsyncCompetitionData(competitionId.value, { polling: true });
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [

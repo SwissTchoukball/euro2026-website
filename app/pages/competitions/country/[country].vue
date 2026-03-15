@@ -2,9 +2,8 @@
   <main>
     <euro-breadcrumbs :items="breadcrumbs" />
     <section class="l-section">
-      <euro-loading-indicator v-if="countryStatus === 'pending'" for-section />
-      <div v-else-if="countryStatus === 'error'">Error loading country data.</div>
-      <template v-else-if="countryData">
+      <div v-if="countryStatus === 'error'">Error loading country data.</div>
+      <template v-if="countryData">
         <h2 class="t-headline-1">
           {{ localizeCompetitionEntityName(countryData.country.name) }} {{ countryData.country.emoji }}
         </h2>
@@ -14,6 +13,7 @@
           :items="teamsNavigationItems"
         />
       </template>
+      <euro-loading-indicator v-else-if="countryStatus === 'pending'" for-section />
     </section>
     <euro-game-planning-overview v-if="countryData" :planning-overview="countryData?.overview" show-competition />
     <!-- <pre>{{ data }}</pre> -->
@@ -35,12 +35,17 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 const countrySlug = computed(() => route.params.country as string);
 const countryId = computed(() => tchoukNetSlugIdMapping.countries?.[countrySlug.value]);
 
-const { data: countryData, status: countryStatus } = useAsyncData(`country-${countryId.value}`, () => {
+const {
+  data: countryData,
+  status: countryStatus,
+  refresh,
+} = useAsyncData(`country-${countryId.value}`, () => {
   if (!countryId.value) {
     throw new Error(`Undefined country ID: ${countryId.value} / slug: ${countrySlug.value}`);
   }
   return tchoukNetApiService.getCountry(countryId.value);
 });
+usePolling(refresh);
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [

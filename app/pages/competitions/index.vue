@@ -4,12 +4,12 @@
 
     <section class="l-section">
       <h2 class="t-headline-1">{{ $t("competition.title", data?.event.competitions.length || 2) }}</h2>
-      <euro-loading-indicator v-if="status === 'pending'" for-section />
       <euro-sub-navigation
         v-if="data?.event"
         :title="$t('competition.title', subNavigationItems.length)"
         :items="subNavigationItems"
       />
+      <euro-loading-indicator v-else-if="status === 'pending'" for-section />
     </section>
 
     <section v-if="data?.countries" class="l-section">
@@ -38,7 +38,8 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { data, status } = useAsyncData("event", () => tchoukNetApiService.getEvent());
+const { data, status, refresh } = useAsyncData("event", () => tchoukNetApiService.getEvent());
+usePolling(refresh);
 
 const breadcrumbs = computed(() => {
   const items = [{ text: t("navigation.competitions") }];

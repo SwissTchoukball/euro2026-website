@@ -5,11 +5,11 @@
     <euro-competition-header :competition="competitionData?.competition" :async-data-status="competitionStatus" />
 
     <section class="l-section">
-      <euro-loading-indicator v-if="status === 'pending'" for-section />
-      <div v-else-if="status === 'error'">Error loading competition data.</div>
-      <div v-else-if="data">
+      <div v-if="status === 'error'">Error loading competition data.</div>
+      <div v-if="data">
         <h2 class="t-headline-1">{{ localizeCompetitionEntityName(data.competition_phase.name) }}</h2>
       </div>
+      <euro-loading-indicator v-else-if="status === 'pending'" for-section />
     </section>
 
     <section v-if="data && (phaseSlug.includes('group') || phaseSlug.includes('qualification'))" class="l-section">
@@ -41,7 +41,7 @@ const phaseId = computed(() => tchoukNetSlugIdMapping.competitions?.[competition
 
 const { data: competitionData, status: competitionStatus } = useAsyncCompetitionData(competitionId.value);
 
-const { data, status } = useAsyncData(
+const { data, status, refresh } = useAsyncData(
   () => `phase-${phaseId.value}`,
   () => {
     if (!phaseId.value) {
@@ -50,6 +50,8 @@ const { data, status } = useAsyncData(
     return tchoukNetApiService.getPhase(phaseId.value);
   }
 );
+
+usePolling(refresh);
 
 const breadcrumbs = computed(() => {
   const items: BreadcrumbItem[] = [
