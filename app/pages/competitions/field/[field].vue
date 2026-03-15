@@ -8,6 +8,10 @@
         <h2 class="t-headline-1">
           {{ localizeCompetitionEntityName(fieldData.field.name) }}
         </h2>
+        <div class="c-field__address">
+          {{ fieldData.field.venue.address }}
+        </div>
+        <euro-swisstopo-map :center="coordinates" :zoom="10" crosshair="marker" />
       </template>
     </section>
     <euro-game-list v-if="fieldData?.games" :games="fieldData.games" hide-field />
@@ -16,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import { WGStoLV95 } from "swiss-projection";
+
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
 import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
@@ -43,4 +49,21 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
     },
   ];
 });
+
+const coordinates = computed<string>(() => {
+  if (!fieldData.value?.field.venue.coordinates?.longitude || !fieldData.value.field.venue.coordinates.latitude) {
+    return "";
+  }
+
+  return WGStoLV95([
+    fieldData.value.field.venue.coordinates.longitude,
+    fieldData.value.field.venue.coordinates.latitude,
+  ]).join(",");
+});
 </script>
+
+<style scoped>
+.c-field__address {
+  white-space: pre-wrap;
+}
+</style>
