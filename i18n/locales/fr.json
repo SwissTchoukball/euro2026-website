@@ -71,7 +71,18 @@
     },
     "team": {
       "title": "Équipe | Équipes",
-      "seeAllFromCountry": "Voir toutes les équipes du pays «{countryName}»"
+      "seeAllFromCountry": "Voir toutes les équipes du pays «{countryName}»",
+      "games": "Matchs",
+      "members": "Membres de l'équipe",
+      "member": {
+        "position": {
+          "right-winger": "Ailier droit",
+          "left-winger": "Ailier gauche",
+          "winger": "Ailier",
+          "frame-pivot": "Centre-cadre",
+          "center": "Centre-centre"
+        }
+      }
     },
     "name": {
       "Switzerland": "Suisse",

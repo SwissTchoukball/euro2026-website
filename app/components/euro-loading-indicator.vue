@@ -17,7 +17,6 @@ defineProps<{
 }
 .c-loading-indicator-container--for-section {
   margin: auto;
-  height: 50vh;
 }
 
 .c-loading-indicator {

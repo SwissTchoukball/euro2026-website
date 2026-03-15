@@ -71,7 +71,18 @@
     },
     "team": {
       "title": "Team | Teams",
-      "seeAllFromCountry": "See all teams from {countryName}"
+      "seeAllFromCountry": "See all teams from {countryName}",
+      "games": "Games",
+      "members": "Team members",
+      "member": {
+        "position": {
+          "right-winger": "Right-winger",
+          "left-winger": "Left-winger",
+          "winger": "Winger",
+          "frame-pivot": "Frame pivot",
+          "center": "Center"
+        }
+      }
     },
     "name": {
       "Switzerland": "Switzerland",

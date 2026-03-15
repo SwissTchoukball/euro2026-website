@@ -71,7 +71,18 @@
     },
     "team": {
       "title": "Team | Teams",
-      "seeAllFromCountry": "Alle Teams aus {countryName} anzeigen"
+      "seeAllFromCountry": "Alle Teams aus {countryName} anzeigen",
+      "games": "Spiele",
+      "members": "Teammitglieder",
+      "member": {
+        "position": {
+          "right-winger": "Rechter Flügelspieler",
+          "left-winger": "Linker Flügelspieler",
+          "winger": "Flügelspieler",
+          "frame-pivot": "Rahmenpivot",
+          "center": "Mittelfeldspieler"
+        }
+      }
     },
     "name": {
       "Switzerland": "Schweiz",
