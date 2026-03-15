@@ -36,6 +36,9 @@ jobs:
       - name: Run linter 👀
         run: npm run lint
 
+      - name: Run tests 🧪
+        run: npm test
+
       - name: Build 🔨
         env:
           KIRBY_BASE_URL: ${{ vars.KIRBY_BASE_URL }}
