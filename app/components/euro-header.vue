@@ -12,6 +12,9 @@
           </NuxtLink>
         </li>
         <li>
+          <NuxtLink :to="localePath('/teams')" @click="isSidePanelOpen = false">{{ $t("navigation.teams") }}</NuxtLink>
+        </li>
+        <li>
           <NuxtLink :to="localePath('/competitions')" @click="isSidePanelOpen = false">{{
             $t("navigation.competitions")
           }}</NuxtLink>
