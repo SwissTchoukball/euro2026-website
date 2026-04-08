@@ -73,6 +73,11 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ["eventemitter3", "vue-matomo"],
     },
+    build: {
+      rollupOptions: {
+        external: ["swiss-projection"],
+      },
+    },
     server: {
       // This is only required for the `pnpm dev:tunnel` command
       // to proxy Kirby requests, especially images
