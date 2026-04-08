@@ -127,6 +127,11 @@ export const tchoukNetSlugIdMapping: {
       phases: {},
       teams: {},
     },
+    "m15-boys": {
+      id: "1f131c10-9512-68ec-aa60-db2f3ed27b5e",
+      phases: {},
+      teams: {},
+    },
     "m40-men": {
       id: "1f10f179-14fb-697e-8698-81ab971d950e",
       phases: {
