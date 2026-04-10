@@ -73,7 +73,10 @@
       "title": "Team | Teams",
       "seeAllFromCountry": "Alle Teams aus {countryName} anzeigen",
       "games": "Spiele",
-      "members": "Teammitglieder",
+      "members": {
+        "title": "Teammitglieder",
+        "emptyList": "Es gibt keine Teammitglieder zum Anzeigen."
+      },
       "member": {
         "position": {
           "right-winger": "Rechter Flügelspieler",

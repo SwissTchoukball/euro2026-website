@@ -6,6 +6,9 @@
         <euro-team-member :member="member" />
       </li>
     </ul>
+    <div v-else class="blank-slate">
+      <p>{{ $t("competition.team.members.emptyList") }}</p>
+    </div>
   </section>
 </template>
 
@@ -31,5 +34,9 @@ const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(t
   display: flex;
   gap: var(--euro-spacing-4);
   flex-wrap: wrap;
+}
+
+.blank-slate {
+  text-align: center;
 }
 </style>

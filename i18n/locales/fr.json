@@ -73,7 +73,10 @@
       "title": "Équipe | Équipes",
       "seeAllFromCountry": "Voir toutes les équipes du pays «{countryName}»",
       "games": "Matchs",
-      "members": "Membres de l'équipe",
+      "members": {
+        "title": "Membres de l'équipe",
+        "emptyList": "Il n'y a pas de membres de l'équipe à afficher pour le moment."
+      },
       "member": {
         "position": {
           "right-winger": "Ailier droit",

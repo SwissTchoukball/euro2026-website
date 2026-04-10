@@ -73,7 +73,10 @@
       "title": "Team | Teams",
       "seeAllFromCountry": "See all teams from {countryName}",
       "games": "Games",
-      "members": "Team members",
+      "members": {
+        "title": "Team members",
+        "emptyList": "There are no team members to show at the moment."
+      },
       "member": {
         "position": {
           "right-winger": "Right-winger",
