@@ -4,87 +4,6 @@ export const tchoukNetSlugIdMapping: {
   fields: Record<string, string>;
 } = {
   competitions: {
-    // TGI 2023
-    "nations-cup-women": {
-      id: "eae2638a-d683-49df-82f5-5735df3cce0e",
-      phases: {
-        "group-a": "1ee8245a-a0a5-60a2-be7f-cb740faa6650",
-        "group-b": "1ee8245a-f189-6e32-a53e-61bb5500ba78",
-        "quarter-final": "1ee8247f-769c-68c6-a0ef-09a39a30b20f",
-        "semi-final": "1ee82487-d377-61c4-adaf-4140a4d3eab8",
-        "final3rd-place": "1ee82489-9923-6e12-bd99-bd5209944daf",
-        "final1st-place": "1ee82489-ee0e-64d6-bfaf-633369599e5f",
-        "ranking5th7th-place": "1ee82484-9c8c-6d56-8da2-b74a11dfb316",
-      },
-      teams: {
-        switzerland: "1ee77445-df48-66bc-974d-d5bfaf60913b",
-        "italy-a": "1ee77446-f196-69da-8e7f-af10bd10cc85",
-        "italy-b": "1ee77447-1437-6840-84f4-e5c50149a173",
-        "switzerland-m18": "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
-        france: "1ee832c0-b8bc-6630-b7b5-312752b69ffd",
-        germany: "1ee77447-6ee8-6708-8b22-a38ded5a3291",
-        poland: "1ee77446-2c47-679c-8a0e-edebfac3a285",
-      },
-    },
-    "nations-cup-men": {
-      id: "61c83cea-84be-4d1a-aa6a-7d9094b5c457",
-      phases: {
-        "group-a": "1ee82457-5887-6aca-98bf-a9d3ac876893",
-        "group-b": "1ee82457-a524-678e-87fd-ed1079d95740",
-        "group-c": "1ee82457-cd1d-6b1e-9de2-93db90db058e",
-        "group-d": "1ee82458-03ea-6c14-9d97-6f4c362f0ebf",
-        "quarter-final": "1ee9b4dc-1ec0-6e74-90f2-35a4b0f2feed",
-        "ranking9-12th": "1ee9b4e0-9cb4-6430-ac81-1535a221d0e8",
-        "semi-final": "1ee9b4e3-1954-69ac-a9d3-89b2e0d93226",
-        "semi-final-5th": "1ee9b4e3-efb5-6794-a98e-0bb48f5b629c",
-        "final3rd-place": "1ee9b4e5-bfb0-6e84-a83f-d10ba12b3063",
-        final: "1ee9b4e5-e49c-64f0-b90b-0b2612895873",
-        "final5th-place": "1ee9b604-955f-6160-adcf-bd8674b60976",
-        "final7th-place": "1ee9b607-eeee-6bce-9b7f-6734e98fd6a9",
-      },
-      teams: {},
-    },
-    "nations-cup-u18": {
-      id: "1ee79820-077e-684a-b43e-efa60d1549ce",
-      phases: {},
-      teams: {},
-    },
-    // Ferrara 2024
-    "2024-women": {
-      id: "1ef411c6-d69f-6db4-a7c5-f55a299ea832",
-      phases: {
-        qualifications: "1ef4a08b-1040-6a84-9bb3-75943b3cc9c0",
-        "final5th-place": "1ef4a08c-44a0-60d0-8bb7-09c55af501e4",
-        "semi-finals": "1ef4a08c-941a-6fb6-9fa4-c590bc489c85",
-        "final3rd-place": "1ef4a08d-2286-6854-9509-aba835a5c2a6",
-        final: "1ef4a08d-6ca0-6f66-9fbd-1b937dec8ed2",
-      },
-      teams: {},
-    },
-    "2024-men": {
-      id: "1ef411c6-f976-64c8-8676-4b98f03aa015",
-      phases: {
-        qualifications: "1ef49cb6-5287-6a10-add9-e397c5a8495a",
-        "final5th-place": "1ef49d03-c0cc-6b04-ad1c-41ca8c8188ce",
-        "semi-finals": "1ef49d0a-5ddc-6d4e-b431-331faeea473f",
-        "final3rd-place": "1ef49d0c-e7e6-6664-bb69-dd269dd2a4e5",
-        final: "1ef49d0d-14d3-628a-a021-bfb27d9a28a0",
-      },
-      teams: {
-        switzerland: "1ee77441-e4c5-63a0-b512-334c0ea67a5e",
-        "united-kingdom": "1ef45c99-2cc0-62b2-b84c-85ee861368e5",
-        germany: "1ee77445-1cf1-6dca-8d07-735f59cc67f0",
-        "italy-a": "1ee77444-1c42-6a24-9f4b-b77008012dd6",
-        "italy-b": "1ee77444-41fb-64fa-bc09-c15b5b2613cc",
-        spain: "1ee77443-0eee-6720-8ca4-a77f08bedd26",
-      },
-    },
-    "2024-o40": {
-      id: "1ef411c5-9e4d-6f5c-b418-2361c26a7c4a",
-      phases: {},
-      teams: {},
-    },
-    // Euro 2026
     women: {
       id: "1f0a5f2f-8deb-610a-aabe-63061465602b",
       phases: {
@@ -104,6 +23,7 @@ export const tchoukNetSlugIdMapping: {
       id: "1f0a5f2f-a8e0-6848-9a3f-eb6b37b2816a",
       phases: {
         "round-robin": "1f10f761-477b-694c-b327-a3e51ebaafcf",
+        "final5th-place": "1f13445c-ab5a-62de-8992-99d2b783d635",
         "semi-finals": "1f10f761-c3af-68f6-b53c-4334030a34cc",
         "final3rd-place": "1f10f762-3531-66b4-af37-71cc6aa6cac7",
         final: "1f10f762-848d-6bb8-b909-c9970444127d",
@@ -119,18 +39,43 @@ export const tchoukNetSlugIdMapping: {
     },
     "m18-boys": {
       id: "1f0a5f31-e587-67ae-9d05-e77a0d457c6e",
-      phases: {},
-      teams: {},
+      phases: {
+        "round-robin": "1f134457-7085-65be-9a9a-37dd25f2c17c",
+        "semi-finals": "1f134459-7932-6a20-be3c-477ccac2de15",
+        "final3rd-place": "1f13445a-1506-6884-88a2-191bff201e51",
+        final: "1f13445a-9038-6e8a-91d3-2303c9bed34d",
+      },
+      teams: {
+        "switzerland-a": "1f0a5f48-6e46-64a8-9df7-db263e4f9aab",
+        "switzerland-b": "1f10f15e-6df3-6f92-8219-b37f37944f41",
+        "czech-republic": "1f131c28-5cad-643a-9283-4b4fd5399a6b",
+        italy: "1f0a5f4a-b597-68be-9a43-eb9a93372623",
+        "united-kingdom": "1f10f157-69bf-68f6-b2b2-21862f54a804",
+      },
     },
     "m18-girls": {
       id: "1f0a5f32-1119-6930-8daa-afbb08724b79",
       phases: {},
-      teams: {},
+      teams: {
+        switzerland: "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
+        poland: "1f13442d-1b3e-67ba-9bfc-d11ab8bed161",
+        "united-kingdom": "1f133728-6926-6cd2-87ce-5fddc426291f",
+      },
     },
     "m15-boys": {
       id: "1f131c10-9512-68ec-aa60-db2f3ed27b5e",
-      phases: {},
-      teams: {},
+      phases: {
+        "round-robin": "1f134467-51fb-69c6-9598-cf79930ebc2c",
+        "semi-finals": "1f134467-7bac-6676-985e-c7db3ec5a0c4",
+        "final3rd-place": "1f134467-a3e0-6bf6-b35b-352033b0c3c0",
+        final: "1f134467-d7f2-63d6-8f17-eb0c9f5bd0aa",
+      },
+      teams: {
+        switzerland: "1f131c23-5ec1-6c80-a238-1519de508deb",
+        "united-kingdom": "1f131c25-540d-67f6-82d8-533908b87aa1",
+        poland: "1f131c25-d878-6248-be60-e1eccba7dc20",
+        italy: "1f131c24-7ef3-664c-9599-97dbca60d2cf",
+      },
     },
     "m40-men": {
       id: "1f10f179-14fb-697e-8698-81ab971d950e",
