@@ -1,11 +1,11 @@
 import type { KirbyQuerySchema } from "#nuxt-kirby";
 
-export function getTeamQuery(teamSlug: string, competitionSlug: string): KirbyQuerySchema {
+export function getTeamQuery(teamSlug: string, teamTypeSlug: string): KirbyQuerySchema {
   return {
-    query: `page("teams/${teamSlug}-${competitionSlug}")`,
+    query: `page("teams/${teamSlug}-${teamTypeSlug}")`,
     select: {
       players: {
-        query: `page("teams/${teamSlug}-${competitionSlug}").children.listed`,
+        query: `page("teams/${teamSlug}-${teamTypeSlug}").children.listed`,
         select: {
           uuid: "page.uuid",
           firstName: "page.firstName",

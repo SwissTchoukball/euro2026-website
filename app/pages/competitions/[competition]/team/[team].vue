@@ -5,11 +5,9 @@
     <section class="l-section">
       <div v-if="teamCompetitionStatus === 'error'">Error loading team data.</div>
 
-      <h2 v-if="teamCompetitionData" class="t-headline-1">
-        {{ localizeCompetitionEntityName(teamCompetitionData.team.name) }}
-        <template v-if="competitionData?.competition.name">
-          {{ localizeCompetitionEntityName(competitionData.competition.name) }}
-        </template>
+      <h2 v-if="teamName" class="t-headline-1">
+        {{ teamName }}
+        <template v-if="teamTypeName">{{ teamTypeName }}</template>
       </h2>
       <h2 v-else class="t-headline-1">&nbsp;</h2>
 
@@ -36,13 +34,13 @@
       <euro-loading-indicator v-if="!teamCompetitionData && teamCompetitionStatus === 'pending'" for-section />
     </section>
 
-    <NuxtPage :team-competition-data="teamCompetitionData" />
+    <NuxtPage v-if="teamTypeSlug" :team-competition-data="teamCompetitionData" :team-type-slug="teamTypeSlug" />
   </main>
 </template>
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCountrySlugFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
+import { getCountrySlugFromId, getTeamTypeSlugFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 
 const route = useRoute();
@@ -52,7 +50,7 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 
 // Redirect from index team page to games page
 if (route.name?.toString().startsWith("competitions-competition-team-team__")) {
-  navigateTo(localePath("competitions-competition-team-team-games"));
+  navigateTo(localePath("competitions-competition-team-team-members"));
 }
 
 const competitionSlug = computed(() => route.params.competition as string);
@@ -77,15 +75,24 @@ usePolling(refresh);
 const countryName = computed(() => teamCompetitionData.value?.team.countries[0]?.name || "");
 const countrySlug = computed(() => getCountrySlugFromId(teamCompetitionData.value?.team.countries[0]?.id));
 
+const teamName = computed(() =>
+  teamCompetitionData.value ? localizeCompetitionEntityName(teamCompetitionData.value.team.name) : ""
+);
+const competitionName = computed(() =>
+  competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : ""
+);
+const teamTypeSlug = computed(() => getTeamTypeSlugFromId(teamCompetitionData.value?.team.team_type?.id));
+const teamTypeName = computed(() => (teamTypeSlug.value ? t(`competition.team.type.${teamTypeSlug.value}`) : ""));
+
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   const crumbs = [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : "",
+      text: competitionName.value,
       to: localePath(`/competitions/${competitionSlug.value}`),
     },
     {
-      text: teamCompetitionData.value ? localizeCompetitionEntityName(teamCompetitionData.value.team.name) : "",
+      text: teamName.value + (competitionName.value !== teamTypeName.value ? ` ${teamTypeName.value}` : ""),
     },
   ];
 
@@ -95,7 +102,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
     });
   } else if (route.name?.toString().startsWith("competitions-competition-team-team-members")) {
     crumbs.push({
-      text: t("competition.team.members"),
+      text: t("competition.team.members.title"),
     });
   }
 

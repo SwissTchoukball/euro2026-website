@@ -51,7 +51,7 @@ export type TchoukNetTeam = {
   id: string;
   name: string;
   identifier: string;
-  type_type?: TchoukNetTeamType;
+  team_type?: TchoukNetTeamType;
   countries: TchoukNetCountry[];
 };
 

@@ -15,10 +15,13 @@ import { getTeamQuery } from "~/queries";
 const route = useRoute();
 const { locale } = useI18n();
 
-const competitionSlug = computed(() => route.params.competition as string);
+const { teamTypeSlug = undefined } = defineProps<{
+  teamTypeSlug?: string;
+}>();
+
 const teamSlug = computed(() => route.params.team as string);
 
-const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(teamSlug.value, competitionSlug.value), {
+const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(teamSlug.value, teamTypeSlug || ""), {
   language: locale.value,
 });
 </script>

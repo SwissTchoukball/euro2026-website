@@ -82,6 +82,15 @@
           "frame-pivot": "Centre-cadre",
           "center": "Centre-centre"
         }
+      },
+      "type": {
+        "women": "Femmes",
+        "men": "Hommes",
+        "m18-boys": "M18 Garçons",
+        "m18-girls": "M18 Filles",
+        "m15-boys": "M15 Garçons",
+        "m15-girls": "M15 Filles",
+        "m40-men": "P40 Hommes"
       }
     },
     "name": {

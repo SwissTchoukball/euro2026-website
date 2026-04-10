@@ -1,6 +1,7 @@
 export const tchoukNetSlugIdMapping: {
   competitions: Record<string, { id: string; phases: Record<string, string>; teams: Record<string, string> }>;
   countries: Record<string, string>;
+  teamTypes: Record<string, string>;
   fields: Record<string, string>;
 } = {
   competitions: {
@@ -103,6 +104,15 @@ export const tchoukNetSlugIdMapping: {
     poland: "61f87a3e-8438-4564-8850-c1a6a73cca82",
     denmark: "e6d275e2-9f9b-49d1-bd0a-5476f3edb71a",
   },
+  teamTypes: {
+    women: "e0b97c58-92a5-42c5-b2d2-c8b8b20f37ae",
+    men: "2645efc6-c69e-45b4-8641-f91f3a3c51e3",
+    "m18-boys": "6182e133-2bbe-4f2a-a0ab-8de9f1559de2",
+    "m18-girls": "6525e7e1-2025-407f-a9fa-6fc0fa69a6f0",
+    "m15-boys": "8d8e6a07-4189-4ddc-b4d7-32094b4d8244",
+    "m15-girls": "",
+    "m40-men": "721c4b11-0a45-4451-aade-4ebfbead3f4a",
+  },
   fields: {
     "sport-toto-hall": "1f10fe55-a4e3-6120-8a85-ed1887cbefd5",
     "old-sports-hall": "1f10fe56-81c0-614c-bd63-491f7beb3e0b",
@@ -131,6 +141,14 @@ export function getFieldSlugFromId(id: string | undefined): string | undefined {
   }
   const field = Object.entries(tchoukNetSlugIdMapping.fields).find(([_slug, c]) => c === id);
   return field?.[0];
+}
+
+export function getTeamTypeSlugFromId(id: string | undefined): string | undefined {
+  if (!id) {
+    return;
+  }
+  const teamType = Object.entries(tchoukNetSlugIdMapping.teamTypes).find(([_slug, c]) => c === id);
+  return teamType?.[0];
 }
 
 export function getSlugFromId(

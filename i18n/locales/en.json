@@ -82,6 +82,15 @@
           "frame-pivot": "Frame pivot",
           "center": "Center"
         }
+      },
+      "type": {
+        "women": "Women",
+        "men": "Men",
+        "m18-boys": "M18 Boys",
+        "m18-girls": "M18 Girls",
+        "m15-boys": "M15 Boys",
+        "m15-girls": "M15 Girls",
+        "m40-men": "M40 Men"
       }
     },
     "name": {
