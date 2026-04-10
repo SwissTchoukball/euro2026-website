@@ -20,13 +20,13 @@
       <nav>
         <ul class="u-unstyled-list c-team__sub-navigation">
           <li>
-            <NuxtLink :to="localePath(`/competitions/${competitionSlug}/team/${teamSlug}/games`)">
-              {{ $t("competition.team.games") }}
+            <NuxtLink :to="localePath(`/competitions/${competitionSlug}/team/${teamSlug}/members`)">
+              {{ $t("competition.team.members.title") }}
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink :to="localePath(`/competitions/${competitionSlug}/team/${teamSlug}/members`)">
-              {{ $t("competition.team.members") }}
+            <NuxtLink :to="localePath(`/competitions/${competitionSlug}/team/${teamSlug}/games`)">
+              {{ $t("competition.team.games") }}
             </NuxtLink>
           </li>
         </ul>

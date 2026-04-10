@@ -38,6 +38,7 @@ defineProps<{
 .c-team-member {
   background-color: var(--euro-gray-050);
   border-radius: 0.5rem;
+  width: 250px;
   height: 100%;
   border: 1px solid var(--euro-gray-200);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
