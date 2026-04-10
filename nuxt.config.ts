@@ -71,12 +71,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ["eventemitter3", "vue-matomo"],
-    },
-    build: {
-      rollupOptions: {
-        external: ["swiss-projection"],
-      },
+      include: ["eventemitter3", "vue-matomo", "swiss-projection"],
     },
     server: {
       // This is only required for the `pnpm dev:tunnel` command
