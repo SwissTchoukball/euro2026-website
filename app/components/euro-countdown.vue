@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DateTimeArray } from "@maas/vue-equipment/composables";
+import { useCountdown, type DateTimeArray } from "@maas/vue-equipment/composables/useCountdown";
 import JSConfetti from "js-confetti";
 
 let jsConfetti: JSConfetti;
