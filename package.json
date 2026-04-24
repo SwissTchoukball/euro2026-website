@@ -23,6 +23,7 @@
     "@types/node": "^25.6.0",
     "@vueuse/nuxt": "^14.2.1",
     "eslint": "^10.2.0",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
     "js-confetti": "^0.12.0",
     "nuxt": "^4.4.2",
     "nuxt-kirby": "^3.0.3",
