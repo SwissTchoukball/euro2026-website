@@ -1,8 +1,8 @@
-import type { KirbyQuerySchema } from 'kirby-types'
+import type { KirbyQuerySchema } from "#nuxt-kirby";
 
 export const prefetchQuery: KirbyQuerySchema = {
-  query: 'site',
+  query: "site",
   select: {
-    languages: 'kirby.languages',
+    languages: "kirby.languages",
   },
-}
+};

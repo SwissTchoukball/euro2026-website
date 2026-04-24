@@ -10,7 +10,7 @@
         sizes="100vw sm:100vw md: 100vw lg:100vw xl:100vw"
         aria-hidden="true"
         alt=""
-        :placeholder="img(`/images/main_hero.jpg`, { h: 1000, f: 'webp', blur: 10, q: 50 })"
+        :placeholder="img(`/images/main_hero.jpg`, { height: 1000, format: 'webp', blur: 10, quality: 50 })"
         :modifiers="{ blur: 5 }"
       />
       <div class="c-index__hero-overlay">

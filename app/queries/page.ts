@@ -1,4 +1,4 @@
-import type { KirbyBlock, KirbyQueryResponse, KirbyQuerySchema } from "kirby-types";
+import type { KirbyBlock, KirbyQueryResponse, KirbyQuerySchema } from "#nuxt-kirby";
 
 export interface KirbySharedPageData {
   uri: string;

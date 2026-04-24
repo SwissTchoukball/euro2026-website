@@ -1,4 +1,4 @@
-import type { KirbyApiResponse } from "kirby-types";
+import type { KirbyApiResponse } from "#nuxt-kirby";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { joinURL, withoutTrailingSlash } from "ufo";
 
@@ -76,7 +76,7 @@ export default defineEventHandler(async (event) => {
       if (lang === "x-default") continue;
       if (url.includes("error") || url.includes("info-teams")) continue;
 
-      const alternateLinks = links.map((link) => ({
+      const alternateLinks = links.map((link: { lang: string; url: string }) => ({
         lang: link.lang,
         url: withoutTrailingSlash(joinURL(siteUrl, link.url)),
       }));

@@ -1,4 +1,4 @@
-import type { KirbyQueryResponse } from "kirby-types";
+import type { KirbyQueryResponse } from "#nuxt-kirby";
 
 export type KirbyDeadlinesData = {
   deadlines: {
