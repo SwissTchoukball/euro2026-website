@@ -1,6 +1,7 @@
-import type { KirbyApiResponse } from "#nuxt-kirby";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { joinURL, withoutTrailingSlash } from "ufo";
+
+import type { KirbyApiResponse } from "#nuxt-kirby";
 
 interface KirbySitemapItem {
   url: string;

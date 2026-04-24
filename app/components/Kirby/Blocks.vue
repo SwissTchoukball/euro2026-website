@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import type { KirbyBlock } from "#nuxt-kirby";
 import type { Component } from "vue";
+
 import {
+  LazyKirbyBlockCompetitionFeesAdults,
+  LazyKirbyBlockCompetitionFeesYouth,
+  LazyKirbyBlockDeadlines,
   LazyKirbyBlockHeading,
   LazyKirbyBlockImage,
   LazyKirbyBlockLine,
   LazyKirbyBlockList,
-  LazyKirbyBlockQuote,
-  LazyKirbyBlockText,
-  LazyKirbyBlockRichtext,
   LazyKirbyBlockPeerdomMap,
+  LazyKirbyBlockQuote,
+  LazyKirbyBlockRichtext,
   LazyKirbyBlockSchedule,
-  LazyKirbyBlockDeadlines,
-  LazyKirbyBlockCompetitionFeesYouth,
-  LazyKirbyBlockCompetitionFeesAdults,
   LazyKirbyBlockSwisstopoMap,
+  LazyKirbyBlockText,
   LazyKirbyBlockTwintDonationForm,
 } from "#components";
+import type { KirbyBlock } from "#nuxt-kirby";
 
 defineProps<{
   blocks: KirbyBlock<string>[];

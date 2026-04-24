@@ -1,4 +1,5 @@
 import process from "node:process";
+
 import { prefetchQuery, siteQuery } from "./app/queries";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config

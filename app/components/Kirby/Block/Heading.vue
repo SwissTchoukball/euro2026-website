@@ -5,8 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import type { KirbyBlock } from "#nuxt-kirby";
 import slugify from "@sindresorhus/slugify";
+
+import type { KirbyBlock } from "#nuxt-kirby";
 
 const { block } = defineProps<{
   block: KirbyBlock<"heading">;
