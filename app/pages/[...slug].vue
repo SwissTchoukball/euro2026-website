@@ -1,7 +1,10 @@
 <template>
   <main class="c-catch-all">
     <KirbyBlocks v-if="page?.blocks" :blocks="page.blocks" />
-    <div v-else>No blocks found</div>
+    <div v-else class="c-catch-all__not-found">
+      {{ $t("pageNotFound") }}<br />
+      <NuxtLink :to="localePath('/')" class="c-catch-all__not-found-link">{{ $t("backHome") }}</NuxtLink>
+    </div>
     <DevOnly>
       <AppDebugHelper :error="fetchError" />
     </DevOnly>
@@ -15,6 +18,7 @@ import { getPageQuery } from "~/queries";
 
 const { locale, availableLocales } = useI18n();
 const route = useRoute();
+const localePath = useLocalePath();
 
 // Extract the non-localized slug
 const pageUri = getNonLocalizedSlug(route.params.slug!, availableLocales);
@@ -34,12 +38,20 @@ if (!data?.result) {
 }
 
 // Store page data
-const page = data?.result;
-setPage(page);
+const page = computed(() => data?.result);
+setPage(page.value);
 </script>
 
 <style scoped>
 .c-catch-all {
   padding: var(--euro-spacing-8);
+}
+
+.c-catch-all__not-found {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--euro-color-text-secondary);
+  line-height: 1.5;
 }
 </style>

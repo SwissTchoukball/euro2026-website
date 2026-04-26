@@ -21,7 +21,9 @@ export function usePage<T extends Record<string, any> = Record<string, any>>() {
 /**
  * Sets the currently active page and updates the document head
  */
-export function setPage<T extends KirbySharedPageData & Record<string, any>>(page: T) {
+export function setPage<T extends KirbySharedPageData & Record<string, any>>(page: T | undefined) {
+  if (!page) return;
+
   usePage().value = page;
 
   // Build the page meta tags
@@ -29,26 +31,28 @@ export function setPage<T extends KirbySharedPageData & Record<string, any>>(pag
   const { $i18n: i18n } = useNuxtApp();
   const { defaultLocale } = i18n;
   const site = useSite();
-  const title = page.title ? `${page.title} – ${site.value.title}` : site.value.title;
-  const description = page.description || site.value.description;
-  const url = joinURL(siteUrl, useRoute().path);
-  const image = page?.cover?.url || site.value.cover?.url;
+  const title = computed(() => (page.title ? `${page.title} – ${site.value.title}` : site.value.title));
+  const description = computed(() => page.description || site.value.description);
+  const url = computed(() => joinURL(siteUrl, useRoute().path));
+  const image = computed(() => page?.cover?.url || site.value.cover?.url);
 
   // Build alternate URL
-  const alternateUrls = Object.entries(page.i18nMeta).map(([lang, meta]) => {
-    // Remove homepage slug and add leading language prefix
-    const uri = getLocalizedPath(meta.uri.replace(/^home/, "/"), lang, { ignorePrefix: lang === defaultLocale });
+  const alternateUrls = computed(() =>
+    Object.entries(page.i18nMeta).map(([lang, meta]) => {
+      // Remove homepage slug and add leading language prefix
+      const uri = getLocalizedPath(meta.uri.replace(/^home/, "/"), lang, { ignorePrefix: lang === defaultLocale });
 
-    return {
-      rel: "alternate",
-      hreflang: lang,
-      href: joinURL(siteUrl, uri),
-    };
-  });
+      return {
+        rel: "alternate",
+        hreflang: lang,
+        href: joinURL(siteUrl, uri),
+      };
+    })
+  );
 
   // Add primary locale as `x-default` for SEO
-  alternateUrls.push({
-    ...alternateUrls.find((i) => i.hreflang === defaultLocale)!,
+  alternateUrls.value.push({
+    ...alternateUrls.value.find((i) => i.hreflang === defaultLocale)!,
     hreflang: "x-default",
   });
 
@@ -60,22 +64,22 @@ export function setPage<T extends KirbySharedPageData & Record<string, any>>(pag
 
   if (import.meta.server) {
     useHead({
-      link: [{ rel: "canonical", href: url }, ...alternateUrls],
+      link: [{ rel: "canonical", href: url.value }, ...alternateUrls.value],
     });
   }
 
   useSeoMeta({
-    title,
+    title: title.value,
   });
 
   if (import.meta.server) {
     useSeoMeta({
-      description,
-      ogTitle: title,
-      ogDescription: description,
-      ogUrl: url,
+      description: description.value,
+      ogTitle: title.value,
+      ogDescription: description.value,
+      ogUrl: url.value,
       ogType: "website",
-      ...(image && { ogImage: image }),
+      ...(image.value && { ogImage: image.value }),
     });
   }
 

@@ -6,6 +6,10 @@
   "description": "Les championnats d'Europe de tchoukball 2026 auront lieu du 1er au 8 août 2026 à Macolin, en Suisse.",
   "logoAltText": "Logo des Championnats d'Europe de tchoukball 2026. Contient le texte “Euro Tchoukball Switzerland 2026”",
   "websiteOf": "Site web de {name}",
+  "breadcrumbs": "Fil d'Ariane",
+  "navigationFor": "Navigation pour {name}",
+  "pageNotFound": "Page non trouvée",
+  "backHome": "Retour à la page d'accueil",
   "navigation": {
     "schedule": "Programme",
     "location": "Lieu"

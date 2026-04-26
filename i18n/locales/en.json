@@ -6,6 +6,10 @@
   "description": "The 2026 European Tchoukball Championships will be held from 1 to 8 August 2026 in Magglingen, Switzerland.",
   "logoAltText": "Logo of the European Tchoukball Championships 2026. Contains the text “Euro Tchoukball Switzerland 2026”",
   "websiteOf": "Website of {name}",
+  "breadcrumbs": "Breadcrumbs",
+  "navigationFor": "Navigation for {name}",
+  "pageNotFound": "Page not found",
+  "backHome": "Back to the home page",
   "navigation": {
     "schedule": "Schedule",
     "location": "Location"
