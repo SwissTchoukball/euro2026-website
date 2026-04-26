@@ -72,8 +72,8 @@ const {
 });
 usePolling(refresh);
 
-const countryName = computed(() => teamCompetitionData.value?.team.countries[0]?.name || "");
-const countrySlug = computed(() => getCountrySlugFromId(teamCompetitionData.value?.team.countries[0]?.id));
+const countryName = computed(() => teamCompetitionData.value?.team.team_entity.countries[0]?.name || "");
+const countrySlug = computed(() => getCountrySlugFromId(teamCompetitionData.value?.team.team_entity.countries[0]?.id));
 
 const teamName = computed(() =>
   teamCompetitionData.value ? localizeCompetitionEntityName(teamCompetitionData.value.team.name) : ""
@@ -81,7 +81,7 @@ const teamName = computed(() =>
 const competitionName = computed(() =>
   competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : ""
 );
-const teamTypeSlug = computed(() => getTeamTypeSlugFromId(teamCompetitionData.value?.team.team_type?.id));
+const teamTypeSlug = computed(() => getTeamTypeSlugFromId(teamCompetitionData.value?.team.team_entity.team_type.id));
 const teamTypeName = computed(() => (teamTypeSlug.value ? t(`competition.team.type.${teamTypeSlug.value}`) : ""));
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {

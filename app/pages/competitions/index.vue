@@ -51,7 +51,7 @@ const subNavigationItems = computed(() => {
   if (!data.value?.event.competitions) {
     return [];
   }
-  return data.value.event.competitions.map((competition: TchoukNetCompetition) => ({
+  return data.value.event.competitions.map((competition: Pick<TchoukNetCompetition, "id" | "name">) => ({
     text: localizeCompetitionEntityName(competition.name),
     to: localePath({
       name: "competitions-competition",

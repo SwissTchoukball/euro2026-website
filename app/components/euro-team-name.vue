@@ -33,9 +33,9 @@ const {
 const competitionSlugFromRoute = computed(() => route.params.competition as string);
 const competitionSlugFromProps = computed(() => competition?.id && getCompetitionSlugFromId(competition.id));
 const competitionSlug = computed(() => competitionSlugFromProps.value || competitionSlugFromRoute.value);
-const teamSlug = computed(() => getSlugFromId(team?.identifier, competitionSlug.value, "teams"));
+const teamSlug = computed(() => getSlugFromId(team?.team_entity_identifier, competitionSlug.value, "teams"));
 
-const emojis = team?.countries?.map((country) => country.emoji).join(" ");
+const emojis = team?.team_entity?.countries?.map((country) => country.emoji).join(" ");
 </script>
 
 <style scoped>

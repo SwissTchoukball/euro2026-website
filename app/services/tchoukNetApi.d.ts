@@ -42,17 +42,24 @@ export type TchoukNetParticipation = {
   id: string;
 };
 
+export type TchoukNetTeamEntity = {
+  id: string;
+  current_name: string;
+  team_type: TchoukNetTeamType;
+  countries: TchoukNetCountry[];
+};
+
 export type TchoukNetTeamType = {
   id: string;
   name: string;
+  code: string;
 };
 
 export type TchoukNetTeam = {
   id: string;
   name: string;
-  identifier: string;
-  team_type?: TchoukNetTeamType;
-  countries: TchoukNetCountry[];
+  team_entity_identifier: string;
+  team_entity: TchoukNetTeamEntity;
 };
 
 export interface TchoukNetGameTeam {

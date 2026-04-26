@@ -69,7 +69,7 @@ const teamsNavigationItems = computed(() => {
       to: competitionSlug
         ? localePath(
             `/competitions/${competitionSlug}/team/${getSlugFromId(
-              participation.team.identifier,
+              participation.team.team_entity_identifier,
               competitionSlug,
               "teams"
             )}`

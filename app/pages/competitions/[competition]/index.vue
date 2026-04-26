@@ -44,12 +44,12 @@ const teamsNavigationItems = computed(() => {
     return [];
   }
   return data.value.competition.participations.map((participation: TchoukNetParticipation) => ({
-    text: `${participation.team.countries.map((country) => country.emoji).join("")} ${localizeCompetitionEntityName(
-      participation.team.name
-    )}`,
+    text: `${participation.team.team_entity.countries
+      .map((country) => country.emoji)
+      .join("")} ${localizeCompetitionEntityName(participation.team.name)}`,
     to: localePath(
       `/competitions/${competitionSlug.value}/team/${getSlugFromId(
-        participation.team.identifier,
+        participation.team.team_entity_identifier,
         competitionSlug.value,
         "teams"
       )}`

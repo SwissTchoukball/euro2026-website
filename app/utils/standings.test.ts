@@ -7,7 +7,12 @@ import { generateStandingsTeams, sortStandings, StandingSystem } from "./standin
 // --- Helpers ---
 
 function makeTeam(id: string, name: string): TchoukNetTeam {
-  return { id, name, identifier: id, countries: [] };
+  return {
+    id,
+    name,
+    team_entity_identifier: id,
+    team_entity: { id, current_name: name, team_type: { id: "1", name: "Team", code: "TEAM" }, countries: [] },
+  };
 }
 
 function makeGameTeam(team: TchoukNetTeam, totalPoints: number): TchoukNetGameTeam {

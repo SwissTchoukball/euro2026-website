@@ -52,13 +52,13 @@ const competitions = computed<
           .map((participation: TchoukNetParticipation) => {
             const competitionSlug = getCompetitionSlugFromId(participation.competition?.id);
             return {
-              text: `${participation.team.countries
+              text: `${participation.team.team_entity.countries
                 .map((country) => country.emoji)
                 .join("")} ${localizeCompetitionEntityName(participation.team.name)}`,
               to: competitionSlug
                 ? localePath(
                     `/competitions/${competitionSlug}/team/${getSlugFromId(
-                      participation.team.identifier,
+                      participation.team.team_entity_identifier,
                       competitionSlug,
                       "teams"
                     )}`

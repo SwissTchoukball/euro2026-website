@@ -14,7 +14,8 @@ export const tchoukNetSlugIdMapping: {
         final: "1f10f748-4c46-6b7a-af2b-658c4bdd87e7",
       },
       teams: {
-        switzerland: "1ee77445-df48-66bc-974d-d5bfaf60913b",
+        "switzerland-a": "1ee77445-df48-66bc-974d-d5bfaf60913b",
+        "switzerland-b": "1f14163d-204b-6cd4-9ed3-3bc7f2227f91",
         italy: "1ee77446-f196-69da-8e7f-af10bd10cc85",
         "united-kingdom": "1ef45c93-cb6f-64ae-8266-0134a323160a",
         germany: "1ee77447-6ee8-6708-8b22-a38ded5a3291",
@@ -36,6 +37,7 @@ export const tchoukNetSlugIdMapping: {
         germany: "1ee77445-1cf1-6dca-8d07-735f59cc67f0",
         spain: "1ee77443-0eee-6720-8ca4-a77f08bedd26",
         denmark: "1f10f175-d99b-6d46-bb5e-47b38a41e09a",
+        "czech-republic": "1f140794-9d79-6dbc-b1fd-59837f035f19",
       },
     },
     "m18-boys": {
@@ -59,6 +61,8 @@ export const tchoukNetSlugIdMapping: {
       phases: {},
       teams: {
         switzerland: "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
+        "switzerland-m15-bejune": "1f141642-5b4e-68f4-8c31-a158ab8a006d",
+        "switzerland-m15-ge": "1f141643-efd0-66de-87c2-a3934d6bf097",
         poland: "1f13442d-1b3e-67ba-9bfc-d11ab8bed161",
         "united-kingdom": "1f133728-6926-6cd2-87ce-5fddc426291f",
       },
@@ -72,7 +76,8 @@ export const tchoukNetSlugIdMapping: {
         final: "1f134467-d7f2-63d6-8f17-eb0c9f5bd0aa",
       },
       teams: {
-        switzerland: "1f131c23-5ec1-6c80-a238-1519de508deb",
+        "switzerland-ge": "1f131c23-5ec1-6c80-a238-1519de508deb",
+        "switzerland-bejune": "1f141658-ce09-6ee6-be9a-ef13144c058c",
         "united-kingdom": "1f131c25-540d-67f6-82d8-533908b87aa1",
         poland: "1f131c25-d878-6248-be60-e1eccba7dc20",
         italy: "1f131c24-7ef3-664c-9599-97dbca60d2cf",
@@ -110,7 +115,7 @@ export const tchoukNetSlugIdMapping: {
     "m18-boys": "6182e133-2bbe-4f2a-a0ab-8de9f1559de2",
     "m18-girls": "6525e7e1-2025-407f-a9fa-6fc0fa69a6f0",
     "m15-boys": "8d8e6a07-4189-4ddc-b4d7-32094b4d8244",
-    "m15-girls": "",
+    "m15-girls": "800585a1-e7b8-4fa6-ac69-1c3f2925c61b",
     "m40-men": "721c4b11-0a45-4451-aade-4ebfbead3f4a",
   },
   fields: {
