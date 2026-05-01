@@ -108,6 +108,7 @@ export const tchoukNetSlugIdMapping: {
     spain: "ed5b3058-67a6-48f1-b799-53d1a390a582",
     poland: "61f87a3e-8438-4564-8850-c1a6a73cca82",
     denmark: "e6d275e2-9f9b-49d1-bd0a-5476f3edb71a",
+    "czech-republic": "0b17469a-8b67-4d9b-aba0-1f462821e71b",
   },
   teamTypes: {
     women: "e0b97c58-92a5-42c5-b2d2-c8b8b20f37ae",
