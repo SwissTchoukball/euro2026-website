@@ -15,9 +15,6 @@
     "location": "Standort"
   },
   "home": {
-    "intro": "Die {formattedEtc} ist ein Wettbewerb der {formattedFitb} (FITB), überwacht von der {formattedEtbf} (ETBF).",
-    "bidWon": "{formattedSwissTchoukball} hat den Zuschlag für die Ausrichtung der Veranstaltung im Jahr 2026 {wonWithLinkToNews}.",
-    "won": "erhalten",
     "becomeVolunteer": "Freiwilliger werden",
     "supportTheEvent": "Veranstaltung unterstützen"
   },
@@ -45,5 +42,8 @@
     "main": "Hauptpartner",
     "operational": "Operative Partner",
     "federalOfficeOfSport": "Bundesamt für Sport BASPO"
+  },
+  "about": {
+    "intro": "Die {formattedEtc} sind ein Wettbewerb der {formattedFitb} (FITB), überwacht von der {formattedEtbf} (ETBF), und organisiert von {formattedSwissTchoukball}."
   }
 }

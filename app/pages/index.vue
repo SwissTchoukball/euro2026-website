@@ -24,51 +24,38 @@
       <EuroCountdown class="c-index__countdown" />
     </section>
 
-    <section class="l-section">
-      <i18n-t keypath="home.intro" tag="p" class="l-paragraph c-index__intro-text">
-        <template #formattedEtc>
-          <em>{{ $t("etc.long") }}</em>
-        </template>
-        <template #formattedFitb>
-          <a href="https://fitb.org">{{ $t("fitb.long") }}</a>
-        </template>
-        <template #formattedEtbf>
-          <a href="https://tchoukball.eu">{{ $t("etbf.long") }}</a>
-        </template>
-      </i18n-t>
-      <i18n-t keypath="home.bidWon" tag="p" class="l-paragraph c-index__intro-text">
-        <template #formattedSwissTchoukball>
-          <a href="https://tchoukball.ch">Swiss Tchoukball</a>
-        </template>
-        <template #wonWithLinkToNews>
-          <a
-            href="https://tchoukball.ch/news/470-la-suisse-va-accueillir-les-championnats-d-europe-de-tchoukball-en-2026"
-            >{{ $t("home.won") }}</a
-          >
-        </template>
-      </i18n-t>
-      <ul class="u-unstyled-list c-index__federation-logos">
+    <section class="l-section c-index__countries">
+      <ul class="u-unstyled-list c-index__countries-list">
         <li>
-          <a href="https://fitb.org" :title="$t('websiteOf', { name: $t('fitb.longWithDefiniteArticle') })">
-            <img class="c-index__federation-logo" src="/images/logo-fitb.svg" alt="Logo of the FITB" />
-          </a>
+          <Icon name="twemoji:flag-czechia" class="c-index__country-flag" />
         </li>
         <li>
-          <a href="https://etbf.org" :title="$t('websiteOf', { name: $t('etbf.longWithDefiniteArticle') })">
-            <img class="c-index__federation-logo" src="/images/logo-etbf.svg" alt="Logo of the ETBF" />
-          </a>
+          <Icon name="twemoji:flag-denmark" class="c-index__country-flag" />
         </li>
         <li>
-          <a href="https://tchoukball.ch" :title="$t('websiteOf', { name: 'Swiss Tchoukball' })">
-            <img
-              class="c-index__federation-logo"
-              src="/images/logo-swiss-tchoukball.svg"
-              alt="Logo of Swiss Tchoukball"
-            />
-          </a>
+          <Icon name="twemoji:flag-france" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-germany" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-italy" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-poland" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-spain" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-switzerland" class="c-index__country-flag" />
+        </li>
+        <li>
+          <Icon name="twemoji:flag-united-kingdom" class="c-index__country-flag" />
         </li>
       </ul>
     </section>
+
     <section class="l-section">
       <div class="c-index__engagement-links">
         <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__engagement-link-button">
@@ -147,25 +134,23 @@ useHead({
   margin: auto;
 }
 
-.c-index__intro-text {
-  font-size: clamp(1rem, 4vw, 1.5rem);
-  font-weight: bold;
-  text-align: center;
-  text-wrap: balance;
-  margin-inline: auto;
+.c-index__countries {
+  background-color: var(--euro-sky-blue-500);
+  clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  padding-block: clamp(var(--euro-spacing-16), 4vw, var(--euro-spacing-24));
 }
 
-.c-index__federation-logos {
+.c-index__countries-list {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: var(--euro-spacing-12);
-  gap: var(--euro-spacing-12);
+  flex-wrap: wrap;
+  gap: clamp(var(--euro-spacing-3), 2vw, var(--euro-spacing-6));
 }
 
-.c-index__federation-logo {
-  height: 15vw;
-  max-height: 5rem;
+.c-index__country-flag {
+  width: clamp(3rem, 8vw, 6rem);
+  height: clamp(3rem, 8vw, 6rem);
 }
 
 .c-index__engagement-links {

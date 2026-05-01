@@ -40,6 +40,45 @@
       </ul>
     </div>
 
+    <div class="c-footer__about">
+      <i18n-t keypath="about.intro">
+        <template #formattedEtc>
+          <em>{{ $t("etc.long") }}</em>
+        </template>
+        <template #formattedFitb>
+          <a href="https://fitb.org">{{ $t("fitb.long") }}</a>
+        </template>
+        <template #formattedEtbf>
+          <a href="https://tchoukball.eu">{{ $t("etbf.long") }}</a>
+        </template>
+        <template #formattedSwissTchoukball>
+          <a href="https://tchoukball.ch">Swiss Tchoukball</a>
+        </template>
+      </i18n-t>
+
+      <ul class="u-unstyled-list c-footer__federation-logos">
+        <li>
+          <a href="https://fitb.org" :title="$t('websiteOf', { name: $t('fitb.longWithDefiniteArticle') })">
+            <img class="c-footer__federation-logo" src="/images/logo-fitb.svg" alt="Logo of the FITB" />
+          </a>
+        </li>
+        <li>
+          <a href="https://etbf.org" :title="$t('websiteOf', { name: $t('etbf.longWithDefiniteArticle') })">
+            <img class="c-footer__federation-logo" src="/images/logo-etbf.svg" alt="Logo of the ETBF" />
+          </a>
+        </li>
+        <li>
+          <a href="https://tchoukball.ch" :title="$t('websiteOf', { name: 'Swiss Tchoukball' })">
+            <img
+              class="c-footer__federation-logo"
+              src="/images/logo-swiss-tchoukball.svg"
+              alt="Logo of Swiss Tchoukball"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <div class="c-footer__social-icons">
       <a
         href="https://instagram.com/euro2026tchoukball"
@@ -68,7 +107,7 @@
 
 <style scoped>
 .c-footer {
-  margin-block: var(--euro-spacing-8);
+  margin-top: var(--euro-spacing-8);
 }
 
 .c-footer__sponsors {
@@ -127,14 +166,34 @@
   transform: translateY(-20px);
 }
 
+.c-footer__about {
+  margin: var(--euro-spacing-8);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.c-footer__federation-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--euro-spacing-8);
+  gap: var(--euro-spacing-8);
+}
+
+.c-footer__federation-logo {
+  height: 5vw;
+  max-height: 3rem;
+}
+
 .c-footer__social-icons {
-  padding-top: var(--euro-spacing-4);
+  padding-block: var(--euro-spacing-4);
 
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  background-color: var(--euro-sky-blue-500);
 }
 
 .c-footer__social-logo {
@@ -143,7 +202,7 @@
 }
 
 .c-footer__social-logo-link {
-  color: #999;
+  color: white;
   text-decoration: none;
 }
 
