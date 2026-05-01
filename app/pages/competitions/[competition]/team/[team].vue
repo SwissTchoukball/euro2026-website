@@ -34,7 +34,7 @@
       <euro-loading-indicator v-if="!teamCompetitionData && teamCompetitionStatus === 'pending'" for-section />
     </section>
 
-    <NuxtPage v-if="teamTypeSlug" :team-competition-data="teamCompetitionData" :team-type-slug="teamTypeSlug" />
+    <NuxtPage v-if="teamTypeSlug" :team-competition-data="teamCompetitionData" />
   </main>
 </template>
 

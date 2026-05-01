@@ -19,7 +19,6 @@
     <section v-if="data" class="l-section">
       <euro-game-list :games="data.games" :show-competition="false" />
     </section>
-    <!-- <pre>{{ data }}</pre> -->
     <euro-powered-by-tchouk-net />
   </main>
 </template>

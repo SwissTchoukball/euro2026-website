@@ -11,9 +11,9 @@
             {{ localizeCompetitionEntityName(competition.name) }}
           </NuxtLink>
         </h3>
-        <euro-sub-navigation
-          :title="$t('competition.team.title', competition.teamsNavigationItems.length)"
-          :items="competition.teamsNavigationItems"
+        <euro-team-navigation
+          :title="$t('competition.team.title', competition.participations.length)"
+          :participations="competition.participations"
         />
       </template>
     </section>
@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCompetitionSlugFromId, getSlugFromId } from "@/services/tchoukNetSlugIdMapping";
+import { getCompetitionSlugFromId } from "@/services/tchoukNetSlugIdMapping";
 import type { TchoukNetCompetition, TchoukNetParticipation } from "~/services/tchoukNetApi";
 
 const { t } = useI18n();
@@ -38,34 +38,14 @@ const breadcrumbs = computed(() => {
 });
 
 const competitions = computed<
-  (Pick<TchoukNetCompetition, "id" | "name"> & { teamsNavigationItems: { text: string; to: string }[] })[]
+  (Pick<TchoukNetCompetition, "id" | "name"> & {
+    participations: TchoukNetParticipation[];
+  })[]
 >(() => {
   return (
     data.value?.event.competitions.map((competition) => ({
       ...competition,
-      teamsNavigationItems:
-        data.value?.participations
-          .filter((p) => p.competition?.id === competition.id)
-          .sort((a, b) =>
-            localizeCompetitionEntityName(a.team.name).localeCompare(localizeCompetitionEntityName(b.team.name))
-          )
-          .map((participation: TchoukNetParticipation) => {
-            const competitionSlug = getCompetitionSlugFromId(participation.competition?.id);
-            return {
-              text: `${participation.team.team_entity.countries
-                .map((country) => country.emoji)
-                .join("")} ${localizeCompetitionEntityName(participation.team.name)}`,
-              to: competitionSlug
-                ? localePath(
-                    `/competitions/${competitionSlug}/team/${getSlugFromId(
-                      participation.team.team_entity_identifier,
-                      competitionSlug,
-                      "teams"
-                    )}`
-                  )
-                : "",
-            };
-          }) || [],
+      participations: data.value?.participations.filter((p) => p.competition?.id === competition.id) || [],
     })) || []
   );
 });

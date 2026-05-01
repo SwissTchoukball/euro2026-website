@@ -23,10 +23,13 @@
     class="l-section no-games-section"
   >
     <p>{{ $t("competition.game.emptyList") }}</p>
+    <Icon icon="ph:court-basketball-duotone" width="100" height="100" />
   </section>
 </template>
 
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 import type { TchoukNetPlanningOverview } from "~/services/tchoukNetApi";
 
 defineProps<{
@@ -41,5 +44,9 @@ defineProps<{
 
 .no-games-section {
   text-align: center;
+
+  svg {
+    opacity: 0.5;
+  }
 }
 </style>

@@ -70,7 +70,6 @@
       </div>
     </li>
   </ol>
-  <!-- <pre>{{ standings }}</pre> -->
 </template>
 
 <script setup lang="ts">

@@ -55,7 +55,7 @@
       "ongoing": "Ongoing game | Ongoing games",
       "last": "Last game | Last games",
       "upcoming": "Upcoming game | Upcoming games",
-      "emptyList": "There are no games to show at the moment.",
+      "emptyList": "No games to show at the moment.",
       "moreDetails": "More details",
       "watchVideo": "Watch video"
     },
@@ -75,7 +75,7 @@
       "games": "Games",
       "members": {
         "title": "Team members",
-        "emptyList": "There are no team members to show at the moment."
+        "emptyList": "No team members to show at the moment."
       },
       "member": {
         "position": {
@@ -100,16 +100,25 @@
       "Switzerland": "Switzerland",
       "Switzerland A": "Switzerland A",
       "Switzerland B": "Switzerland B",
+      "Switzerland M18": "Switzerland M18",
+      "Switzerland GE": "Switzerland GE",
+      "Switzerland BEJUNE": "Switzerland BEJUNE",
+      "Switzerland M15 GE": "Switzerland M15 GE",
+      "Switzerland M15 BEJUNE": "Switzerland M15 BEJUNE",
       "Italy": "Italy",
       "United Kingdom": "United Kingdom",
+      "United Kingdom M18": "United Kingdom M18",
       "Germany": "Germany",
       "Spain": "Spain",
       "Denmark": "Denmark",
       "France": "France",
+      "Poland": "Poland",
+      "Poland M15": "Poland M15",
+      "Czech Republic": "Czech Republic",
       "Women": "Women",
       "Men": "Men",
       "M18 Boys": "M18 Boys",
-      "M18 Girls": "M18 Girls",
+      "Girls": "Girls",
       "M15 Boys": "M15 Boys",
       "M15 Girls": "M15 Girls",
       "M40 Men": "M40 Men",

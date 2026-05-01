@@ -56,15 +56,15 @@ export const tchoukNetSlugIdMapping: {
         "united-kingdom": "1f10f157-69bf-68f6-b2b2-21862f54a804",
       },
     },
-    "m18-girls": {
+    girls: {
       id: "1f0a5f32-1119-6930-8daa-afbb08724b79",
       phases: {},
       teams: {
-        switzerland: "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
+        "switzerland-m18": "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
         "switzerland-m15-bejune": "1f141642-5b4e-68f4-8c31-a158ab8a006d",
         "switzerland-m15-ge": "1f141643-efd0-66de-87c2-a3934d6bf097",
-        poland: "1f13442d-1b3e-67ba-9bfc-d11ab8bed161",
-        "united-kingdom": "1f133728-6926-6cd2-87ce-5fddc426291f",
+        "poland-m15": "1f13442d-1b3e-67ba-9bfc-d11ab8bed161",
+        "united-kingdom-m18": "1f133728-6926-6cd2-87ce-5fddc426291f",
       },
     },
     "m15-boys": {

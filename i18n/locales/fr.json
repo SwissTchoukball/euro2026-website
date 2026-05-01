@@ -55,7 +55,7 @@
       "ongoing": "Match en cours | Matchs en cours",
       "last": "Dernier match | Derniers matchs",
       "upcoming": "Match à venir | Matchs à venir",
-      "emptyList": "Il n'y a pas de matchs à afficher pour le moment.",
+      "emptyList": "Aucun match à afficher pour le moment.",
       "moreDetails": "Plus de détails",
       "watchVideo": "Regarder la vidéo"
     },
@@ -75,7 +75,7 @@
       "games": "Matchs",
       "members": {
         "title": "Membres de l'équipe",
-        "emptyList": "Il n'y a pas de membres de l'équipe à afficher pour le moment."
+        "emptyList": "Aucun membre de l'équipe à afficher pour le moment."
       },
       "member": {
         "position": {
@@ -100,16 +100,25 @@
       "Switzerland": "Suisse",
       "Switzerland A": "Suisse A",
       "Switzerland B": "Suisse B",
+      "Switzerland M18": "Suisse M18",
+      "Switzerland GE": "Suisse GE",
+      "Switzerland BEJUNE": "Suisse BEJUNE",
+      "Switzerland M15 GE": "Suisse M15 GE",
+      "Switzerland M15 BEJUNE": "Suisse M15 BEJUNE",
       "Italy": "Italie",
       "United Kingdom": "Royaume-Uni",
+      "United Kingdom M18": "Royaume-Uni M18",
       "Germany": "Allemagne",
       "Spain": "Espagne",
       "Denmark": "Danemark",
       "France": "France",
+      "Poland": "Pologne",
+      "Poland M15": "Pologne M15",
+      "Czech Republic": "République tchèque",
       "Women": "Femmes",
       "Men": "Hommes",
       "M18 Boys": "M18 Garçons",
-      "M18 Girls": "M18 Filles",
+      "Girls": "Filles",
       "M15 Boys": "M15 Garçons",
       "M15 Girls": "M15 Filles",
       "M40 Men": "P40 Hommes",

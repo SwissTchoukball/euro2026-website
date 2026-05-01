@@ -25,7 +25,6 @@
     </section>
 
     <euro-powered-by-tchouk-net />
-    <!-- <pre>{{ data }}</pre> -->
   </main>
 </template>
 

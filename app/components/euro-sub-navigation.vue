@@ -30,7 +30,7 @@ defineProps<{
 .c-sub-navigation__item-link {
   display: block;
   padding: var(--euro-spacing-1) var(--euro-spacing-2);
-  background-color: var(--euro-gray-050);
+  background-color: var(--euro-gray-100);
   color: var(--euro-color-text-primary);
   border-radius: 0.5rem;
   font-size: 0.9rem;
@@ -41,7 +41,7 @@ defineProps<{
   &:hover,
   &:focus-visible {
     background-color: var(--euro-sky-blue-500);
-    color: white;
+    color: inherit;
   }
 
   &.router-link-exact-active {
