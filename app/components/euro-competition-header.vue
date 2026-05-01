@@ -1,6 +1,6 @@
 <template>
   <section class="l-section">
-    <euro-loading-indicator v-if="asyncDataStatus === 'pending'" for-section />
+    <euro-loading-indicator v-if="!competition && asyncDataStatus === 'pending'" for-section />
     <div v-else-if="asyncDataStatus === 'error'">Error loading competition data.</div>
     <h2 v-if="competition" class="t-headline-1">{{ localizeCompetitionEntityName(competition.name) }}</h2>
     <euro-sub-navigation
