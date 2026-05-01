@@ -12,9 +12,12 @@
   "backHome": "Back to the home page",
   "navigation": {
     "schedule": "Schedule",
-    "location": "Location"
+    "competitions": "Competitions",
+    "location": "Location",
+    "teams": "Teams"
   },
   "home": {
+    "breadcrumbTitle": "Home",
     "becomeVolunteer": "Become a volunteer",
     "supportTheEvent": "Support the event"
   },
@@ -37,6 +40,106 @@
     "hours": "hour | hours",
     "minutes": "minute | minutes",
     "seconds": "second | seconds"
+  },
+  "competition": {
+    "title": "Competition | Competitions",
+    "seeAllGames": "See all games",
+    "poweredBy": "Competitions powered by",
+    "phase": {
+      "title": "Phase | Phases"
+    },
+    "countries": {
+      "title": "Countries"
+    },
+    "game": {
+      "ongoing": "Ongoing game | Ongoing games",
+      "last": "Last game | Last games",
+      "upcoming": "Upcoming game | Upcoming games",
+      "emptyList": "No games to show at the moment.",
+      "moreDetails": "More details",
+      "watchVideo": "Watch video"
+    },
+    "standings": {
+      "points": "Points",
+      "played": "Played",
+      "won": "Won",
+      "lost": "Lost",
+      "drawn": "Drawn",
+      "for": "For",
+      "against": "Against",
+      "difference": "Diff."
+    },
+    "team": {
+      "title": "Team | Teams",
+      "seeAllFromCountry": "See all teams from {countryName}",
+      "games": "Games",
+      "members": {
+        "title": "Team members",
+        "emptyList": "No team members to show at the moment."
+      },
+      "member": {
+        "position": {
+          "right-winger": "Right-winger",
+          "left-winger": "Left-winger",
+          "winger": "Winger",
+          "frame-pivot": "Frame pivot",
+          "center": "Center"
+        }
+      },
+      "type": {
+        "women": "Women",
+        "men": "Men",
+        "m18-boys": "M18 Boys",
+        "m18-girls": "M18 Girls",
+        "m15-boys": "M15 Boys",
+        "m15-girls": "M15 Girls",
+        "m40-men": "M40 Men"
+      }
+    },
+    "name": {
+      "Switzerland": "Switzerland",
+      "Switzerland A": "Switzerland A",
+      "Switzerland B": "Switzerland B",
+      "Switzerland M18": "Switzerland M18",
+      "Switzerland GE": "Switzerland GE",
+      "Switzerland BEJUNE": "Switzerland BEJUNE",
+      "Switzerland M15 GE": "Switzerland M15 GE",
+      "Switzerland M15 BEJUNE": "Switzerland M15 BEJUNE",
+      "Italy": "Italy",
+      "United Kingdom": "United Kingdom",
+      "United Kingdom M18": "United Kingdom M18",
+      "Germany": "Germany",
+      "Spain": "Spain",
+      "Denmark": "Denmark",
+      "France": "France",
+      "Poland": "Poland",
+      "Poland M15": "Poland M15",
+      "Czech Republic": "Czech Republic",
+      "Women": "Women",
+      "Men": "Men",
+      "M18 Boys": "M18 Boys",
+      "Girls": "Girls",
+      "M15 Boys": "M15 Boys",
+      "M15 Girls": "M15 Girls",
+      "M40 Men": "M40 Men",
+      "Round-robin": "Round-robin",
+      "1st of round-robin": "1st of round-robin",
+      "2nd of round-robin": "2nd of round-robin",
+      "3rd of round-robin": "3rd of round-robin",
+      "4th of round-robin": "4th of round-robin",
+      "Semi-finals": "Semi-finals",
+      "Semi-final 1": "Semi-final 1",
+      "Semi-final 2": "Semi-final 2",
+      "Looser of semi-final 1": "Looser of semi-final 1",
+      "Looser of semi-final 2": "Looser of semi-final 2",
+      "Winner of semi-final 1": "Winner of semi-final 1",
+      "Winner of semi-final 2": "Winner of semi-final 2",
+      "5th place final": "5th place final",
+      "3rd place final": "3rd place final",
+      "Final": "Final",
+      "Sport-Toto hall": "Sport-Toto hall",
+      "Old sports hall": "Old sports hall"
+    }
   },
   "sponsors": {
     "main": "Main partners",

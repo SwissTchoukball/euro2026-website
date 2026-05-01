@@ -2,6 +2,14 @@
   <DefineNavTemplate>
     <nav class="c-header__nav">
       <ul class="u-unstyled-list c-header__nav-list">
+        <li>
+          <NuxtLink :to="localePath('/teams')" @click="isSidePanelOpen = false">{{ $t("navigation.teams") }}</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localePath('/competitions')" @click="isSidePanelOpen = false">{{
+            $t("navigation.competitions")
+          }}</NuxtLink>
+        </li>
         <li v-for="(item, index) in listedChildren" :key="index">
           <NuxtLink
             :to="localePath(`/${item.uri}`)"
@@ -87,7 +95,7 @@ const isSidePanelOpen = ref(false);
 
 /* Shifting content after header down */
 .c-header__bar:deep(+ *) {
-  margin-top: var(--euro-header-logo-height);
+  margin-top: var(--euro-header-height);
 }
 
 .body-header-hover .c-header__bar:deep(+ *) {

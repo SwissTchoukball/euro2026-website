@@ -26,10 +26,32 @@ a:visited {
   color: #00567c;
   text-decoration-thickness: 0.05em;
   text-underline-offset: 0.15em;
-}
 
-a:hover {
-  color: var(--euro-sky-blue-500);
+  &:hover {
+    color: var(--euro-sky-blue-500);
+  }
+
+  h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+    color: initial;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--euro-blue-500);
+      transition: color 0.2s;
+    }
+
+    &::after {
+      content: "→";
+      color: transparent;
+      margin-left: 0;
+      transition: margin-left 0.2s, color 0.2s;
+    }
+
+    &:hover::after {
+      color: var(--euro-blue-500);
+      margin-left: var(--euro-spacing-2);
+    }
+  }
 }
 
 ul {
@@ -74,8 +96,12 @@ dt {
 }
 
 .l-section {
-  padding: var(--euro-spacing-16) var(--euro-spacing-8);
+  margin: var(--euro-spacing-16) var(--euro-spacing-8);
   scroll-margin-top: var(--euro-header-height);
+}
+
+.l-section:first-of-type {
+  margin-top: var(--euro-spacing-8);
 }
 
 .l-section--centered-text,

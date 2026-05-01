@@ -138,6 +138,8 @@ useHead({
   background-color: var(--euro-sky-blue-500);
   clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
   padding-block: clamp(var(--euro-spacing-16), 4vw, var(--euro-spacing-24));
+  padding-inline: var(--euro-spacing-8);
+  margin-inline: 0;
 }
 
 .c-index__countries-list {

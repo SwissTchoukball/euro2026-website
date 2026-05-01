@@ -1,9 +1,6 @@
 name: Build and deploy
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   CI:
@@ -35,6 +32,9 @@ jobs:
 
       - name: Run linter 👀
         run: npm run lint
+
+      - name: Run tests 🧪
+        run: npm test
 
       - name: Build 🔨
         env:

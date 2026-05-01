@@ -12,9 +12,12 @@
   "backHome": "Zur Startseite",
   "navigation": {
     "schedule": "Zeitplan",
-    "location": "Standort"
+    "competitions": "Wettbewerbe",
+    "location": "Standort",
+    "teams": "Teams"
   },
   "home": {
+    "breadcrumbTitle": "Startseite",
     "becomeVolunteer": "Freiwilliger werden",
     "supportTheEvent": "Veranstaltung unterstützen"
   },
@@ -37,6 +40,106 @@
     "hours": "Stunde | Stunden",
     "minutes": "Minute | Minuten",
     "seconds": "Sekunde | Sekunden"
+  },
+  "competition": {
+    "title": "Wettbewerb | Wettbewerbe",
+    "seeAllGames": "Alle Spiele anzeigen",
+    "poweredBy": "Wettbewerbe powered by",
+    "phase": {
+      "title": "Phase | Phasen"
+    },
+    "countries": {
+      "title": "Länder"
+    },
+    "game": {
+      "ongoing": "Laufendes Spiel | Laufende Spiele",
+      "last": "Letzter Spiel | Letzte Spiele",
+      "upcoming": "Nächstes Spiel | Nächste Spiele",
+      "emptyList": "Keine Spiele zum Anzeigen.",
+      "moreDetails": "Mehr Details",
+      "watchVideo": "Video ansehen"
+    },
+    "standings": {
+      "points": "Punkte",
+      "played": "Gespielt",
+      "won": "Gewonnen",
+      "lost": "Verloren",
+      "drawn": "Unentschieden",
+      "for": "Für",
+      "against": "Gegen",
+      "difference": "Diff."
+    },
+    "team": {
+      "title": "Team | Teams",
+      "seeAllFromCountry": "Alle Teams aus {countryName} anzeigen",
+      "games": "Spiele",
+      "members": {
+        "title": "Teammitglieder",
+        "emptyList": "Keine Teammitglieder zum Anzeigen."
+      },
+      "member": {
+        "position": {
+          "right-winger": "Rechter Flügelspieler",
+          "left-winger": "Linker Flügelspieler",
+          "winger": "Flügelspieler",
+          "frame-pivot": "Rahmenpivot",
+          "center": "Mittelfeldspieler"
+        }
+      },
+      "type": {
+        "women": "Frauen",
+        "men": "Männer",
+        "m18-boys": "M18 Jungen",
+        "m18-girls": "M18 Mädchen",
+        "m15-boys": "M15 Jungen",
+        "m15-girls": "M15 Mädchen",
+        "m40-men": "M40 Männer"
+      }
+    },
+    "name": {
+      "Switzerland": "Schweiz",
+      "Switzerland A": "Schweiz A",
+      "Switzerland B": "Schweiz B",
+      "Switzerland M18": "Schweiz M18",
+      "Switzerland GE": "Schweiz GE",
+      "Switzerland BEJUNE": "Schweiz BEJUNE",
+      "Switzerland M15 GE": "Schweiz M15 GE",
+      "Switzerland M15 BEJUNE": "Schweiz M15 BEJUNE",
+      "Italy": "Italien",
+      "United Kingdom": "Vereinigtes Königreich",
+      "United Kingdom M18": "Vereinigtes Königreich M18",
+      "Germany": "Deutschland",
+      "Spain": "Spanien",
+      "Denmark": "Dänemark",
+      "France": "Frankreich",
+      "Poland": "Polen",
+      "Poland M15": "Polen M15",
+      "Czech Republic": "Tschechische Republik",
+      "Women": "Frauen",
+      "Men": "Männer",
+      "M18 Boys": "M18 Jungen",
+      "Girls": "Mädchen",
+      "M15 Boys": "M15 Jungen",
+      "M15 Girls": "M15 Mädchen",
+      "M40 Men": "M40 Männer",
+      "Round-robin": "Vorrunde",
+      "1st of round-robin": "1. der Vorrunde",
+      "2nd of round-robin": "2. der Vorrunde",
+      "3rd of round-robin": "3. der Vorrunde",
+      "4th of round-robin": "4. der Vorrunde",
+      "Semi-finals": "Halbfinale",
+      "Semi-final 1": "Halbfinale 1",
+      "Semi-final 2": "Halbfinale 2",
+      "Looser of semi-final 1": "Verlierer der Halbfinale 1",
+      "Looser of semi-final 2": "Verlierer der Halbfinale 2",
+      "Winner of semi-final 1": "Gewinner der Halbfinale 1",
+      "Winner of semi-final 2": "Gewinner der Halbfinale 2",
+      "5th place final": "5. Platz Finale",
+      "3rd place final": "Kleines Finale",
+      "Final": "Finale",
+      "Sport-Toto hall": "Sport-Toto Halle",
+      "Old sports hall": "Alte Sporthalle"
+    }
   },
   "sponsors": {
     "main": "Hauptpartner",

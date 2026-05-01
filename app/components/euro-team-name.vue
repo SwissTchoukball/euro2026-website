@@ -1,0 +1,59 @@
+<template>
+  <NuxtLink
+    v-if="team"
+    :to="$localePath(`/competitions/${competitionSlug}/team/${teamSlug}`)"
+    class="c-team-name"
+    :class="{ 'c-team-name--winner': winner }"
+  >
+    {{ emojis }} {{ localizeCompetitionEntityName(team.name) }}
+  </NuxtLink>
+  <span v-else class="c-team-name c-team-name--placeholder">
+    {{ label ? localizeCompetitionEntityName(label) : "---" }}
+  </span>
+</template>
+
+<script setup lang="ts">
+import type { TchoukNetCompetition, TchoukNetTeam } from "~/services/tchoukNetApi";
+import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlugIdMapping";
+
+const route = useRoute();
+const { localizeCompetitionEntityName } = useI18nHelper();
+
+const {
+  team = undefined,
+  label = undefined,
+  competition = undefined,
+} = defineProps<{
+  team?: TchoukNetTeam;
+  label?: string;
+  winner?: boolean;
+  competition?: TchoukNetCompetition;
+}>();
+
+const competitionSlugFromRoute = computed(() => route.params.competition as string);
+const competitionSlugFromProps = computed(() => competition?.id && getCompetitionSlugFromId(competition.id));
+const competitionSlug = computed(() => competitionSlugFromProps.value || competitionSlugFromRoute.value);
+const teamSlug = computed(() => getSlugFromId(team?.team_entity_identifier, competitionSlug.value, "teams"));
+
+const emojis = team?.team_entity?.countries?.map((country) => country.emoji).join(" ");
+</script>
+
+<style scoped>
+.c-team-name {
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+
+  a&:hover {
+    text-decoration: underline;
+  }
+}
+
+.c-team-name--winner {
+  font-weight: bold;
+}
+
+.c-team-name--placeholder {
+  color: var(--euro-gray-400);
+}
+</style>
