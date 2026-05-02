@@ -113,6 +113,7 @@ export const tchoukNetSlugIdMapping: {
   teamTypes: {
     women: "e0b97c58-92a5-42c5-b2d2-c8b8b20f37ae",
     men: "2645efc6-c69e-45b4-8641-f91f3a3c51e3",
+    "m18-mixed": "1641a7cc-7a3c-49b2-a0a2-b2de43a689b3",
     "m18-boys": "6182e133-2bbe-4f2a-a0ab-8de9f1559de2",
     "m18-girls": "6525e7e1-2025-407f-a9fa-6fc0fa69a6f0",
     "m15-boys": "8d8e6a07-4189-4ddc-b4d7-32094b4d8244",
