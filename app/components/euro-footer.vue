@@ -181,8 +181,7 @@
 }
 
 .c-footer__federation-logo {
-  height: 5vw;
-  max-height: 3rem;
+  height: 3rem;
 }
 
 .c-footer__social-icons {

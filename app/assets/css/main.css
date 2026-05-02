@@ -96,7 +96,7 @@ dt {
 }
 
 .l-section {
-  margin: var(--euro-spacing-16) var(--euro-spacing-8);
+  margin: var(--euro-spacing-16) var(--euro-page-side-spacing);
   scroll-margin-top: var(--euro-header-height);
 }
 
@@ -129,8 +129,8 @@ dt {
 }
 
 .l-cancel-section-padding {
-  transform: translateX(calc(-1 * var(--euro-spacing-8)));
-  width: calc(100% + var(--euro-spacing-8) * 2);
+  transform: translateX(calc(-1 * var(--euro-page-side-spacing)));
+  width: calc(100% + var(--euro-page-side-spacing) * 2);
 }
 
 .l-section:empty {

@@ -39,7 +39,8 @@ const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(t
   --team-members-per-row: 2;
   --number-of-gaps: calc(var(--team-members-per-row) - 1);
   --length-team-member-size: calc(
-    (100vw - (2 * var(--euro-spacing-8)) - (var(--number-of-gaps) * var(--gap-size))) / var(--team-members-per-row)
+    (100vw - (2 * var(--euro-page-side-spacing)) - (var(--number-of-gaps) * var(--gap-size))) /
+      var(--team-members-per-row)
   );
 
   @media (min-width: 36rem) {

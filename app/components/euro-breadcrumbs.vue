@@ -26,7 +26,9 @@ defineProps<{
 
 <style scoped>
 .c-breadcrumbs {
-  margin-inline: var(--euro-spacing-8);
+  --breadcrumb-spacing: clamp(var(--euro-spacing-1), 1vw, var(--euro-spacing-2));
+
+  margin-inline: var(--euro-page-side-spacing);
   padding-block: var(--euro-spacing-2);
 
   &:deep(+ .l-section .t-headline-1) {
@@ -37,13 +39,13 @@ defineProps<{
 .c-breadcrumbs__list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--euro-spacing-2);
+  gap: var(--breadcrumb-spacing);
   font-size: 0.8rem;
 }
 
 .c-breadcrumbs__item:not(:last-child)::after {
   content: "▸";
-  margin-left: var(--euro-spacing-2);
+  margin-left: var(--breadcrumb-spacing);
   color: var(--euro-color-text-secondary);
 }
 </style>
