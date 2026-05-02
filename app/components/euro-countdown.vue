@@ -1,6 +1,5 @@
 <template>
   <ol v-if="isCountdownActive" class="c-euro-countdown u-unstyled-list">
-    <!-- TODO: Add support for pluralization -->
     <li class="c-euro-countdown__item--days">
       <div class="c-euro-countdown__figure">{{ years * 365 + days }}</div>
       <div class="c-euro-countdown__label">{{ $t("countdown.days", years * 365 + days) }}</div>
@@ -23,6 +22,8 @@
 <script setup lang="ts">
 import { type DateTimeArray, useCountdown } from "@maas/vue-equipment/composables/useCountdown";
 import JSConfetti from "js-confetti";
+
+const emit = defineEmits(["over"]);
 
 let jsConfetti: JSConfetti;
 
@@ -51,6 +52,7 @@ const { years, days, hours, minutes, seconds } = useCountdown(
     timezone: "Europe/Berlin",
   },
   () => {
+    emit("over");
     if (wasStartDatePassedOnLoad) {
       return;
     }

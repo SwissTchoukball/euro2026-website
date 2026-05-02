@@ -21,7 +21,12 @@
     </section>
 
     <section class="l-section c-index__countdown-section">
-      <EuroCountdown class="c-index__countdown" />
+      <EuroCountdown class="c-index__countdown" @over="isCountdownOver = true" />
+
+      <template v-if="isCountdownOver">
+        <euro-loading-indicator v-if="!eventData && eventStatus === 'pending'" for-section />
+        <euro-game-planning-overview v-if="eventData" :planning-overview="eventData?.overview" />
+      </template>
     </section>
 
     <section class="l-section c-index__countries">
@@ -51,6 +56,7 @@
 </template>
 
 <script setup lang="ts">
+import { tchoukNetApiService } from "@/services/tchoukNetApiService";
 import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 
 const img = useImage();
@@ -62,9 +68,17 @@ useHead({
   },
 });
 
+const isCountdownOver = ref(false);
 const countries = Object.keys(tchoukNetSlugIdMapping.countries)
   .toSorted((a, b) => a.localeCompare(b))
   .map((country) => ({ slug: country, nameForFlag: country === "czech-republic" ? "czechia" : country }));
+
+const {
+  data: eventData,
+  status: eventStatus,
+  refresh: eventRefresh,
+} = useAsyncData("event", () => tchoukNetApiService.getEvent());
+usePolling(eventRefresh);
 </script>
 
 <style scoped>
