@@ -27,7 +27,10 @@
     <section class="l-section c-index__countries">
       <ul class="u-unstyled-list c-index__countries-list">
         <li v-for="country in countries" :key="country.slug">
-          <NuxtLink :to="localePath(`/competitions/country/${country.slug}`)">
+          <NuxtLink
+            :to="localePath(`/competitions/country/${country.slug}`)"
+            :title="$t('competition.team.seeAllFromCountry', { countryName: $t(`country.${country.slug}`) })"
+          >
             <Icon :name="`twemoji:flag-${country.nameForFlag}`" class="c-index__country-flag" />
           </NuxtLink>
         </li>

@@ -143,6 +143,17 @@
       "Old sports hall": "Ancienne salle de sport"
     }
   },
+  "country": {
+    "czech-republic": "République tchèque",
+    "denmark": "Danemark",
+    "france": "France",
+    "germany": "Allemagne",
+    "italy": "Italie",
+    "poland": "Pologne",
+    "spain": "Espagne",
+    "switzerland": "Suisse",
+    "united-kingdom": "Royaume-Uni"
+  },
   "sponsors": {
     "main": "Partenaires principaux",
     "operational": "Partenaires opérationnels",

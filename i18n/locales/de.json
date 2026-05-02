@@ -143,6 +143,17 @@
       "Old sports hall": "Alte Sporthalle"
     }
   },
+  "country": {
+    "czech-republic": "Tschechische Republik",
+    "denmark": "Dänemark",
+    "france": "Frankreich",
+    "germany": "Deutschland",
+    "italy": "Italien",
+    "poland": "Polen",
+    "spain": "Spanien",
+    "switzerland": "Schweiz",
+    "united-kingdom": "Vereinigtes Königreich"
+  },
   "sponsors": {
     "main": "Hauptpartner",
     "operational": "Operative Partner",
