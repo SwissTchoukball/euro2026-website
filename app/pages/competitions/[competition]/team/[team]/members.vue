@@ -3,7 +3,7 @@
     <euro-loading-indicator v-if="teamCmsStatus === 'pending'" for-section />
     <ul v-if="teamCmsData?.result?.players?.length" class="u-unstyled-list c-team-members">
       <li v-for="member in teamCmsData.result.players" :key="member.uuid">
-        <euro-team-member :member="member" />
+        <euro-team-member :member="member" class="c-team-members__member" />
       </li>
     </ul>
     <div v-else class="c-team-members__empty">
@@ -35,9 +35,32 @@ const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(t
 
 <style scoped>
 .c-team-members {
+  --gap-size: var(--euro-spacing-4);
+  --team-members-per-row: 2;
+  --number-of-gaps: calc(var(--team-members-per-row) - 1);
+  --length-team-member-size: calc(
+    (100vw - (2 * var(--euro-spacing-8)) - (var(--number-of-gaps) * var(--gap-size))) / var(--team-members-per-row)
+  );
+
+  @media (min-width: 36rem) {
+    --team-members-per-row: 3;
+  }
+
+  @media (min-width: 52rem) {
+    --team-members-per-row: 4;
+  }
+
+  @media (min-width: 69rem) {
+    --team-members-per-row: 5;
+  }
+
   display: flex;
-  gap: var(--euro-spacing-4);
+  gap: var(--gap-size);
   flex-wrap: wrap;
+}
+
+.c-team-members__member {
+  width: var(--length-team-member-size);
 }
 
 .c-team-members__empty {
