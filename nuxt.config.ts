@@ -1,6 +1,22 @@
 import process from "node:process";
 
 import { prefetchQuery, siteQuery } from "./app/queries";
+import { tchoukNetSlugIdMapping } from "./app/services/tchoukNetSlugIdMapping";
+
+// The team index route (`/competitions/<comp>/team/<team>`) redirects via
+// `navigateTo` to the `/members` sub-page. Nitro renders that as a meta-refresh
+// HTML, which the prerender crawler does not follow — so `/members` and `/games`
+// would otherwise never be discovered. Enumerate them explicitly from the static
+// slug mapping for every locale.
+const localePrefixes = ["", "/fr", "/de"];
+const teamSubPages = ["members", "games"];
+const teamRoutes = Object.entries(tchoukNetSlugIdMapping.competitions).flatMap(([competition, { teams }]) =>
+  Object.keys(teams).flatMap((team) =>
+    localePrefixes.flatMap((prefix) =>
+      teamSubPages.map((sub) => `${prefix}/competitions/${competition}/team/${team}/${sub}`)
+    )
+  )
+);
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -57,8 +73,11 @@ export default defineNuxtConfig({
     auth: "bearer",
     prefetch: {
       kirbyStatic: prefetchQuery,
-      // Currently only used to infer the type of the `site` query
-      kirbySite: siteQuery,
+      // Cache the site query per locale at build time so each prerendered
+      // route doesn't fire its own KQL request (avoids per-IP connection limits)
+      kirbySiteEn: { query: siteQuery, language: "en" },
+      kirbySiteFr: { query: siteQuery, language: "fr" },
+      kirbySiteDe: { query: siteQuery, language: "de" },
     },
   },
   vueEquipment: {
@@ -88,7 +107,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // We need to specify here the routes to hidden pages (i.e. the pages from which we cannot navigate to in the website)
-      routes: ["/info-teams", "/fr/info-teams", "/de/info-teams", "/sitemap.xml"],
+      // and the team sub-pages (see comment above) which the crawler can't reach.
+      routes: ["/info-teams", "/fr/info-teams", "/de/info-teams", "/sitemap.xml", ...teamRoutes],
+      // Space out renders so the previous request's connections close before the next opens.
+      // The Kirby host caps concurrent connections per IP (~30); spacing prevents bursts from breaching it.
+      interval: 100,
+      // Don't abort the whole build on a transient 5xx; the per-call retry will recover.
+      failOnError: false,
     },
   },
 });

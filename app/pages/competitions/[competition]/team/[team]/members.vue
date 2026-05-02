@@ -27,6 +27,9 @@ const teamSlug = computed(() => route.params.team as string);
 
 const { data: teamCmsData, status: teamCmsStatus } = await useKql(getTeamQuery(teamSlug.value, competitionSlug.value), {
   language: locale.value,
+  // Retry transient 503s when the Kirby host throttles concurrent connections during prerender
+  retry: 3,
+  retryDelay: 500,
 });
 </script>
 

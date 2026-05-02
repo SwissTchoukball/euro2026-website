@@ -1,4 +1,6 @@
-import type { KirbySite } from "#nuxt-kirby";
+import type { KirbySiteDe, KirbySiteEn, KirbySiteFr } from "#nuxt-kirby";
+
+type KirbySite = KirbySiteEn | KirbySiteFr | KirbySiteDe;
 
 /**
  * Access the global site context, similar to Kirby's `$site` global variable

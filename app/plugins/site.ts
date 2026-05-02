@@ -1,37 +1,22 @@
-import type { FetchError } from "ofetch";
-
 import type { NuxtApp } from "#app";
-import { siteQuery } from "~/queries";
+import { kirbySiteDe, kirbySiteEn, kirbySiteFr } from "#nuxt-kirby";
 
-export default defineNuxtPlugin(async (nuxtApp) => {
+const siteByLocale: Record<string, typeof kirbySiteEn> = {
+  en: kirbySiteEn,
+  fr: kirbySiteFr,
+  de: kirbySiteDe,
+};
+
+export default defineNuxtPlugin((nuxtApp) => {
   const site = useSite();
   const i18n = nuxtApp.$i18n as NuxtApp["$i18n"];
 
-  if (import.meta.server) {
-    // Load the site data server-side
-    await updateSite();
-  } else if (import.meta.client) {
-    // Update the site data on locale change
-    nuxtApp.hook("i18n:beforeLocaleSwitch", async ({ oldLocale, newLocale }) => {
-      if (oldLocale !== newLocale) {
-        if (import.meta.dev) {
-          // eslint-disable-next-line no-console
-          console.log("Locale changed:", oldLocale, "->", newLocale);
-        }
+  site.value = siteByLocale[i18n.locale.value] ?? {};
 
-        await updateSite(newLocale);
-      }
+  if (import.meta.client) {
+    nuxtApp.hook("i18n:beforeLocaleSwitch", ({ oldLocale, newLocale }) => {
+      if (oldLocale === newLocale) return;
+      site.value = siteByLocale[newLocale] ?? {};
     });
-  }
-
-  async function updateSite(newLocale?: string) {
-    try {
-      const data = await $kql(siteQuery, {
-        language: newLocale || i18n.locale.value,
-      });
-      site.value = data?.result || {};
-    } catch (e) {
-      console.error("Failed to fetch site data:", (e as FetchError).message);
-    }
   }
 });

@@ -23,14 +23,23 @@ const localePath = useLocalePath();
 // Extract the non-localized slug
 const pageUri = getNonLocalizedSlug(route.params.slug!, availableLocales);
 
-const { data: pageData, error: pageError } = await useKql(getPageQuery(pageUri || "home"), { language: locale.value });
+// Retry transient failures (e.g. 503s when the Kirby host throttles concurrent connections during prerender)
+const kqlFetchOptions = { retry: 3, retryDelay: 500 };
+
+const { data: pageData, error: pageError } = await useKql(getPageQuery(pageUri || "home"), {
+  language: locale.value,
+  ...kqlFetchOptions,
+});
 
 let data = pageData.value;
 let fetchError = pageError.value;
 
 // If page content is empty, load the error page
 if (!data?.result) {
-  const { data: pageData, error: pageError } = await useKql(getPageQuery("error"), { language: locale.value });
+  const { data: pageData, error: pageError } = await useKql(getPageQuery("error"), {
+    language: locale.value,
+    ...kqlFetchOptions,
+  });
   data = pageData.value;
   fetchError = pageError.value;
   const event = useRequestEvent();
