@@ -26,32 +26,10 @@
 
     <section class="l-section c-index__countries">
       <ul class="u-unstyled-list c-index__countries-list">
-        <li>
-          <Icon name="twemoji:flag-czechia" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-denmark" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-france" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-germany" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-italy" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-poland" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-spain" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-switzerland" class="c-index__country-flag" />
-        </li>
-        <li>
-          <Icon name="twemoji:flag-united-kingdom" class="c-index__country-flag" />
+        <li v-for="country in countries" :key="country.slug">
+          <NuxtLink :to="localePath(`/competitions/country/${country.slug}`)">
+            <Icon :name="`twemoji:flag-${country.nameForFlag}`" class="c-index__country-flag" />
+          </NuxtLink>
         </li>
       </ul>
     </section>
@@ -70,6 +48,8 @@
 </template>
 
 <script setup lang="ts">
+import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
+
 const img = useImage();
 const localePath = useLocalePath();
 
@@ -78,6 +58,10 @@ useHead({
     class: "body-header-hover",
   },
 });
+
+const countries = Object.keys(tchoukNetSlugIdMapping.countries)
+  .toSorted((a, b) => a.localeCompare(b))
+  .map((country) => ({ slug: country, nameForFlag: country === "czech-republic" ? "czechia" : country }));
 </script>
 
 <style scoped>
@@ -153,6 +137,11 @@ useHead({
 .c-index__country-flag {
   width: clamp(3rem, 8vw, 6rem);
   height: clamp(3rem, 8vw, 6rem);
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .c-index__engagement-links {
