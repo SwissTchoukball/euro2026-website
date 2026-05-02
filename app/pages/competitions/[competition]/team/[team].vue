@@ -7,15 +7,18 @@
 
       <h2 v-if="teamName" class="t-headline-1">
         {{ teamName }}
-        <template v-if="teamTypeName">{{ teamTypeName }}</template>
       </h2>
       <h2 v-else class="t-headline-1">&nbsp;</h2>
 
-      <p class="c-team__description">
+      <div class="c-team__description">
+        <div v-if="teamTypeName">
+          {{ $t("competition.team.category") }}: {{ teamTypeName }} &bullet; {{ $t("competition.title", 1) }}:
+          <NuxtLink :to="localePath(`/competitions/${competitionSlug}`)">{{ competitionName }}</NuxtLink>
+        </div>
         <NuxtLink :to="localePath(`/competitions/country/${countrySlug}`)">
           {{ $t("competition.team.seeAllFromCountry", { countryName: localizeCompetitionEntityName(countryName) }) }}
         </NuxtLink>
-      </p>
+      </div>
 
       <nav>
         <ul class="u-unstyled-list c-team__sub-navigation">
@@ -113,6 +116,9 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 <style scoped>
 .c-team__description {
   margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--euro-spacing-2);
   color: var(--euro-gray-700);
 }
 

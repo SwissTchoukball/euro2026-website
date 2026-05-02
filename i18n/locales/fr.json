@@ -71,6 +71,7 @@
     },
     "team": {
       "title": "Équipe | Équipes",
+      "category": "Catégorie",
       "seeAllFromCountry": "Voir toutes les équipes du pays «{countryName}»",
       "games": "Matchs",
       "members": {

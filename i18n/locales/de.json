@@ -71,6 +71,7 @@
     },
     "team": {
       "title": "Team | Teams",
+      "category": "Kategorie",
       "seeAllFromCountry": "Alle Teams aus {countryName} anzeigen",
       "games": "Spiele",
       "members": {
