@@ -40,6 +40,9 @@
           </NuxtLink>
         </li>
       </ul>
+      <NuxtLink :to="localePath('/teams')" class="c-index__teams-link">
+        {{ $t("home.discoverAllTeams") }}
+      </NuxtLink>
     </section>
 
     <section class="l-section">
@@ -113,7 +116,7 @@ usePolling(eventRefresh);
 .c-index__hero-logo {
   margin-top: calc(var(--euro-header-height) + clamp(var(--euro-spacing-8), 4vw, var(--euro-spacing-12)));
   max-height: 50%;
-  width: clamp(18rem, 40vw, 20rem);
+  width: clamp(12rem, 40vw, 20rem);
 }
 
 .c-index__hero-dates {
@@ -161,6 +164,19 @@ usePolling(eventRefresh);
   }
 }
 
+.c-index__teams-link {
+  display: block;
+  margin-inline: auto;
+  margin-top: var(--euro-spacing-6);
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+  }
+}
+
 .c-index__engagement-links {
   display: flex;
   justify-content: center;
@@ -176,7 +192,7 @@ usePolling(eventRefresh);
   padding: var(--euro-spacing-4) var(--euro-spacing-8);
   border-radius: 1rem;
   text-align: center;
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   text-decoration: none;
   font-weight: bold;
   color: var(--euro-sky-blue-500);
