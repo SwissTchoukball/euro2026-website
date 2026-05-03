@@ -1,5 +1,6 @@
 <template>
   <main class="c-catch-all">
+    <euro-breadcrumbs :items="breadcrumbs" />
     <KirbyBlocks v-if="page?.blocks" :blocks="page.blocks" />
     <div v-else class="c-catch-all__not-found">
       {{ $t("pageNotFound") }}<br />
@@ -14,6 +15,7 @@
 <script setup lang="ts">
 // This Nuxt page will render every Kirby page
 
+import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 import { getPageQuery } from "~/queries";
 
 const { locale, availableLocales } = useI18n();
@@ -49,11 +51,23 @@ if (!data?.result) {
 // Store page data
 const page = computed(() => data?.result);
 setPage(page.value);
+
+const breadcrumbs = computed<BreadcrumbItem[]>(() => {
+  const crumbs: BreadcrumbItem[] =
+    data?.result?.breadcrumbMeta.map((page: { title: string; uri: string }) => ({
+      text: page.title,
+      to: localePath(`/${page.uri}`),
+    })) || [];
+
+  crumbs[crumbs.length - 1]!.to = undefined;
+
+  return crumbs;
+});
 </script>
 
 <style scoped>
 .c-catch-all {
-  padding: var(--euro-spacing-8);
+  padding: var(--euro-spacing-8) var(--euro-page-side-spacing);
 }
 
 .c-catch-all__not-found {
