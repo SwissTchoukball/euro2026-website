@@ -115,11 +115,18 @@ dt {
   p,
   ul,
   ol,
-  dl {
+  dl,
+  hr& {
     max-width: 45rem;
     margin-inline: auto;
     scroll-margin-top: var(--euro-header-height);
   }
+}
+
+hr.kirby-block {
+  border: 0;
+  border-top: 1px solid var(--euro-blue-500);
+  margin-block: var(--euro-spacing-8);
 }
 
 .l-centered-content {
@@ -129,7 +136,7 @@ dt {
 }
 
 .l-cancel-section-padding {
-  transform: translateX(calc(-1 * var(--euro-page-side-spacing)));
+  margin-left: calc(-1 * var(--euro-page-side-spacing));
   width: calc(100% + var(--euro-page-side-spacing) * 2);
 }
 

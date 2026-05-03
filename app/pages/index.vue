@@ -47,6 +47,14 @@
 
     <section class="l-section">
       <div class="c-index__engagement-links">
+        <NuxtLink :to="localePath('/tchoukball')" class="c-index__engagement-link-button">
+          {{ $t("home.whatIsTchoukball") }}
+        </NuxtLink>
+      </div>
+    </section>
+
+    <section class="l-section">
+      <div class="c-index__engagement-links">
         <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__engagement-link-button">
           🫶 {{ $t("home.becomeVolunteer") }}
         </a>
