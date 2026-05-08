@@ -17,6 +17,7 @@
         <img src="/images/logo_euro2026_white-red.svg" :alt="$t('logoAltText')" class="c-index__hero-logo" />
         <div class="c-index__hero-dates">{{ $t("eventDates") }}</div>
         <div class="c-index__hero-location">{{ $t("eventLocation") }}</div>
+        <div class="c-index__hero-free-admission">{{ $t("freeAdmission") }}</div>
       </div>
     </section>
 
@@ -139,6 +140,22 @@ usePolling(eventRefresh);
   font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-weight: bold;
   color: white;
+}
+
+.c-index__hero-free-admission {
+  margin-top: clamp(2rem, 2vw, 3rem);
+  padding: var(--euro-spacing-2) var(--euro-spacing-4);
+  background-color: var(--euro-sky-blue-500);
+  border-radius: 1rem;
+  transform: rotate(-3deg);
+  width: fit-content;
+  margin-inline: auto;
+
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: bold;
+  color: var(--euro-blue-500);
+  text-transform: uppercase;
+  text-shadow: none;
 }
 
 .c-index__countdown {
