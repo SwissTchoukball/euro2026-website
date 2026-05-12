@@ -13,9 +13,9 @@ const teamSubPages = ["members", "games"];
 const teamRoutes = Object.entries(tchoukNetSlugIdMapping.competitions).flatMap(([competition, { teams }]) =>
   Object.keys(teams).flatMap((team) =>
     localePrefixes.flatMap((prefix) =>
-      teamSubPages.map((sub) => `${prefix}/competitions/${competition}/team/${team}/${sub}`)
-    )
-  )
+      teamSubPages.map((sub) => `${prefix}/competitions/${competition}/team/${team}/${sub}`),
+    ),
+  ),
 );
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
