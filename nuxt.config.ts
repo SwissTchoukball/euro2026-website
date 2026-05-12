@@ -108,7 +108,16 @@ export default defineNuxtConfig({
     prerender: {
       // We need to specify here the routes to hidden pages (i.e. the pages from which we cannot navigate to in the website)
       // and the team sub-pages (see comment above) which the crawler can't reach.
-      routes: ["/info-teams", "/fr/info-teams", "/de/info-teams", "/sitemap.xml", ...teamRoutes],
+      routes: [
+        "/info-teams",
+        "/fr/info-teams",
+        "/de/info-teams",
+        "/info-participants",
+        "fr/info-participants",
+        "de/info-participants",
+        "/sitemap.xml",
+        ...teamRoutes,
+      ],
       // Space out renders so the previous request's connections close before the next opens.
       // The Kirby host caps concurrent connections per IP (~30); spacing prevents bursts from breaching it.
       interval: 100,
