@@ -75,7 +75,12 @@ export default defineEventHandler(async (event) => {
   for (const { links, modified: lastmod } of data.result) {
     for (const { lang, url } of links) {
       if (lang === "x-default") continue;
+
+      // Exclude hidden pages
       if (url.includes("error") || url.includes("info-teams") || url.includes("info-participants")) continue;
+
+      // Exclude Kirby content that is not rendered as a page
+      if (url.includes("/teams/")) continue;
 
       const alternateLinks = links.map((link: { lang: string; url: string }) => ({
         lang: link.lang,
