@@ -83,6 +83,16 @@ export default defineNuxtConfig({
   vueEquipment: {
     composables: ["useCountdown"],
   },
+  imports: {
+    imports: [
+      // Set explicitly which useCountdown composable to use as there's a conflict with the one from @vueuse/nuxt.
+      {
+        name: "useCountdown",
+        from: "@maas/vue-equipment/composables/useCountdown",
+        priority: 10,
+      },
+    ],
+  },
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag.startsWith("rnw-"),
