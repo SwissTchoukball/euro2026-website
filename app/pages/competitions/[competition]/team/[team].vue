@@ -53,7 +53,7 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 
 // Redirect from index team page to games page
 if (route.name?.toString().startsWith("competitions-competition-team-team__")) {
-  navigateTo(localePath("competitions-competition-team-team-members"));
+  navigateTo(localePath("competitions-competition-team-team-members"), { replace: true });
 }
 
 const competitionSlug = computed(() => route.params.competition as string);
@@ -79,10 +79,10 @@ const countryName = computed(() => teamCompetitionData.value?.team.team_entity.c
 const countrySlug = computed(() => getCountrySlugFromId(teamCompetitionData.value?.team.team_entity.countries[0]?.id));
 
 const teamName = computed(() =>
-  teamCompetitionData.value ? localizeCompetitionEntityName(teamCompetitionData.value.team.name) : ""
+  teamCompetitionData.value ? localizeCompetitionEntityName(teamCompetitionData.value.team.name) : "",
 );
 const competitionName = computed(() =>
-  competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : ""
+  competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : "",
 );
 const teamTypeSlug = computed(() => getTeamTypeSlugFromId(teamCompetitionData.value?.team.team_entity.team_type.id));
 const teamTypeName = computed(() => (teamTypeSlug.value ? t(`competition.team.type.${teamTypeSlug.value}`) : ""));
