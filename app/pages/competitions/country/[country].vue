@@ -51,7 +51,6 @@ const {
 usePolling(refresh);
 
 const sortedParticipations = computed(() => {
-  // TODO: Sort countryData.participations by competition, based on the order in which eventData.value.event.competitions are given.
   return (
     countryData.value?.participations.toSorted((a, b) => {
       if (!eventData.value) {
@@ -59,7 +58,10 @@ const sortedParticipations = computed(() => {
       }
       const aCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === a.competition?.id);
       const bCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === b.competition?.id);
-      return aCompetitionIndex - bCompetitionIndex;
+      if (aCompetitionIndex !== bCompetitionIndex) {
+        return aCompetitionIndex - bCompetitionIndex;
+      }
+      return a.team.name.localeCompare(b.team.name);
     }) || []
   );
 });
