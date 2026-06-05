@@ -95,7 +95,7 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
       to: localePath(`/competitions/${competitionSlug.value}`),
     },
     {
-      text: teamName.value + (competitionName.value !== teamTypeName.value ? ` ${teamTypeName.value}` : ""),
+      text: teamName.value,
     },
   ];
 
