@@ -63,6 +63,7 @@
           🌟 {{ $t("home.supportTheEvent") }}
         </NuxtLink>
       </div>
+      <euro-ibiy-banner class="c-index__ibiy-banner" />
     </section>
   </main>
 </template>
@@ -222,6 +223,10 @@ usePolling(eventRefresh);
   font-weight: bold;
   color: var(--euro-sky-blue-500);
   background-color: var(--euro-blue-500);
+}
+
+.c-index__ibiy-banner {
+  margin-top: var(--euro-spacing-20);
 }
 
 @media (min-width: 768px) {
