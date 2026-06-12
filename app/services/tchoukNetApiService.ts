@@ -50,28 +50,28 @@ class TchoukNetApiService {
   }> => this.sendGetRequest(`/events/${this.eventId}`);
 
   public getCompetition = async (
-    competitionId: string
+    competitionId: string,
   ): Promise<{
     competition: TchoukNetCompetition;
     overview: TchoukNetPlanningOverview;
   }> => this.sendGetRequest(`/competitions/${competitionId}`);
 
   public getPhase = async (
-    phaseId: string
+    phaseId: string,
   ): Promise<{
     competition_phase: TchoukNetCompetitionPhase;
     games: TchoukNetGame[];
   }> => this.sendGetRequest(`/games/phase/${phaseId}`);
 
   public getTeam = async (
-    teamIdentifier: string
+    teamIdentifier: string,
   ): Promise<{
     team: TchoukNetTeam;
     games: TchoukNetGame[];
   }> => this.sendGetRequest(`/games/event/${this.eventId}/teams/${teamIdentifier}`);
 
   public getCountry = async (
-    countryId: string
+    countryId: string,
   ): Promise<{
     country: { id: string; name: string; emoji: string };
     event: Pick<TchoukNetEvent, "id" | "name">;
@@ -80,11 +80,17 @@ class TchoukNetApiService {
   }> => this.sendGetRequest(`/events/${this.eventId}/countries/${countryId}`);
 
   public getField = async (
-    fieldId: string
+    fieldId: string,
   ): Promise<{
     field: TchoukNetField;
     games: TchoukNetGame[];
   }> => this.sendGetRequest(`/games/fields/${fieldId}`);
+
+  public getDay = async (
+    date: string,
+  ): Promise<{
+    matches: TchoukNetGame[];
+  }> => this.sendGetRequest(`/events/${this.eventId}/days/${date}`);
 }
 
 export const tchoukNetApiService = new TchoukNetApiService();

@@ -19,6 +19,8 @@
   },
   "home": {
     "breadcrumbTitle": "Startseite",
+    "youthFinals": "Jungendfinale: 3. August",
+    "seniorFinals": "Aktive Finale: 8. August",
     "whatIsTchoukball": "Was ist Tchoukball?",
     "discoverAllTeams": "Alle Teams entdecken",
     "becomeVolunteer": "Freiwilliger werden",
@@ -146,6 +148,9 @@
       "Sport-Toto hall": "Sport-Toto Halle",
       "Old sports hall": "Alte Sporthalle"
     }
+  },
+  "schedule": {
+    "title": "Zeitplan"
   },
   "country": {
     "czech-republic": "Tschechische Republik",

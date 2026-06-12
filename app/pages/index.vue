@@ -46,6 +46,11 @@
       </NuxtLink>
     </section>
 
+    <section class="l-section c-index__finals-dates">
+      <div>{{ $t("home.youthFinals") }}</div>
+      <div>{{ $t("home.seniorFinals") }}</div>
+    </section>
+
     <section class="l-section">
       <div class="c-index__engagement-links">
         <NuxtLink :to="localePath('/tchoukball')" class="c-index__engagement-link-button">
@@ -170,6 +175,7 @@ usePolling(eventRefresh);
   padding-block: clamp(var(--euro-spacing-16), 4vw, var(--euro-spacing-24));
   padding-inline: var(--euro-page-side-spacing);
   margin-inline: 0;
+  margin-bottom: 0;
 }
 
 .c-index__countries-list {
@@ -201,6 +207,24 @@ usePolling(eventRefresh);
   &:hover {
     color: white;
   }
+}
+
+.c-index__finals-dates {
+  clip-path: polygon(0 0, 100% 4vw, 100% 100%, 0 calc(100% - 4vw));
+  padding-block: clamp(var(--euro-spacing-16), 4vw, var(--euro-spacing-24));
+  padding-inline: var(--euro-page-side-spacing);
+  margin-inline: 0;
+  margin-top: calc(var(--euro-spacing-12) * -1);
+
+  background-color: var(--euro-red-500);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--euro-spacing-6) var(--euro-spacing-20);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
 }
 
 .c-index__engagement-links {

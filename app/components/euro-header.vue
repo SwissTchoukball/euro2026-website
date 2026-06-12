@@ -6,9 +6,14 @@
           <NuxtLink :to="localePath('/teams')" @click="isSidePanelOpen = false">{{ $t("navigation.teams") }}</NuxtLink>
         </li>
         <li>
-          <NuxtLink :to="localePath('/competitions')" @click="isSidePanelOpen = false">{{
-            $t("navigation.competitions")
-          }}</NuxtLink>
+          <NuxtLink :to="localePath('/competitions')" @click="isSidePanelOpen = false">
+            {{ $t("navigation.competitions") }}
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink :to="localePath('/schedule')" @click="isSidePanelOpen = false">
+            {{ $t("navigation.schedule") }}
+          </NuxtLink>
         </li>
         <li v-for="(item, index) in listedChildren" :key="index">
           <NuxtLink
@@ -231,7 +236,9 @@ const isSidePanelOpen = ref(false);
   height: calc(100vh - var(--euro-header-height));
   background-color: white;
   color: var(--euro-blue-500);
-  transition: left 0.25s ease-in-out, opacity 0s 0.25s;
+  transition:
+    left 0.25s ease-in-out,
+    opacity 0s 0.25s;
 
   .c-header__nav {
     margin-inline: var(--euro-spacing-4);
@@ -252,7 +259,9 @@ const isSidePanelOpen = ref(false);
 .c-header__side-panel--open {
   left: calc(100vw - 20rem);
   opacity: 1;
-  transition: left 0.25s ease-in-out, opacity 0s 0s;
+  transition:
+    left 0.25s ease-in-out,
+    opacity 0s 0s;
 }
 
 .c-header__side-panel-backdrop {
