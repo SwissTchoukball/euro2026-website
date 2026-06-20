@@ -90,7 +90,8 @@
           "left-winger": "Left-winger",
           "winger": "Winger",
           "frame-pivot": "Frame pivot",
-          "center": "Center"
+          "center": "Center",
+          "libero": "Libero"
         }
       },
       "type": {

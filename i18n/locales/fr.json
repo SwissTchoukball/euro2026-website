@@ -90,7 +90,8 @@
           "left-winger": "Ailier gauche",
           "winger": "Ailier",
           "frame-pivot": "Centre-cadre",
-          "center": "Centre-centre"
+          "center": "Centre-centre",
+          "libero": "Libéro"
         }
       },
       "type": {

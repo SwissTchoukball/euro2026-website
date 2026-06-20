@@ -90,7 +90,8 @@
           "left-winger": "Linker Flügelspieler",
           "winger": "Flügelspieler",
           "frame-pivot": "Rahmenpivot",
-          "center": "Mittelfeldspieler"
+          "center": "Mittelfeldspieler",
+          "libero": "Libero"
         }
       },
       "type": {
