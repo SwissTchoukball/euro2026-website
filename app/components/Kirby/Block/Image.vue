@@ -1,19 +1,16 @@
 <template>
-  <figure ref="figure" class="kb-image-figure l-centered-content">
-    <component
-      :is="block.content.link ? 'a' : 'div'"
-      :href="block.content.link || undefined"
-      :data-contain="block.content.crop === false || undefined"
-      :style="{
-        aspectRatio: block.content.ratio || undefined,
-      }"
-    >
+  <figure class="kb-image-figure l-centered-content">
+    <component :is="block.content.link ? 'a' : 'div'" :href="block.content.link || undefined">
       <img
         :src="block.content.location === 'web' ? block.content.src : undefined"
         :srcset="block.content.location !== 'web' ? block.content.image?.[0]?.srcset : undefined"
         sizes="(max-width: 45rem) 95vw, 45rem"
         :alt="block.content.alt || block.content.image?.[0]?.alt || ''"
         class="kb-image"
+        :style="{
+          aspectRatio: block.content.ratio || undefined,
+          objectFit: block.content.crop ? 'cover' : 'contain',
+        }"
       />
     </component>
 
@@ -46,9 +43,6 @@ defineProps<{
     }
   >;
 }>();
-
-const figure = useTemplateRef("figure");
-// const { width } = useElementSize(figure);
 </script>
 
 <style scoped>
@@ -59,8 +53,6 @@ const figure = useTemplateRef("figure");
 .kb-image {
   width: 100%;
   max-width: 45rem;
-  aspect-ratio: 16/9;
-  object-fit: cover;
 }
 
 .kb-image__caption {
