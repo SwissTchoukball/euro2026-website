@@ -6,6 +6,7 @@
       {{ $t("pageNotFound") }}<br />
       <NuxtLink :to="localePath('/')" class="c-catch-all__not-found-link">{{ $t("backHome") }}</NuxtLink>
     </div>
+    <euro-go-to-top-button />
     <DevOnly>
       <AppDebugHelper :error="fetchError" />
     </DevOnly>
