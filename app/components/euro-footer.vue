@@ -33,6 +33,15 @@
           </a>
         </li>
         <li>
+          <a href="http://tchouk.com" class="c-footer__sponsor c-footer__sponsor--secondary">
+            <img
+              class="c-footer__sponsor-logo"
+              src="/images/logo-tchoukball-promotion.svg"
+              alt="Logo of Tchoukball Promotion"
+            />
+          </a>
+        </li>
+        <li>
           <a href="https://peerdom.com" class="c-footer__sponsor c-footer__sponsor--secondary">
             <img class="c-footer__sponsor-logo" src="/images/logo-peerdom.svg" alt="Logo of Peerdom" />
           </a>
@@ -134,6 +143,10 @@
   display: block;
   text-decoration: none;
   color: black;
+
+  &:hover {
+    color: inherit;
+  }
 
   &.c-footer__sponsor--main {
     height: 6rem;
