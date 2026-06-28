@@ -51,6 +51,15 @@
       <div>{{ $t("home.seniorFinals") }}</div>
     </section>
 
+    <section v-if="showPhotosAndVideosSection" class="l-section">
+      <div class="c-index__engagement-links">
+        <a href="https://flickr.com/etbf" class="c-index__engagement-link-button"> 📸 {{ $t("home.seePhotos") }} </a>
+        <a href="https://youtube.com/@TchoukballETBF" class="c-index__engagement-link-button">
+          🎥 {{ $t("home.seeLiveAndReplays") }}
+        </a>
+      </div>
+    </section>
+
     <section class="l-section">
       <div class="c-index__engagement-links">
         <NuxtLink :to="localePath('/tchoukball')" class="c-index__engagement-link-button">
@@ -59,16 +68,20 @@
       </div>
     </section>
 
-    <section class="l-section">
+    <section v-if="showBecomeVolunteerButton || showSupportTheEventButton || showIbiyBanner" class="l-section">
       <div class="c-index__engagement-links">
-        <a href="https://tchouk.ch/benevoles-euro2026" class="c-index__engagement-link-button">
+        <a
+          v-if="showBecomeVolunteerButton"
+          href="https://tchouk.ch/benevoles-euro2026"
+          class="c-index__engagement-link-button"
+        >
           🫶 {{ $t("home.becomeVolunteer") }}
         </a>
-        <NuxtLink :to="localePath('/support')" class="c-index__engagement-link-button">
+        <NuxtLink v-if="showSupportTheEventButton" :to="localePath('/support')" class="c-index__engagement-link-button">
           🌟 {{ $t("home.supportTheEvent") }}
         </NuxtLink>
       </div>
-      <euro-ibiy-banner class="c-index__ibiy-banner" />
+      <euro-ibiy-banner v-if="showIbiyBanner" class="c-index__ibiy-banner" />
     </section>
   </main>
 </template>
@@ -97,6 +110,22 @@ const {
   refresh: eventRefresh,
 } = useAsyncData("event", () => tchoukNetApiService.getEvent());
 usePolling(eventRefresh);
+
+const showPhotosAndVideosSection = computed(() => {
+  return new Date() > new Date("2026-07-31");
+});
+
+const showIbiyBanner = computed(() => {
+  return new Date() < new Date("2026-07-21");
+});
+
+const showSupportTheEventButton = computed(() => {
+  return new Date() < new Date("2026-08-09");
+});
+
+const showBecomeVolunteerButton = computed(() => {
+  return new Date() < new Date("2026-08-01");
+});
 </script>
 
 <style scoped>
@@ -247,6 +276,11 @@ usePolling(eventRefresh);
   font-weight: bold;
   color: var(--euro-sky-blue-500);
   background-color: var(--euro-blue-500);
+
+  &:hover {
+    color: var(--euro-blue-500);
+    background-color: var(--euro-sky-blue-500);
+  }
 }
 
 .c-index__ibiy-banner {
