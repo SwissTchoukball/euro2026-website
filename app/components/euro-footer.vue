@@ -46,6 +46,11 @@
             <img class="c-footer__sponsor-logo" src="/images/logo-peerdom.svg" alt="Logo of Peerdom" />
           </a>
         </li>
+        <li>
+          <a href="https://rrvsa.ch" class="c-footer__sponsor c-footer__sponsor--secondary">
+            <img class="c-footer__sponsor-logo" src="/images/logo-rrv.svg" alt="Logo of RRV SA" />
+          </a>
+        </li>
       </ul>
     </div>
 
