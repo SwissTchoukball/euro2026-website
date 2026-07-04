@@ -25,7 +25,7 @@ export const tchoukNetSlugIdMapping: {
       id: "1f0a5f2f-a8e0-6848-9a3f-eb6b37b2816a",
       phases: {
         "round-robin": "1f10f761-477b-694c-b327-a3e51ebaafcf",
-        "final5th-place": "1f13445c-ab5a-62de-8992-99d2b783d635",
+        "ranking-games": "1f13445c-ab5a-62de-8992-99d2b783d635",
         "semi-finals": "1f10f761-c3af-68f6-b53c-4334030a34cc",
         "final3rd-place": "1f10f762-3531-66b4-af37-71cc6aa6cac7",
         final: "1f10f762-848d-6bb8-b909-c9970444127d",
@@ -58,7 +58,11 @@ export const tchoukNetSlugIdMapping: {
     },
     girls: {
       id: "1f0a5f32-1119-6930-8daa-afbb08724b79",
-      phases: {},
+      phases: {
+        "round-robin": "1f177b47-8d4f-6566-8ae0-b3906bd20e86",
+        "m15-final-round": "1f177b48-753f-683a-b9b9-e72544fe1d2f",
+        "m18-final": "1f177b48-9d58-62c2-8bf7-7d4f55687edf",
+      },
       teams: {
         "switzerland-m18": "1ee832bf-750c-6a80-b0e8-c90e9ab4fca5",
         "switzerland-m15-bejune": "1f141642-5b4e-68f4-8c31-a158ab8a006d",
@@ -161,7 +165,7 @@ export function getTeamTypeSlugFromId(id: string | undefined): string | undefine
 export function getSlugFromId(
   id: string | undefined,
   competitionSlug: string,
-  dataType: "phases" | "teams"
+  dataType: "phases" | "teams",
 ): string | undefined {
   if (!id || !competitionSlug) {
     return;
