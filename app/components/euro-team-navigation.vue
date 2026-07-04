@@ -7,7 +7,14 @@
           <span v-if="showCompetition && item.competitionName" class="c-team-navigation__item-competition-name">
             {{ item.competitionName }}
           </span>
-          <span v-if="!hideFlag">{{ item.flags }}</span>
+          <template v-if="!hideFlag">
+            <Icon
+              v-for="flag in item.flags"
+              :key="flag"
+              :name="`twemoji:flag-${flag}`"
+              class="c-team-navigation__item-flag"
+            />
+          </template>
           <span>{{ item.name }}</span>
         </NuxtLink>
       </li>
@@ -17,7 +24,7 @@
 
 <script setup lang="ts">
 import type { TchoukNetParticipation } from "~/services/tchoukNetApi";
-import { getCompetitionSlugFromId, getSlugFromId } from "~/services/tchoukNetSlugIdMapping";
+import { getCompetitionSlugFromId, getCountryFlagNameFromId, getSlugFromId } from "~/services/tchoukNetSlugIdMapping";
 
 const { localizeCompetitionEntityName } = useI18nHelper();
 const localePath = useLocalePath();
@@ -49,7 +56,7 @@ const teamsNavigationItems = computed(() => {
       const competitionSlug = givenCompetitionSlug || getCompetitionSlugFromId(participation.competition?.id);
       return {
         name: localizeCompetitionEntityName(participation.team.name),
-        flags: participation.team.team_entity.countries.map((country) => country.emoji).join(""),
+        flags: participation.team.team_entity.countries.map((country) => getCountryFlagNameFromId(country.id)),
         competitionName: participation.competition
           ? localizeCompetitionEntityName(participation.competition?.name)
           : "",
@@ -58,8 +65,8 @@ const teamsNavigationItems = computed(() => {
               `/competitions/${competitionSlug}/team/${getSlugFromId(
                 participation.team.team_entity_identifier,
                 competitionSlug,
-                "teams"
-              )}`
+                "teams",
+              )}`,
             )
           : "",
       };
@@ -74,22 +81,24 @@ const teamsNavigationItems = computed(() => {
 
 .c-team-navigation__list {
   display: flex;
-  gap: var(--euro-spacing-2);
+  gap: var(--euro-spacing-4);
   flex-wrap: wrap;
 }
 
 .c-team-navigation__item-link {
   display: flex;
-  gap: var(--euro-spacing-1);
+  gap: var(--euro-spacing-2);
   align-items: center;
   padding: var(--euro-spacing-1) var(--euro-spacing-2);
-  background-color: var(--euro-gray-100);
+  background-color: var(--euro-gray-050);
   color: var(--euro-color-text-primary);
   border-radius: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
   &:hover,
   &:focus-visible {
@@ -104,6 +113,16 @@ const teamsNavigationItems = computed(() => {
 
   &:has(.c-team-navigation__item-competition-name) {
     padding-left: var(--euro-spacing-1);
+  }
+}
+
+.c-team-navigation__item-flag {
+  transform: scale(2.45);
+  margin-right: var(--euro-spacing-3);
+
+  &.i-twemoji\:flag-switzerland {
+    transform: scale(2.45) translateX(-0.1rem);
+    margin-right: var(--euro-spacing-1);
   }
 }
 

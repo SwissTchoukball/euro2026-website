@@ -30,7 +30,11 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { getCompetitionSlugFromId, getCountrySlugFromId } from "@/services/tchoukNetSlugIdMapping";
+import {
+  getCompetitionSlugFromId,
+  getCountryFlagNameFromId,
+  getCountrySlugFromId,
+} from "@/services/tchoukNetSlugIdMapping";
 import type { TchoukNetCompetition, TchoukNetCountry } from "~/services/tchoukNetApi";
 
 const { t } = useI18n();
@@ -63,9 +67,13 @@ const countriesNavigationItems = computed(() => {
   if (!data.value?.countries) {
     return [];
   }
-  return data.value.countries.map((country: TchoukNetCountry) => ({
-    text: `${country.emoji} ${localizeCompetitionEntityName(country.name)}`,
-    to: localePath(`/competitions/country/${getCountrySlugFromId(country.id)}`),
-  }));
+  return data.value.countries.map((country: TchoukNetCountry) => {
+    const flag = getCountryFlagNameFromId(country.id);
+    return {
+      text: localizeCompetitionEntityName(country.name),
+      to: localePath(`/competitions/country/${getCountrySlugFromId(country.id)}`),
+      flags: flag ? [flag] : undefined,
+    };
+  });
 });
 </script>

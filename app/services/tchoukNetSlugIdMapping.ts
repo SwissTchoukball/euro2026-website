@@ -146,6 +146,17 @@ export function getCountrySlugFromId(id: string | undefined): string | undefined
   return country?.[0];
 }
 
+export function getCountryFlagNameFromId(id: string | undefined): string | undefined {
+  if (!id) {
+    return;
+  }
+  const countrySlug = getCountrySlugFromId(id);
+  if (!countrySlug) {
+    return;
+  }
+  return countrySlug === "czech-republic" ? "czechia" : countrySlug;
+}
+
 export function getFieldSlugFromId(id: string | undefined): string | undefined {
   if (!id) {
     return;

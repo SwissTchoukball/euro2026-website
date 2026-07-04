@@ -88,7 +88,7 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
+import { getCountryFlagNameFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 
 const img = useImage();
 const localePath = useLocalePath();
@@ -100,9 +100,9 @@ useHead({
 });
 
 const isCountdownOver = ref(false);
-const countries = Object.keys(tchoukNetSlugIdMapping.countries)
-  .toSorted((a, b) => a.localeCompare(b))
-  .map((country) => ({ slug: country, nameForFlag: country === "czech-republic" ? "czechia" : country }));
+const countries = Object.entries(tchoukNetSlugIdMapping.countries)
+  .toSorted(([slugA, _idA], [slugB, _idB]) => slugA.localeCompare(slugB))
+  .map(([countrySlug, countryId]) => ({ slug: countrySlug, nameForFlag: getCountryFlagNameFromId(countryId) }));
 
 const {
   data: eventData,

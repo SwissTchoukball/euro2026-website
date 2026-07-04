@@ -14,6 +14,7 @@
         <euro-team-navigation
           :title="$t('competition.team.title', competition.participations.length)"
           :participations="competition.participations"
+          class="c-teams__navigation"
         />
       </template>
     </section>
@@ -50,3 +51,10 @@ const competitions = computed<
   );
 });
 </script>
+
+<style scoped>
+.c-teams__navigation {
+  margin-top: var(--euro-spacing-4);
+  margin-bottom: var(--euro-spacing-12);
+}
+</style>

@@ -32,6 +32,8 @@ export type TchoukNetEvent = {
 
 export type TchoukNetCountry = {
   id: string;
+  ioc_code: string;
+  iso_code2: string;
   name: string;
   emoji: string;
 };

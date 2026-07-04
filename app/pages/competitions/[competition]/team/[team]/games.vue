@@ -1,7 +1,7 @@
 <template>
   <div>
     <section v-if="teamCompetitionData" class="l-section">
-      <euro-game-list :games="teamCompetitionData.games" :show-competition="false" />
+      <euro-game-list :games="teamCompetitionData.games" />
     </section>
     <euro-powered-by-tchouk-net />
   </div>

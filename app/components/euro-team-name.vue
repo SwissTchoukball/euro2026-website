@@ -5,7 +5,7 @@
     class="c-team-name"
     :class="{ 'c-team-name--winner': winner }"
   >
-    {{ emojis }} {{ localizeCompetitionEntityName(team.name) }}
+    {{ localizeCompetitionEntityName(team.name) }}
   </NuxtLink>
   <span v-else class="c-team-name c-team-name--placeholder">
     {{ label ? localizeCompetitionEntityName(label) : "---" }}
@@ -34,8 +34,6 @@ const competitionSlugFromRoute = computed(() => route.params.competition as stri
 const competitionSlugFromProps = computed(() => competition?.id && getCompetitionSlugFromId(competition.id));
 const competitionSlug = computed(() => competitionSlugFromProps.value || competitionSlugFromRoute.value);
 const teamSlug = computed(() => getSlugFromId(team?.team_entity_identifier, competitionSlug.value, "teams"));
-
-const emojis = team?.team_entity?.countries?.map((country) => country.emoji).join(" ");
 </script>
 
 <style scoped>
@@ -43,6 +41,9 @@ const emojis = team?.team_entity?.countries?.map((country) => country.emoji).joi
   color: inherit;
   text-decoration: none;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--euro-spacing-6);
 
   a&:hover {
     text-decoration: underline;
@@ -55,5 +56,9 @@ const emojis = team?.team_entity?.countries?.map((country) => country.emoji).joi
 
 .c-team-name--placeholder {
   color: var(--euro-gray-400);
+}
+
+.c-team-name__country-flag {
+  transform: scale(2) translateX(0.1rem);
 }
 </style>

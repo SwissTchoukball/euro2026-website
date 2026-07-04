@@ -34,6 +34,10 @@
       <div class="c-phase-standings__position-team-points">
         <span class="c-phase-standings__position">{{ index + 1 }}</span>
         <span class="c-phase-standings__team-name">
+          <Icon
+            :name="`twemoji:flag-${getCountryFlagNameFromId(row.team?.team_entity?.countries?.[0]?.id)}`"
+            class="c-phase-standings__country-flag"
+          />
           <euro-team-name :team="row.team" />
         </span>
         <span class="c-phase-standings__points">{{ row.points }}</span>
@@ -74,6 +78,7 @@
 
 <script setup lang="ts">
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
+import { getCountryFlagNameFromId } from "~/services/tchoukNetSlugIdMapping";
 
 const { games } = defineProps<{
   games: TchoukNetGame[];
@@ -145,17 +150,26 @@ const standings = computed<StandingTeam[]>(() => {
 .c-phase-standings__position {
   grid-area: position;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
+  width: 1.25rem;
 }
 
 .c-phase-standings__position::after {
   content: ".";
 }
 
+.c-phase-standings__country-flag {
+  transform: scale(1.3);
+  margin-inline: var(--euro-spacing-1);
+}
+
 .c-phase-standings__team-name {
   grid-area: team;
   font-weight: bold;
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--euro-spacing-2);
 
   @media (min-width: 40rem) {
     font-weight: normal;

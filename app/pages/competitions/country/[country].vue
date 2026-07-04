@@ -4,8 +4,9 @@
     <section class="l-section">
       <div v-if="countryStatus === 'error'">Error loading country data.</div>
       <template v-if="countryData">
-        <h2 class="t-headline-1">
-          {{ localizeCompetitionEntityName(countryData.country.name) }} {{ countryData.country.emoji }}
+        <h2 class="t-headline-1 c-country__name">
+          {{ localizeCompetitionEntityName(countryData.country.name) }}
+          <Icon :name="`twemoji:flag-${getCountryFlagNameFromId(countryData.country.id)}`" class="c-country__flag" />
         </h2>
         <h3 class="t-headline-3">{{ $t("competition.team.title", countryData.participations.length) }}</h3>
         <euro-team-navigation
@@ -25,7 +26,7 @@
 
 <script setup lang="ts">
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
-import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
+import { getCountryFlagNameFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
 
 const route = useRoute();
@@ -79,3 +80,11 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   ];
 });
 </script>
+
+<style scoped>
+.c-country__name {
+  display: flex;
+  align-items: center;
+  gap: var(--euro-spacing-4);
+}
+</style>

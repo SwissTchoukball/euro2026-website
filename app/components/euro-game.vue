@@ -30,6 +30,20 @@
     </div>
 
     <div class="c-game__content">
+      <euro-layout-separation class="countries">
+        <template #a>
+          <Icon
+            :icon="`twemoji:flag-${getCountryFlagNameFromId(game.selection_a?.team?.team_entity?.countries?.[0]?.id)}`"
+            class="c-game__country-flag"
+          />
+        </template>
+        <template #b>
+          <Icon
+            :icon="`twemoji:flag-${getCountryFlagNameFromId(game.selection_b?.team?.team_entity?.countries?.[0]?.id)}`"
+            class="c-game__country-flag"
+          />
+        </template>
+      </euro-layout-separation>
       <euro-layout-separation class="teams" light>
         <template #a>
           <euro-team-name
@@ -79,7 +93,11 @@
 import { Icon } from "@iconify/vue";
 
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
-import { getCompetitionSlugFromId, getFieldSlugFromId } from "~/services/tchoukNetSlugIdMapping";
+import {
+  getCompetitionSlugFromId,
+  getCountryFlagNameFromId,
+  getFieldSlugFromId,
+} from "~/services/tchoukNetSlugIdMapping";
 
 const { localizeCompetitionEntityName } = useI18nHelper();
 const {
@@ -187,7 +205,7 @@ const showMoreLabel = computed(() => {
     display: grid;
     gap: var(--euro-spacing-2);
 
-    grid-template-columns: auto min-content;
+    grid-template-columns: min-content auto min-content;
 
     @media (max-width: 40rem) {
       grid-area: content;
@@ -197,6 +215,10 @@ const showMoreLabel = computed(() => {
       display: flex;
       gap: var(--euro-spacing-2);
     }
+  }
+
+  .c-game__country-flag {
+    transform: scale(2.3);
   }
 
   .c-game__more {
