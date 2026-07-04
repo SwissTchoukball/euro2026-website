@@ -65,6 +65,7 @@
       "last": "Last game | Last games",
       "upcoming": "Upcoming game | Upcoming games",
       "emptyList": "No games to show at the moment.",
+      "emptyPlanning": "No games scheduled at the moment.",
       "moreDetails": "More details",
       "watchVideo": "Watch video"
     },

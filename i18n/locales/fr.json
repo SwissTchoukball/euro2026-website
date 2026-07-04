@@ -65,6 +65,7 @@
       "last": "Dernier match | Derniers matchs",
       "upcoming": "Match à venir | Matchs à venir",
       "emptyList": "Aucun match à afficher pour le moment.",
+      "emptyPlanning": "Aucun match programmé pour le moment.",
       "moreDetails": "Plus de détails",
       "watchVideo": "Regarder la vidéo"
     },

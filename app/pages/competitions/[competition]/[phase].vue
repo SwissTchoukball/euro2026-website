@@ -41,7 +41,7 @@ const hasStandings = computed(
   () =>
     phaseSlug.value?.includes("group") ||
     phaseSlug.value?.includes("qualification") ||
-    phaseSlug.value?.includes("round-robin")
+    phaseSlug.value?.includes("round-robin"),
 );
 
 const { data: competitionData, status: competitionStatus } = useAsyncCompetitionData(competitionId.value);
@@ -53,7 +53,8 @@ const { data, status, refresh } = useAsyncData(
       throw new Error(`Unknown phase slug: ${phaseSlug.value}`);
     }
     return tchoukNetApiService.getPhase(phaseId.value);
-  }
+  },
+  { server: false },
 );
 
 usePolling(refresh);

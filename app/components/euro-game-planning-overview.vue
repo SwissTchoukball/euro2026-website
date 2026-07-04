@@ -22,7 +22,7 @@
     "
     class="l-section no-games-section"
   >
-    <p>{{ $t("competition.game.emptyList") }}</p>
+    <p>{{ $t("competition.game.emptyPlanning") }}</p>
     <Icon icon="ph:court-basketball-duotone" width="100" height="100" />
   </section>
 </template>

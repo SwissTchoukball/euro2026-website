@@ -42,12 +42,16 @@ const {
   data: countryData,
   status: countryStatus,
   refresh,
-} = useAsyncData(`country-${countryId.value}`, () => {
-  if (!countryId.value) {
-    throw new Error(`Undefined country ID: ${countryId.value} / slug: ${countrySlug.value}`);
-  }
-  return tchoukNetApiService.getCountry(countryId.value);
-});
+} = useAsyncData(
+  `country-${countryId.value}`,
+  () => {
+    if (!countryId.value) {
+      throw new Error(`Undefined country ID: ${countryId.value} / slug: ${countrySlug.value}`);
+    }
+    return tchoukNetApiService.getCountry(countryId.value);
+  },
+  { server: false },
+);
 usePolling(refresh);
 
 const sortedParticipations = computed(() => {

@@ -67,12 +67,16 @@ const {
   data: teamCompetitionData,
   status: teamCompetitionStatus,
   refresh,
-} = useAsyncData(`team-${teamId.value}`, () => {
-  if (!teamId.value) {
-    throw new Error(`Undefined team ID: ${teamId.value} / slug: ${teamSlug.value}`);
-  }
-  return tchoukNetApiService.getTeam(teamId.value);
-});
+} = useAsyncData(
+  `team-${teamId.value}`,
+  () => {
+    if (!teamId.value) {
+      throw new Error(`Undefined team ID: ${teamId.value} / slug: ${teamSlug.value}`);
+    }
+    return tchoukNetApiService.getTeam(teamId.value);
+  },
+  { server: false },
+);
 usePolling(refresh);
 
 const countryName = computed(() => teamCompetitionData.value?.team.team_entity.countries[0]?.name || "");

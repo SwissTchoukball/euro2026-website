@@ -38,12 +38,16 @@ const {
   data: fieldData,
   status: fieldStatus,
   refresh,
-} = useAsyncData(`field-${fieldId.value}`, () => {
-  if (!fieldId.value) {
-    throw new Error(`Undefined field ID: ${fieldId.value} / slug: ${fieldSlug.value}`);
-  }
-  return tchoukNetApiService.getField(fieldId.value);
-});
+} = useAsyncData(
+  `field-${fieldId.value}`,
+  () => {
+    if (!fieldId.value) {
+      throw new Error(`Undefined field ID: ${fieldId.value} / slug: ${fieldSlug.value}`);
+    }
+    return tchoukNetApiService.getField(fieldId.value);
+  },
+  { server: false },
+);
 usePolling(refresh);
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {

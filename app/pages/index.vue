@@ -108,7 +108,7 @@ const {
   data: eventData,
   status: eventStatus,
   refresh: eventRefresh,
-} = useAsyncData("event", () => tchoukNetApiService.getEvent());
+} = useAsyncData("event", () => tchoukNetApiService.getEvent(), { server: false });
 usePolling(eventRefresh);
 
 const showPhotosAndVideosSection = computed(() => {

@@ -37,7 +37,7 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { data, status, refresh } = useAsyncData("event", () => tchoukNetApiService.getEvent());
+const { data, status, refresh } = useAsyncData("event", () => tchoukNetApiService.getEvent(), { server: false });
 usePolling(refresh);
 
 const breadcrumbs = computed(() => {

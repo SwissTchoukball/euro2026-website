@@ -22,12 +22,22 @@ const month = computed(() => route.params.month as string);
 const day = computed(() => route.params.day as string);
 const date = computed(() => new Date(appConfig.eventYear, Number(month.value) - 1, Number(day.value)));
 
-const { data: dayData, status: dayStatus } = useAsyncData(`day-${date.value}`, () => {
-  if (!date.value) {
-    throw new Error(`Undefined date: ${date.value}`);
-  }
-  return tchoukNetApiService.getDay(date.value.toISOString().split("T")[0]!);
-});
+const {
+  data: dayData,
+  status: dayStatus,
+  refresh,
+} = useAsyncData(
+  `day-${date.value}`,
+  () => {
+    if (!date.value) {
+      throw new Error(`Undefined date: ${date.value}`);
+    }
+    return tchoukNetApiService.getDay(date.value.toISOString().split("T")[0]!);
+  },
+  { server: false },
+);
+
+usePolling(refresh);
 </script>
 
 <style scoped>
