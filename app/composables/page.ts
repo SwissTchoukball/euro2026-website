@@ -69,13 +69,14 @@ export function setPage<T extends KirbySharedPageData & Record<string, any>>(pag
   }
 
   useSeoMeta({
-    title: title.value,
+    title: () => title.value,
+    ogTitle: () => title.value,
   });
 
+  // Non-reactive SEO meta tags are set only on the server for better performance
   if (import.meta.server) {
     useSeoMeta({
       description: description.value,
-      ogTitle: title.value,
       ogDescription: description.value,
       ogUrl: url.value,
       ogType: "website",

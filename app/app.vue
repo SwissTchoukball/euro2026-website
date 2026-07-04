@@ -23,7 +23,12 @@ useSeoMeta({
     "Tchoukball, Europe, Euro, European championships, championships, FITB, ETBF, Swiss Tchoukball, Switzerland, Macolin, Magglingen",
   ogType: "website",
   ogLocale: () => locale.value,
-  ogUrl: "https://euro2026.ch",
   ogImage: "https://euro2026.ch/open-graph.png",
 });
+
+if (import.meta.client) {
+  useSeoMeta({
+    ogUrl: () => window.location.href,
+  });
+}
 </script>

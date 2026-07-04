@@ -5,7 +5,7 @@
       <div v-if="fieldStatus === 'error'">Error loading field data.</div>
       <template v-if="fieldData">
         <h2 class="t-headline-1">
-          {{ localizeCompetitionEntityName(fieldData.field.name) }}
+          {{ fieldName }}
         </h2>
         <div class="c-field__address">
           {{ fieldData.field.venue.address }}
@@ -33,6 +33,7 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 
 const fieldSlug = computed(() => route.params.field as string);
 const fieldId = computed(() => tchoukNetSlugIdMapping.fields?.[fieldSlug.value]);
+const fieldName = computed(() => (fieldData.value ? localizeCompetitionEntityName(fieldData.value.field.name) : ""));
 
 const {
   data: fieldData,
@@ -68,6 +69,12 @@ const coordinates = computed<string>(() => {
     fieldData.value.field.venue.coordinates.longitude,
     fieldData.value.field.venue.coordinates.latitude,
   ]).join(",");
+});
+const pageTitle = computed(() => `${fieldName.value} · ${$t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
 });
 </script>
 

@@ -76,4 +76,13 @@ const countriesNavigationItems = computed(() => {
     };
   });
 });
+
+const pageTitle = computed(
+  () => `${t("competition.title", data.value?.event.competitions.length || 2)} · ${t("eventName")}`,
+);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>

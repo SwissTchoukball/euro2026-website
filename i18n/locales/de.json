@@ -52,6 +52,7 @@
   },
   "competition": {
     "title": "Wettbewerb | Wettbewerbe",
+    "nameOf": "Wettbewerb {name}",
     "seeAllGames": "Alle Spiele anzeigen",
     "poweredBy": "Wettbewerbe powered by",
     "phase": {
@@ -143,8 +144,8 @@
       "Semi-finals": "Halbfinale",
       "Semi-final 1": "Halbfinale 1",
       "Semi-final 2": "Halbfinale 2",
-      "Looser of semi-final 1": "Verlierer der Halbfinale 1",
-      "Looser of semi-final 2": "Verlierer der Halbfinale 2",
+      "Loser of semi-final 1": "Verlierer der Halbfinale 1",
+      "Loser of semi-final 2": "Verlierer der Halbfinale 2",
       "Winner of semi-final 1": "Gewinner der Halbfinale 1",
       "Winner of semi-final 2": "Gewinner der Halbfinale 2",
       "Ranking games": "Ranglisten-Spiele",

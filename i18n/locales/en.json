@@ -52,6 +52,7 @@
   },
   "competition": {
     "title": "Competition | Competitions",
+    "nameOf": "{name} competition",
     "seeAllGames": "See all games",
     "poweredBy": "Competitions powered by",
     "phase": {
@@ -143,8 +144,8 @@
       "Semi-finals": "Semi-finals",
       "Semi-final 1": "Semi-final 1",
       "Semi-final 2": "Semi-final 2",
-      "Looser of semi-final 1": "Looser of semi-final 1",
-      "Looser of semi-final 2": "Looser of semi-final 2",
+      "Loser of semi-final 1": "Loser of semi-final 1",
+      "Loser of semi-final 2": "Loser of semi-final 2",
       "Winner of semi-final 1": "Winner of semi-final 1",
       "Winner of semi-final 2": "Winner of semi-final 2",
       "Ranking games": "Ranking games",

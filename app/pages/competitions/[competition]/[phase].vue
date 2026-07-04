@@ -80,4 +80,15 @@ const breadcrumbs = computed(() => {
 
   return items;
 });
+
+const competitionName = computed(() =>
+  competitionData.value ? localizeCompetitionEntityName(competitionData.value.competition.name) : "",
+);
+const phaseName = computed(() => (data.value ? localizeCompetitionEntityName(data.value.competition_phase.name) : ""));
+const pageTitle = computed(() => `${competitionName.value} ${phaseName.value} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>

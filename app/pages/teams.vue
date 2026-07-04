@@ -50,6 +50,12 @@ const competitions = computed<
     })) || []
   );
 });
+const pageTitle = computed(() => `${t("competition.team.title", 2)} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>
 
 <style scoped>

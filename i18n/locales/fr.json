@@ -52,6 +52,7 @@
   },
   "competition": {
     "title": "Compétition | Compétitions",
+    "nameOf": "Compétition {name}",
     "seeAllGames": "Voir tous les matchs",
     "poweredBy": "Compétitions propulsées par",
     "phase": {
@@ -143,8 +144,8 @@
       "Semi-finals": "Demi-finales",
       "Semi-final 1": "Demi-finale 1",
       "Semi-final 2": "Demi-finale 2",
-      "Looser of semi-final 1": "Perdant de la demi-finale 1",
-      "Looser of semi-final 2": "Perdant de la demi-finale 2",
+      "Loser of semi-final 1": "Perdant de la demi-finale 1",
+      "Loser of semi-final 2": "Perdant de la demi-finale 2",
       "Winner of semi-final 1": "Gagnant de la demi-finale 1",
       "Winner of semi-final 2": "Gagnant de la demi-finale 2",
       "Ranking games": "Matchs de classement",

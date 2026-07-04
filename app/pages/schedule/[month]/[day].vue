@@ -16,7 +16,7 @@
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
 
 const appConfig = useAppConfig();
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 const route = useRoute();
 const month = computed(() => route.params.month as string);
 const day = computed(() => route.params.day as string);
@@ -38,6 +38,15 @@ const {
 );
 
 usePolling(refresh);
+const pageTitle = computed(
+  () =>
+    `${t("schedule.title")} · ${date.value.toLocaleDateString(`${locale.value}-CH`, { day: "numeric", month: "long" })} · ${t("eventName")}`,
+);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
       <div v-if="countryStatus === 'error'">Error loading country data.</div>
       <template v-if="countryData">
         <h2 class="t-headline-1 c-country__name">
-          {{ localizeCompetitionEntityName(countryData.country.name) }}
+          {{ countryName }}
           <Icon :name="`twemoji:flag-${getCountryFlagNameFromId(countryData.country.id)}`" class="c-country__flag" />
         </h2>
         <h3 class="t-headline-3">{{ $t("competition.team.title", countryData.participations.length) }}</h3>
@@ -36,6 +36,9 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 
 const countrySlug = computed(() => route.params.country as string);
 const countryId = computed(() => tchoukNetSlugIdMapping.countries?.[countrySlug.value]);
+const countryName = computed(() =>
+  countryData.value ? localizeCompetitionEntityName(countryData.value.country.name) : "",
+);
 
 const { data: eventData } = useAsyncData("event", () => tchoukNetApiService.getEvent());
 
@@ -78,6 +81,13 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
       text: countryData.value ? localizeCompetitionEntityName(countryData.value.country.name) : "",
     },
   ];
+});
+
+const pageTitle = computed(() => `${countryName.value} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
 });
 </script>
 

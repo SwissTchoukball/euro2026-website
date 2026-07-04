@@ -26,6 +26,7 @@ const { localizeCompetitionEntityName } = useI18nHelper();
 
 const competitionSlug = computed(() => route.params.competition as string);
 const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.id);
+const competitionName = computed(() => (data.value ? localizeCompetitionEntityName(data.value.competition.name) : ""));
 
 const { data, status } = useAsyncCompetitionData(competitionId.value, { polling: true });
 
@@ -33,8 +34,15 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [
     { text: t("navigation.competitions"), to: localePath("/competitions") },
     {
-      text: data.value ? localizeCompetitionEntityName(data.value.competition.name) : "",
+      text: competitionName.value,
     },
   ];
+});
+
+const pageTitle = computed(() => `${t("competition.nameOf", { name: competitionName.value })} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
 });
 </script>

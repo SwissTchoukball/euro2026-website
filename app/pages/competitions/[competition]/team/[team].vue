@@ -111,6 +111,13 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 
   return crumbs;
 });
+
+const pageTitle = computed(() => `${teamName.value} ${competitionName.value} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>
 
 <style scoped>
