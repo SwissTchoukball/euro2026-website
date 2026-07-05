@@ -59,8 +59,11 @@ export const tchoukNetSlugIdMapping: {
     girls: {
       id: "1f0a5f32-1119-6930-8daa-afbb08724b79",
       phases: {
-        "round-robin": "1f177b47-8d4f-6566-8ae0-b3906bd20e86",
-        "m15-final-round": "1f177b48-753f-683a-b9b9-e72544fe1d2f",
+        "m15-m18-round-robin": "1f177b47-8d4f-6566-8ae0-b3906bd20e86",
+        "m15-round-robin": "1f178a21-6d8a-6c24-97b5-5f185bea72af",
+        "m18-round-robin": "1f178a1f-e85a-6aaa-9223-0ff6911f5d59",
+        "m15-friendlies": "1f178a36-b656-6146-a60a-b1c9f547c0d2",
+        "m15-final": "1f177b48-753f-683a-b9b9-e72544fe1d2f",
         "m18-final": "1f177b48-9d58-62c2-8bf7-7d4f55687edf",
       },
       teams: {
