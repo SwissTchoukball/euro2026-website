@@ -2,14 +2,18 @@ import { tchoukNetApiService } from "~/services/tchoukNetApiService";
 
 export function useAsyncCompetitionData(
   competitionId: string | undefined,
-  options: { polling?: boolean } = { polling: false }
+  options: { polling?: boolean } = { polling: false },
 ) {
-  const asyncDataResult = useAsyncData(`competition-${competitionId}`, () => {
-    if (!competitionId) {
-      throw new Error(`Undefined competition ID: ${competitionId}`);
-    }
-    return tchoukNetApiService.getCompetition(competitionId);
-  });
+  const asyncDataResult = useAsyncData(
+    `competition-${competitionId}`,
+    () => {
+      if (!competitionId) {
+        throw new Error(`Undefined competition ID: ${competitionId}`);
+      }
+      return tchoukNetApiService.getCompetition(competitionId);
+    },
+    { server: false },
+  );
 
   if (options.polling) {
     usePolling(asyncDataResult.refresh);
