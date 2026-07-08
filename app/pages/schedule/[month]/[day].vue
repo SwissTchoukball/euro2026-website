@@ -5,8 +5,8 @@
     </h3>
 
     <div v-if="dayStatus === 'error'">Error loading day data.</div>
-    <template v-if="dayData">
-      <euro-game-list :games="dayData.matches" hide-field />
+    <template v-if="sortedMatches">
+      <euro-game-list :games="sortedMatches" hide-field />
     </template>
     <euro-loading-indicator v-else-if="dayStatus === 'pending'" for-section />
   </div>
@@ -32,12 +32,19 @@ const {
     if (!date.value) {
       throw new Error(`Undefined date: ${date.value}`);
     }
-    return tchoukNetApiService.getDay(date.value.toISOString().split("T")[0]!);
+    return tchoukNetApiService.getDay(
+      `${appConfig.eventYear}-${month.value.padStart(2, "0")}-${day.value.padStart(2, "0")}`,
+    );
   },
   { server: false },
 );
 
 usePolling(refresh);
+
+const sortedMatches = computed(() => {
+  return dayData.value?.matches.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
+});
+
 const pageTitle = computed(
   () =>
     `${t("schedule.title")} · ${date.value.toLocaleDateString(`${locale.value}-CH`, { day: "numeric", month: "long" })} · ${t("eventName")}`,
