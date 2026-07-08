@@ -16,8 +16,8 @@
       <euro-phase-standings :games="data.games" />
     </section>
 
-    <section v-if="data" class="l-section">
-      <euro-game-list :games="data.games" :show-competition="false" />
+    <section v-if="sortedGames" class="l-section">
+      <euro-game-list :games="sortedGames" :show-competition="false" />
     </section>
     <euro-powered-by-tchouk-net />
   </main>
@@ -58,6 +58,10 @@ const { data, status, refresh } = useAsyncData(
 );
 
 usePolling(refresh);
+
+const sortedGames = computed(() => {
+  return data.value?.games.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
+});
 
 const breadcrumbs = computed(() => {
   const items: BreadcrumbItem[] = [

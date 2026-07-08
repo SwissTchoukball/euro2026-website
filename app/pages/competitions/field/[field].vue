@@ -14,7 +14,7 @@
       </template>
       <euro-loading-indicator v-else-if="fieldStatus === 'pending'" for-section />
     </section>
-    <euro-game-list v-if="fieldData?.games" :games="fieldData.games" hide-field />
+    <euro-game-list v-if="sortedGames" :games="sortedGames" hide-field />
     <euro-powered-by-tchouk-net />
   </main>
 </template>
@@ -50,6 +50,10 @@ const {
   { server: false },
 );
 usePolling(refresh);
+
+const sortedGames = computed(() => {
+  return fieldData.value?.games.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
+});
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   return [
