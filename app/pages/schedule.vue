@@ -17,6 +17,11 @@
 
 <script lang="ts" setup>
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
+import scheduleRedirect from "~/middleware/schedule-redirect";
+
+definePageMeta({
+  middleware: [scheduleRedirect],
+});
 
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
@@ -42,28 +47,6 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 });
 
 const days = appConfig.eventDays.map((day) => new Date(day));
-
-onMounted(() => {
-  // If we are not on the route of a specific day, redirect to the day matching the current date, or, if there is no matching day, to the closest upcoming day.
-  if (!selectedDate.value) {
-    const today = new Date();
-    const matchingDay = days.find(
-      (day: Date) =>
-        day.getDate() === today.getDate() &&
-        day.getMonth() === today.getMonth() &&
-        day.getFullYear() === today.getFullYear(),
-    );
-
-    if (matchingDay) {
-      return navigateTo(localePath(`/schedule/${matchingDay.getMonth() + 1}/${matchingDay.getDate()}`));
-    }
-
-    const closestUpcomingDay = days.find((day: Date) => day > today);
-    if (closestUpcomingDay) {
-      return navigateTo(localePath(`/schedule/${closestUpcomingDay.getMonth() + 1}/${closestUpcomingDay.getDate()}`));
-    }
-  }
-});
 
 const subNavigationItems = computed(() => {
   return days.map((day: Date) => ({
