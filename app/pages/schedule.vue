@@ -71,6 +71,13 @@ const subNavigationItems = computed(() => {
     to: localePath(`/schedule/${day.getMonth() + 1}/${day.getDate()}`),
   }));
 });
+
+const pageTitle = computed(() => `${t("schedule.title")} · ${t("eventName")}`);
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  ogTitle: () => pageTitle.value,
+});
 </script>
 
 <style scoped>
