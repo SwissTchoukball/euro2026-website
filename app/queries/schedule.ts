@@ -7,6 +7,7 @@ export type KirbyScheduleData = {
       time: string;
       time_clarification: string;
       description: string;
+      location: string;
     }[];
   }[];
 };

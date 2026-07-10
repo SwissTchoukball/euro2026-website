@@ -18,9 +18,16 @@
       <tbody>
         <tr v-for="(event, index) in day.events" :key="`${day.day}-${index}`">
           <td>
-            {{ event.time }}<br /><small>{{ event.time_clarification }}</small>
+            {{ event.time }}<br />
+            <div class="kb-schedule__time-description">{{ event.time_clarification }}</div>
           </td>
-          <td>{{ event.description }}</td>
+          <td>
+            {{ event.description }}<br />
+            <div class="kb-schedule__location">
+              <Icon name="ph:map-pin-fill" />
+              {{ event.location }}
+            </div>
+          </td>
         </tr>
       </tbody>
     </template>
@@ -53,5 +60,21 @@ defineProps<{
   td p {
     margin-bottom: 0.4rem;
   }
+}
+
+.kb-schedule__time-description {
+  padding-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--euro-gray-700);
+}
+
+.kb-schedule__location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--euro-gray-700);
+
+  padding-top: 0.25rem;
 }
 </style>
