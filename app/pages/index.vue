@@ -47,8 +47,8 @@
     </section>
 
     <section class="l-section c-index__finals-dates">
-      <div>{{ $t("home.youthFinals") }}</div>
-      <div>{{ $t("home.seniorFinals") }}</div>
+      <a :href="localePath('/schedule/8/3')">{{ $t("home.youthFinals") }}</a>
+      <a :href="localePath('/schedule/8/8')">{{ $t("home.seniorFinals") }}</a>
     </section>
 
     <section v-if="showPhotosAndVideosSection" class="l-section">
@@ -254,6 +254,14 @@ const showBecomeVolunteerButton = computed(() => {
   gap: var(--euro-spacing-6) var(--euro-spacing-20);
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: bold;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .c-index__engagement-links {
