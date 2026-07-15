@@ -64,7 +64,7 @@
     "game": {
       "ongoing": "Match en cours | Matchs en cours",
       "last": "Dernier match | Derniers matchs",
-      "upcoming": "Match à venir | Matchs à venir",
+      "upcoming": "Prochain match | Prochains matchs",
       "emptyList": "Aucun match à afficher pour le moment.",
       "emptyPlanning": "Aucun match programmé pour le moment.",
       "moreDetails": "Plus de détails",
