@@ -2,6 +2,7 @@
   /* Colours */
   --euro-red-500: rgb(255, 0, 0);
   --euro-blue-500: rgb(0, 86, 124);
+  --euro-sky-blue-200: rgb(208, 240, 240);
   --euro-sky-blue-500: rgb(107, 226, 228);
   --tchouk-net-blue: #313178;
 
@@ -17,6 +18,12 @@
   --euro-gray-900: rgb(30, 30, 30);
   --euro-black-a20: rgb(0 0 0 / 20%);
   --euro-black-a50: rgb(0 0 0 / 50%);
+
+  --euro-gold-200: rgb(255, 230, 150);
+  --euro-gold-500: rgb(255, 215, 0);
+
+  --euro-bronze-200: rgb(252, 230, 208);
+  --euro-bronze-500: rgb(205, 127, 50);
 
   /* Spacings */
   --euro-spacing-0-5: 0.125rem;

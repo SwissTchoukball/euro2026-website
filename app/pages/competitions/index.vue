@@ -20,9 +20,7 @@
       />
     </section>
 
-    <section v-if="data" class="l-section">
-      <euro-game-planning-overview :planning-overview="data?.overview" />
-    </section>
+    <euro-game-planning-overview v-if="data" :planning-overview="data?.overview" />
 
     <euro-powered-by-tchouk-net />
   </main>

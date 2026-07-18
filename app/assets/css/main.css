@@ -21,6 +21,10 @@ html {
   margin: 0;
 }
 
+body {
+  background-color: var(--euro-gray-050);
+}
+
 a,
 a:visited {
   color: #00567c;
@@ -31,7 +35,12 @@ a:visited {
     color: var(--euro-sky-blue-500);
   }
 
-  h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+  h1 &,
+  h2 &,
+  h3 &,
+  h4 &,
+  h5 &,
+  h6 & {
     color: initial;
     text-decoration: none;
 
@@ -44,7 +53,9 @@ a:visited {
       content: "→";
       color: transparent;
       margin-left: 0;
-      transition: margin-left 0.2s, color 0.2s;
+      transition:
+        margin-left 0.2s,
+        color 0.2s;
     }
 
     &:hover::after {

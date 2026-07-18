@@ -5,6 +5,7 @@
       'c-layout-separation--score': score,
       'c-layout-separation--light': light,
       'c-layout-separation--center': center,
+      'c-layout-separation--name': name,
     }"
   >
     <div>
@@ -21,6 +22,7 @@ defineProps<{
   score?: boolean;
   light?: boolean;
   center?: boolean;
+  name?: boolean;
 }>();
 </script>
 
@@ -50,6 +52,10 @@ defineProps<{
 
   &.c-layout-separation--center > * {
     justify-content: center;
+  }
+
+  &.c-layout-separation--name > * {
+    min-width: 0;
   }
 }
 </style>
