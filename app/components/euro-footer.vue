@@ -132,7 +132,7 @@
 .c-footer__sponsors {
   text-align: center;
   padding-block: var(--euro-spacing-8);
-  background-color: var(--euro-gray-050);
+  background-color: white;
 
   h3:not(:first-child) {
     margin-top: var(--euro-spacing-6);

@@ -36,7 +36,7 @@ defineProps<{
 
 <style scoped>
 .c-team-member {
-  background-color: var(--euro-gray-050);
+  background: linear-gradient(195deg, var(--euro-gray-100), white 100%);
   border-radius: 0.5rem;
   max-width: 250px;
   height: 100%;
@@ -77,8 +77,10 @@ defineProps<{
 
   font-size: 3rem;
   font-weight: 900;
-  color: white;
-  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  color: transparent;
+  background: linear-gradient(to bottom, white, var(--euro-gray-050));
+  background-clip: text;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
 }
 
 .c-team-member__position {

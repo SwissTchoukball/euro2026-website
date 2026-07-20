@@ -109,14 +109,10 @@ const standings = computed<StandingTeam[]>(() => {
     grid-template-columns: 1rem 1fr 2.5rem auto;
     row-gap: 0;
   }
-
-  &:nth-child(odd) {
-    background-color: var(--euro-color-background-alt);
-  }
 }
 
 .c-phase-standings__row:nth-child(even) {
-  background-color: var(--euro-gray-050);
+  background-color: white;
 }
 
 .c-phase-standings__row--header {
