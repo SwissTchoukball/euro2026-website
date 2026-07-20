@@ -51,6 +51,11 @@
             <img class="c-footer__sponsor-logo" src="/images/logo-rrv.svg" alt="Logo of RRV SA" />
           </a>
         </li>
+        <li>
+          <a href="https://focuswater.ch" class="c-footer__sponsor c-footer__sponsor--secondary">
+            <img class="c-footer__sponsor-logo" src="/images/logo-focus-water.svg" alt="Logo of Focus Water" />
+          </a>
+        </li>
       </ul>
     </div>
 
