@@ -17,7 +17,7 @@
     </section>
 
     <section v-if="sortedGames" class="l-section">
-      <euro-game-list :games="sortedGames" :show-competition="false" />
+      <euro-game-list :games="sortedGames" :show-competition="false" hide-date />
     </section>
     <euro-powered-by-tchouk-net />
   </main>

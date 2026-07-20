@@ -19,7 +19,7 @@
   </component>
   <div v-else-if="date" class="status-date">
     <b>{{ date.toLocaleTimeString(`${locale}-CH`, { hour: "2-digit", minute: "2-digit" }) }}</b>
-    <small>{{ date.toLocaleDateString(`${locale}-CH`) }}</small>
+    <small v-if="!hideDate">{{ date.toLocaleDateString(`${locale}-CH`) }}</small>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ import type { TchoukNetGame } from "~/services/tchoukNetApi";
 
 const { locale } = useI18n();
 
-const { game } = defineProps<{ game: TchoukNetGame }>();
+const { game, hideDate } = defineProps<{ game: TchoukNetGame; hideDate?: boolean }>();
 
 const date = computed<Date | undefined>(() => (game.start_at ? new Date(game.start_at) : undefined));
 </script>

@@ -6,7 +6,7 @@
 
     <div v-if="dayStatus === 'error'">Error loading day data.</div>
     <template v-if="sortedMatches">
-      <euro-game-list :games="sortedMatches" />
+      <euro-game-list :games="sortedMatches" hide-date-headings hide-date />
     </template>
     <euro-loading-indicator v-else-if="dayStatus === 'pending'" for-section />
   </div>

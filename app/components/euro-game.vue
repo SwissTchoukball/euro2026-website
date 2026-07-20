@@ -5,7 +5,7 @@
   >
     <div class="c-game__metadata">
       <div class="c-game__status">
-        <euro-game-status :game="game" />
+        <euro-game-status :game="game" :hide-date="hideDate" />
         <NuxtLink
           v-if="game.field && !hideField"
           :to="$localePath(`/competitions/field/${getFieldSlugFromId(game.field.id)}`)"
@@ -108,6 +108,7 @@ const {
   showMore?: boolean;
   showCompetition?: boolean;
   hideField?: boolean;
+  hideDate?: boolean;
 }>();
 
 const phase = computed(() => {
