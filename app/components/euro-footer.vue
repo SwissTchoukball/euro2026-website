@@ -56,6 +56,15 @@
             <img class="c-footer__sponsor-logo" src="/images/logo-focus-water.svg" alt="Logo of Focus Water" />
           </a>
         </li>
+        <li>
+          <a href="https://linktr.ee/tchoukball.global" class="c-footer__sponsor c-footer__sponsor--secondary">
+            <img
+              class="c-footer__sponsor-logo"
+              src="/images/logo-tchoukball-global.svg"
+              alt="Logo of Tchoukball Global"
+            />
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -147,37 +156,34 @@
   justify-content: center;
   align-items: center;
   gap: var(--euro-spacing-8);
+
+  & li:has(.c-footer__sponsor--secondary) {
+    height: 4rem;
+    max-width: 8rem;
+  }
+
+  /* Although OFSPO are secondary, just to make their logo readable, we make it bigger. */
+  & li:has(.c-footer__sponsor--main),
+  & li:has(.c-footer__sponsor--ofspo) {
+    height: 6rem;
+    max-width: 12rem;
+  }
 }
 
 .c-footer__sponsor {
   display: block;
   text-decoration: none;
   color: black;
+  height: 100%;
 
   &:hover {
     color: inherit;
-  }
-
-  &.c-footer__sponsor--main {
-    height: 6rem;
-    width: 12rem;
-  }
-
-  &.c-footer__sponsor--secondary {
-    height: 4rem;
-    width: 8rem;
-  }
-
-  /* Although they're secondary, just to make their logo readable, we make it bigger. */
-  &.c-footer__sponsor--ofspo {
-    height: 6rem;
-    width: 12rem;
   }
 }
 
 .c-footer__sponsor-logo {
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   object-fit: contain;
 }
 
