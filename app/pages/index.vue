@@ -21,13 +21,19 @@
       </div>
     </section>
 
-    <section class="l-section c-index__countdown-section">
+    <section class="l-section">
       <EuroCountdown class="c-index__countdown" @over="isCountdownOver = true" />
 
       <template v-if="isCountdownOver">
         <euro-loading-indicator v-if="!eventData && eventStatus === 'pending'" for-section />
         <euro-game-planning-overview v-if="eventData" :planning-overview="eventData?.overview" />
       </template>
+
+      <div class="c-index__engagement-links">
+        <NuxtLink :to="localePath('/schedule')" class="c-index__engagement-link-button">
+          {{ $t("home.seeFullSchedule") }}
+        </NuxtLink>
+      </div>
     </section>
 
     <section class="l-section c-index__countries">
