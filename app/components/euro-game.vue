@@ -166,7 +166,7 @@ const isFinal = computed(() => {
 });
 
 const showMoreIcon = computed(() => {
-  return game.link_youtube_url ? "streamline:live-video-remix" : "streamline:add-1-solid";
+  return game.link_youtube_url ? "streamline:live-video-remix" : "mage:chart-fill";
 });
 
 const showMoreLabel = computed(() => {
