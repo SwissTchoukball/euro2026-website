@@ -9,6 +9,7 @@ export interface StandingTeam {
   points: number;
   for: number;
   against: number;
+  ineligible: boolean;
 }
 
 export enum StandingSystem {
@@ -31,9 +32,17 @@ export const standingPoints = {
   },
 };
 
+// TODO: Make it less hardcoded
+const ineligibleTeamIds = [
+  "1f14163d-204b-6cd4-9ed3-3bc7f2227f91", // Switzerland B Women
+  "1f10f15e-6df3-6f92-8219-b37f37944f41", // Switzerland B M18 Boys
+  "1f141642-5b4e-68f4-8c31-a158ab8a006d", // Switzerland BEJUNE M15 Girls
+  "1f131c23-5ec1-6c80-a238-1519de508deb", // Switzerland GE M15 Boys
+];
+
 export function generateStandingsTeams(
   games: TchoukNetGame[],
-  options: { system: StandingSystem } = { system: StandingSystem.FITB }
+  options: { system: StandingSystem } = { system: StandingSystem.FITB },
 ): Record<string, StandingTeam> {
   const teams: Record<string, StandingTeam> = {};
 
@@ -58,6 +67,7 @@ export function generateStandingsTeams(
           points: 0,
           for: 0,
           against: 0,
+          ineligible: ineligibleTeamIds.includes(selection.team.team_entity.id),
         };
       }
       if (game.has_ended) {
@@ -126,7 +136,7 @@ function tieBreakByHeadToHead(
   teamA: StandingTeam,
   teamB: StandingTeam,
   games: TchoukNetGame[],
-  options: { system: StandingSystem } = { system: StandingSystem.FITB }
+  options: { system: StandingSystem } = { system: StandingSystem.FITB },
 ): number {
   const headToHeadGames = getGamesBetweenTwoTeams(teamA.team.id, teamB.team.id, games);
   if (headToHeadGames.length === 0) {
@@ -163,9 +173,17 @@ function tieBreakByHeadToHead(
 export function sortStandings(
   standingTeams: Record<string, StandingTeam>,
   games: TchoukNetGame[],
-  options: { system: StandingSystem } = { system: StandingSystem.FITB }
+  options: { system: StandingSystem } = { system: StandingSystem.FITB },
 ): StandingTeam[] {
   return Object.values(standingTeams).sort((teamA, teamB) => {
+    if (teamA.ineligible) {
+      return 1;
+    }
+
+    if (teamB.ineligible) {
+      return -1;
+    }
+
     if (teamB.points !== teamA.points) {
       return teamB.points - teamA.points;
     }

@@ -30,7 +30,12 @@
         </span>
       </div>
     </li>
-    <li v-for="(row, index) in standings" :key="row.team.id" class="c-phase-standings__row">
+    <li
+      v-for="(row, index) in standings"
+      :key="row.team.id"
+      class="c-phase-standings__row"
+      :class="{ 'c-phase-standings__row--ineligible': row.ineligible }"
+    >
       <div class="c-phase-standings__position-team-points">
         <span class="c-phase-standings__position">{{ index + 1 }}</span>
         <span class="c-phase-standings__team-name">
@@ -39,6 +44,22 @@
             class="c-phase-standings__country-flag"
           />
           <euro-team-name :team="row.team" />
+          <span v-if="row.ineligible" class="c-phase-standings__ineligible-tooltip-trigger">
+            <euro-popover>
+              <template #trigger>
+                <Icon name="mdi:information-outline" class="c-phase-standings__ineligible-tooltip-icon" />
+              </template>
+              <template #content>
+                <div>
+                  {{
+                    $t("competition.standings.ineligibleExplanation", {
+                      teamName: localizeCompetitionEntityName(row.team.name),
+                    })
+                  }}
+                </div>
+              </template>
+            </euro-popover>
+          </span>
         </span>
         <span class="c-phase-standings__points">{{ row.points }}</span>
       </div>
@@ -79,6 +100,8 @@
 <script setup lang="ts">
 import type { TchoukNetGame } from "~/services/tchoukNetApi";
 import { getCountryFlagNameFromId } from "~/services/tchoukNetSlugIdMapping";
+
+const { localizeCompetitionEntityName } = useI18nHelper();
 
 const { games } = defineProps<{
   games: TchoukNetGame[];
@@ -127,20 +150,14 @@ const standings = computed<StandingTeam[]>(() => {
   }
 }
 
+.c-phase-standings__row--ineligible {
+  color: var(--euro-gray-600);
+}
+
 .c-phase-standings__position-team-points {
   grid-area: position-team-points;
-  /* display: grid;
-  grid-template-columns: subgrid;
-  grid-template-areas: "position team points";
-  align-items: center; */
   display: flex;
   gap: var(--euro-spacing-2);
-
-  /* @media (min-width: 40rem) {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-template-areas: "position team points";
-  } */
 }
 
 .c-phase-standings__position {
@@ -170,6 +187,10 @@ const standings = computed<StandingTeam[]>(() => {
   @media (min-width: 40rem) {
     font-weight: normal;
   }
+}
+
+.c-phase-standings__ineligible-tooltip-trigger {
+  line-height: 0;
 }
 
 .c-phase-standings__points {

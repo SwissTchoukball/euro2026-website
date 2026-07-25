@@ -79,7 +79,8 @@
       "drawn": "Drawn",
       "for": "For",
       "against": "Against",
-      "difference": "Diff."
+      "difference": "Diff.",
+      "ineligibleExplanation": "Only one team from the host team is eligible to qualify further. The team “{teamName}” has been defined as the non-eligible one prior to the competition. It is therefore placed last in the standings, regardless of its points."
     },
     "team": {
       "title": "Team | Teams",

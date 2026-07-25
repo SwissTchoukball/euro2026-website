@@ -79,7 +79,8 @@
       "drawn": "Unentschieden",
       "for": "Für",
       "against": "Gegen",
-      "difference": "Diff."
+      "difference": "Diff.",
+      "ineligibleExplanation": "Nur ein Team des Gastgeberlandes kann sich für die nächste Runde qualifizieren. Das Team «{teamName}» wurde vor Beginn des Wettbewerbs als «nicht teilnahmeberechtigt» eingestuft. Es belegt daher unabhängig von seiner Punktzahl den letzten Platz in der Rangliste."
     },
     "team": {
       "title": "Team | Teams",
