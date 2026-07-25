@@ -178,8 +178,8 @@
     "united-kingdom": "United Kingdom"
   },
   "sponsors": {
-    "main": "Main partners",
-    "operational": "Operational partners",
+    "main": "Main partner | Main partners",
+    "operational": "Operational partner | Operational partners",
     "federalOfficeOfSport": "Federal Office for Sport FOSPO"
   },
   "about": {

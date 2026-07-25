@@ -1,7 +1,7 @@
 <template>
   <footer class="c-footer">
     <div class="c-footer__sponsors">
-      <h3 class="t-headline-3">{{ $t("sponsors.main") }}</h3>
+      <h3 class="t-headline-3">{{ $t("sponsors.main", 1) }}</h3>
       <ul class="u-unstyled-list c-footer__sponsors-list">
         <li>
           <a
@@ -17,7 +17,7 @@
         </li>
       </ul>
 
-      <h3 class="t-headline-4">{{ $t("sponsors.operational") }}</h3>
+      <h3 class="t-headline-4">{{ $t("sponsors.operational", 2) }}</h3>
       <ul class="u-unstyled-list c-footer__sponsors-list">
         <li>
           <a

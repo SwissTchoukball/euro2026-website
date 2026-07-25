@@ -178,8 +178,8 @@
     "united-kingdom": "Royaume-Uni"
   },
   "sponsors": {
-    "main": "Partenaires principaux",
-    "operational": "Partenaires opérationnels",
+    "main": "Partenaire principal | Partenaires principaux",
+    "operational": "Partenaire opérationnel | Partenaires opérationnels",
     "federalOfficeOfSport": "Office fédéral du sport OFSPO"
   },
   "about": {
