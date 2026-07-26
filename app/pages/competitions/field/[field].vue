@@ -14,7 +14,9 @@
       </template>
       <euro-loading-indicator v-else-if="fieldStatus === 'pending'" for-section />
     </section>
-    <euro-game-list v-if="sortedGames" :games="sortedGames" hide-field />
+    <section class="l-section">
+      <euro-game-list v-if="sortedGames" :games="sortedGames" hide-field />
+    </section>
     <euro-powered-by-tchouk-net />
   </main>
 </template>
