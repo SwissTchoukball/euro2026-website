@@ -28,6 +28,7 @@
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
 import { getCountryFlagNameFromId, tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
+import type { TchoukNetParticipation } from "~/services/tchoukNetApi";
 
 const route = useRoute();
 const { t } = useI18n();
@@ -60,17 +61,25 @@ usePolling(refresh);
 
 const sortedParticipations = computed(() => {
   return (
-    countryData.value?.participations.toSorted((a, b) => {
-      if (!eventData.value) {
-        return 0;
-      }
-      const aCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === a.competition?.id);
-      const bCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === b.competition?.id);
-      if (aCompetitionIndex !== bCompetitionIndex) {
-        return aCompetitionIndex - bCompetitionIndex;
-      }
-      return a.team.name.localeCompare(b.team.name);
-    }) || []
+    countryData.value?.participations
+      .reduce((acc, participation) => {
+        // Making sure that teams that are from the same entity are only listed once.
+        if (!acc.find((p) => p.team?.team_entity_identifier === participation.team?.team_entity_identifier)) {
+          acc.push(participation);
+        }
+        return acc;
+      }, [] as TchoukNetParticipation[])
+      .toSorted((a, b) => {
+        if (!eventData.value) {
+          return 0;
+        }
+        const aCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === a.competition?.id);
+        const bCompetitionIndex = eventData.value.event.competitions.findIndex((c) => c.id === b.competition?.id);
+        if (aCompetitionIndex !== bCompetitionIndex) {
+          return aCompetitionIndex - bCompetitionIndex;
+        }
+        return a.team.name.localeCompare(b.team.name);
+      }) || []
   );
 });
 
