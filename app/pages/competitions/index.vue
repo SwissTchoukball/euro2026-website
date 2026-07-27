@@ -20,6 +20,10 @@
       />
     </section>
 
+    <section class="l-section">
+      <euro-calendar-subscription-links v-if="data?.event" :event-id="data.event.id" />
+    </section>
+
     <euro-game-planning-overview v-if="data" :planning-overview="data?.overview" />
 
     <euro-powered-by-tchouk-net />
