@@ -90,6 +90,16 @@ export const tchoukNetSlugIdMapping: {
         italy: "1f131c24-7ef3-664c-9599-97dbca60d2cf",
       },
     },
+    boys: {
+      id: "1f189cb7-d684-6244-bfb4-0960145623a1",
+      phases: {
+        friendlies: "1f189cba-0ffa-6c7e-ae30-9b69cf13198b",
+      },
+      teams: {
+        "switzerland-m18-b": "1f10f15e-6df3-6f92-8219-b37f37944f41",
+        "switzerland-m15-ge": "1f131c23-5ec1-6c80-a238-1519de508deb",
+      },
+    },
     "m40-men": {
       id: "1f10f179-14fb-697e-8698-81ab971d950e",
       phases: {
