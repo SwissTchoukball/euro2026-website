@@ -63,21 +63,24 @@ const teamId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionS
 
 const { data: competitionData } = useAsyncCompetitionData(competitionId.value);
 
+// We keep doing this data fetching server-side (as opposed to other pages where we fetch data client-side)
+// because the data it sends is needed to build the team members pages on the server side.
+// To make sure we get fresh data for the games, we immediately refresh the data when the page is mounted.
 const {
   data: teamCompetitionData,
   status: teamCompetitionStatus,
   refresh,
-} = useAsyncData(
-  `team-${teamId.value}`,
-  () => {
-    if (!teamId.value) {
-      throw new Error(`Undefined team ID: ${teamId.value} / slug: ${teamSlug.value}`);
-    }
-    return tchoukNetApiService.getTeam(teamId.value);
-  },
-  { server: false },
-);
+} = useAsyncData(`team-${teamId.value}`, () => {
+  if (!teamId.value) {
+    throw new Error(`Undefined team ID: ${teamId.value} / slug: ${teamSlug.value}`);
+  }
+  return tchoukNetApiService.getTeam(teamId.value);
+});
 usePolling(refresh);
+
+onMounted(() => {
+  refresh();
+});
 
 const countryName = computed(() => teamCompetitionData.value?.team.team_entity.countries[0]?.name || "");
 const countrySlug = computed(() => getCountrySlugFromId(teamCompetitionData.value?.team.team_entity.countries[0]?.id));
