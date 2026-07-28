@@ -182,7 +182,8 @@
   "calendarSubscription": {
     "cta": {
       "allGames": "Ajouter tous les matchs au calendrier",
-      "teamGames": "Ajouter tous les matchs de l'équipe {teamName} au calendrier"
+      "teamGames": "Ajouter tous les matchs de l'équipe {teamName} au calendrier",
+      "fieldGames": "Ajouter tous les matchs de «{fieldName}» au calendrier"
     },
     "anyCalendarApp": "Toutes les apps de calendrier",
     "refreshWarning": "Assurez-vous de configurer un intervalle de rafraîchissement court dans votre application de calendrier (par exemple 1h) pour éviter de manquer les mises à jour !"

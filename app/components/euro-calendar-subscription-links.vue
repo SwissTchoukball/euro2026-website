@@ -32,9 +32,17 @@ import type { TchoukNetTeam } from "~/services/tchoukNetApi";
 
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { eventId, team = undefined } = defineProps<{
-  eventId: string;
+const {
+  eventId = undefined,
+  team = undefined,
+  field = undefined,
+} = defineProps<{
+  eventId?: string;
   team?: TchoukNetTeam;
+  field?: {
+    id: string;
+    name: string;
+  };
 }>();
 
 const isOpen = ref(false);
@@ -46,14 +54,25 @@ const cta = computed(() => {
     });
   }
 
+  if (field) {
+    return $t("calendarSubscription.cta.fieldGames", {
+      fieldName: localizeCompetitionEntityName(field.name),
+    });
+  }
+
   return $t("calendarSubscription.cta.allGames");
 });
 
 const webcalUrl = computed(() => {
-  let url = `webcal://data.tchouk.net/calendar/event/${eventId}`;
+  let url = "webcal://data.tchouk.net/calendar/";
+  if (field) {
+    url += `fields/${field.id}`;
+  } else if (eventId) {
+    url += `event/${eventId}`;
 
-  if (team) {
-    url += `/teams/${team.team_entity.id}`;
+    if (team) {
+      url += `/teams/${team.team_entity.id}`;
+    }
   }
 
   url += ".ics";

@@ -182,7 +182,8 @@
   "calendarSubscription": {
     "cta": {
       "allGames": "Alle Spiele zum Kalender hinzufügen",
-      "teamGames": "Alle Spiele des Teams {teamName} zum Kalender hinzufügen"
+      "teamGames": "Alle Spiele des Teams {teamName} zum Kalender hinzufügen",
+      "fieldGames": "Alle Spiele von «{fieldName}» zum Kalender hinzufügen"
     },
     "anyCalendarApp": "Jede Kalender-App",
     "refreshWarning": "Stellen Sie sicher, dass Sie ein kurzes Aktualisierungsintervall in Ihrer Kalender-App (z.B. 1h) einstellen, um keine Updates zu verpassen!"

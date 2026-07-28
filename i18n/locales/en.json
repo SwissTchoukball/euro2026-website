@@ -182,7 +182,8 @@
   "calendarSubscription": {
     "cta": {
       "allGames": "Add all games to calendar",
-      "teamGames": "Add all games of {teamName} to calendar"
+      "teamGames": "Add all games of {teamName} to calendar",
+      "fieldGames": "Add all games of {fieldName} to calendar"
     },
     "anyCalendarApp": "Any calendar app",
     "refreshWarning": "Make sure to set a short refresh interval in your calendar app (e.g. 1h) to avoid missing any updates!"
