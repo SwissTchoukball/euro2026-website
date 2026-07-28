@@ -17,10 +17,19 @@ export type TchoukNetCompetition = {
   phases?: TchoukNetCompetitionPhase[];
 };
 
+export type TchoukNetCompetitionPhaseType = {
+  id: string;
+  name: string;
+  emoji?: string;
+  color_hue?: number;
+  hex_color?: string;
+};
+
 export type TchoukNetCompetitionPhase = {
   id: string;
   name: string;
   competition?: TchoukNetCompetition;
+  phase_type?: TchoukNetCompetitionPhaseType;
 };
 
 export type TchoukNetEvent = {

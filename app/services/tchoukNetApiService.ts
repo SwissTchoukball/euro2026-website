@@ -11,7 +11,10 @@ import type {
 } from "./tchoukNetApi";
 
 class TchoukNetApiService {
+  // Production
   private apiBaseUrl = "https://tchouk.net/api";
+  // Local
+  // private apiBaseUrl = "http://localhost:8000/api";
 
   // Euro 2026
   public eventId = "1f0a5f2c-fb2a-64da-b726-dfb22bf931c9";
@@ -19,6 +22,8 @@ class TchoukNetApiService {
   // public eventId = "1ef411c5-9e4d-6f5c-b418-2361c26a7c4a";
   // TGI 2023
   // public eventId = "b9fec05a-2778-4b94-b440-ffd660dbff19";
+  // Local event
+  // public eventId = "1f185d24-7fc7-6b4a-bf1e-f78af085b061";
 
   private sendRequest = async <T = unknown>(input: RequestInfo, init: RequestInit): Promise<T> => {
     const response = await fetch(input, init);

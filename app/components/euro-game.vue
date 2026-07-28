@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="c-game"
-    :class="{ 'c-game--semi-final': isSemiFinal, 'c-game--final': isFinal, 'c-game--3rd-place-final': is3rdPlaceFinal }"
-  >
+  <div class="c-game" :class="{ 'c-game--final': isFinal }" :style="{ backgroundColor }">
     <div class="c-game__metadata">
       <div class="c-game__status">
         <euro-game-status :game="game" :hide-date="hideDate" />
@@ -153,16 +150,30 @@ const periodScores = computed(() => {
   return scores;
 });
 
-const isSemiFinal = computed(() => {
-  return game.competition_phase?.name?.toLowerCase().includes("semi-final");
-});
-
-const is3rdPlaceFinal = computed(() => {
-  return !isSemiFinal.value && game.competition_phase?.name?.toLowerCase().includes("3rd place final");
-});
-
 const isFinal = computed(() => {
-  return !isSemiFinal.value && !is3rdPlaceFinal.value && game.competition_phase?.name?.toLowerCase().includes("final");
+  return phase.value?.phase_type?.name.toLowerCase() === "final";
+});
+
+const backgroundColor = computed(() => {
+  if (!phase.value?.phase_type?.color_hue) return undefined;
+
+  let lightness = 90;
+  let saturation = 100;
+
+  if (isFinal.value) {
+    lightness = 75;
+  }
+
+  if (
+    phase.value.phase_type?.name.toLowerCase().includes("semi-final") ||
+    phase.value.phase_type?.name.toLowerCase().includes("semifinal") ||
+    phase.value.phase_type?.name.toLowerCase().includes("quarter-final") ||
+    phase.value.phase_type?.name.toLowerCase().includes("quarterfinal")
+  ) {
+    saturation = 50;
+  }
+
+  return `hsl(${phase.value.phase_type.color_hue}, ${saturation}%, ${lightness}%)`;
 });
 
 const showMoreIcon = computed(() => {
@@ -186,18 +197,6 @@ const showMoreLabel = computed(() => {
   background-color: white;
   border-radius: 0.5rem;
   overflow: hidden;
-
-  &.c-game--semi-final {
-    background-color: var(--euro-sky-blue-200);
-  }
-
-  &.c-game--final {
-    background-color: var(--euro-gold-200);
-  }
-
-  &.c-game--3rd-place-final {
-    background-color: var(--euro-bronze-200);
-  }
 
   @media (min-width: 40rem) {
     grid-template-columns: 25% auto 3rem;

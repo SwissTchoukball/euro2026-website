@@ -58,6 +58,10 @@ const date = computed<Date | undefined>(() => (game.start_at ? new Date(game.sta
   svg {
     height: 1em;
   }
+
+  &:hover {
+    color: white;
+  }
 }
 
 .status-date {
