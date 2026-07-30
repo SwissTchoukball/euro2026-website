@@ -57,6 +57,11 @@
           </a>
         </li>
         <li>
+          <a href="https://www.groupe-serbeco.ch" class="c-footer__sponsor c-footer__sponsor--secondary">
+            <img class="c-footer__sponsor-logo" src="/images/logo-groupe-serbeco.svg" alt="Logo of Groupe Serbeco" />
+          </a>
+        </li>
+        <li>
           <a href="https://linktr.ee/tchoukball.global" class="c-footer__sponsor c-footer__sponsor--secondary">
             <img
               class="c-footer__sponsor-logo"
