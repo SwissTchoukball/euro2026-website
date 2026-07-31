@@ -28,6 +28,7 @@ import { WGStoLV95 } from "swiss-projection";
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
 import { tchoukNetSlugIdMapping } from "@/services/tchoukNetSlugIdMapping";
 import type { BreadcrumbItem } from "~/components/euro-breadcrumbs.vue";
+import type { TchoukNetGame } from "~/services/tchoukNetApi";
 
 const route = useRoute();
 const { t } = useI18n();
@@ -55,7 +56,11 @@ const {
 usePolling(refresh);
 
 const sortedGames = computed(() => {
-  return fieldData.value?.games.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
+  // Making a deep copy “old style” to make it work with an old Samsung browser.
+  const gamesToSort: TchoukNetGame[] = JSON.parse(JSON.stringify(fieldData.value?.games || []));
+  return gamesToSort.sort((a, b) => a.start_at!.localeCompare(b.start_at!));
+  // Uncomment the nice modern way after the event.
+  // return fieldData.value?.games.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
 });
 
 const breadcrumbs = computed<BreadcrumbItem[]>(() => {

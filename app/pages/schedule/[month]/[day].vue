@@ -14,6 +14,7 @@
 
 <script lang="ts" setup>
 import { tchoukNetApiService } from "@/services/tchoukNetApiService";
+import type { TchoukNetGame } from "~/services/tchoukNetApi";
 
 const appConfig = useAppConfig();
 const { locale, t } = useI18n();
@@ -42,7 +43,11 @@ const {
 usePolling(refresh);
 
 const sortedMatches = computed(() => {
-  return dayData.value?.matches.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
+  // Making a deep copy “old style” to make it work with an old Samsung browser.
+  const gamesToSort: TchoukNetGame[] = JSON.parse(JSON.stringify(dayData.value?.matches || []));
+  return gamesToSort.sort((a, b) => a.start_at!.localeCompare(b.start_at!));
+  // Uncomment the nice modern way after the event.
+  // return dayData.value?.matches.toSorted((a, b) => a.start_at!.localeCompare(b.start_at!));
 });
 
 const pageTitle = computed(
