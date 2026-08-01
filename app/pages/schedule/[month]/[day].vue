@@ -6,9 +6,10 @@
 
     <div v-if="dayStatus === 'error'">Error loading day data.</div>
     <template v-if="sortedMatches">
-      <euro-game-list :games="sortedMatches" hide-date-headings hide-date />
+      <euro-game-list :games="sortedMatches" class="c-schedule-day__game-list" hide-date-headings hide-date />
     </template>
     <euro-loading-indicator v-else-if="dayStatus === 'pending'" for-section />
+    <euro-powered-by-tchouk-net />
   </div>
 </template>
 
@@ -68,5 +69,9 @@ useSeoMeta({
   &::first-letter {
     text-transform: capitalize;
   }
+}
+
+.c-schedule-day__game-list {
+  margin-bottom: var(--euro-spacing-16);
 }
 </style>
