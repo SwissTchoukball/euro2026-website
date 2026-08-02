@@ -21,6 +21,15 @@
       </div>
     </section>
 
+    <section v-if="showPhotosAndVideosSection" class="l-section">
+      <div class="c-index__engagement-links">
+        <a href="https://flickr.com/etbf" class="c-index__engagement-link-button"> 📸 {{ $t("home.seePhotos") }} </a>
+        <a href="https://youtube.com/@TchoukballETBF" class="c-index__engagement-link-button">
+          🎥 {{ $t("home.seeLiveAndReplays") }}
+        </a>
+      </div>
+    </section>
+
     <section class="l-section">
       <EuroCountdown class="c-index__countdown" @over="isCountdownOver = true" />
 
@@ -55,15 +64,6 @@
     <section class="l-section c-index__finals-dates">
       <a :href="localePath('/schedule/8/3')">{{ $t("home.youthFinals") }}</a>
       <a :href="localePath('/schedule/8/8')">{{ $t("home.seniorFinals") }}</a>
-    </section>
-
-    <section v-if="showPhotosAndVideosSection" class="l-section">
-      <div class="c-index__engagement-links">
-        <a href="https://flickr.com/etbf" class="c-index__engagement-link-button"> 📸 {{ $t("home.seePhotos") }} </a>
-        <a href="https://youtube.com/@TchoukballETBF" class="c-index__engagement-link-button">
-          🎥 {{ $t("home.seeLiveAndReplays") }}
-        </a>
-      </div>
     </section>
 
     <section class="l-section">
@@ -282,10 +282,10 @@ const showBecomeVolunteerButton = computed(() => {
 
 .c-index__engagement-link-button {
   display: inline-block;
-  padding: var(--euro-spacing-4) var(--euro-spacing-8);
+  padding: var(--euro-spacing-2) var(--euro-spacing-4);
   border-radius: 1rem;
   text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1rem, 4vw, 2rem);
   text-decoration: none;
   font-weight: bold;
   color: var(--euro-sky-blue-500);
@@ -294,6 +294,10 @@ const showBecomeVolunteerButton = computed(() => {
   &:hover {
     color: var(--euro-blue-500);
     background-color: var(--euro-sky-blue-500);
+  }
+
+  @media (min-width: 40rem) {
+    padding: var(--euro-spacing-4) var(--euro-spacing-8);
   }
 }
 
