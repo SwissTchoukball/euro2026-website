@@ -89,7 +89,8 @@
       "games": "Matchs",
       "members": {
         "title": "Membres de l'équipe",
-        "emptyList": "Aucun membre de l'équipe à afficher pour le moment."
+        "emptyList": "Aucun membre de l'équipe à afficher pour le moment.",
+        "print": "Imprimer"
       },
       "member": {
         "position": {

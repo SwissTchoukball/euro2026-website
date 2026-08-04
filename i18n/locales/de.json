@@ -89,7 +89,8 @@
       "games": "Spiele",
       "members": {
         "title": "Teammitglieder",
-        "emptyList": "Keine Teammitglieder zum Anzeigen."
+        "emptyList": "Keine Teammitglieder zum Anzeigen.",
+        "print": "Drucken"
       },
       "member": {
         "position": {

@@ -9,7 +9,7 @@ import { tchoukNetSlugIdMapping } from "./app/services/tchoukNetSlugIdMapping";
 // would otherwise never be discovered. Enumerate them explicitly from the static
 // slug mapping for every locale.
 const localePrefixes = ["", "/fr", "/de"];
-const teamSubPages = ["members", "games"];
+const teamSubPages = ["members", "games", "members/print"];
 const teamRoutes = Object.entries(tchoukNetSlugIdMapping.competitions).flatMap(([competition, { teams }]) =>
   Object.keys(teams).flatMap((team) =>
     localePrefixes.flatMap((prefix) =>

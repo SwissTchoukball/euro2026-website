@@ -89,7 +89,8 @@
       "games": "Games",
       "members": {
         "title": "Team members",
-        "emptyList": "No team members to show at the moment."
+        "emptyList": "No team members to show at the moment.",
+        "print": "Print"
       },
       "member": {
         "position": {
