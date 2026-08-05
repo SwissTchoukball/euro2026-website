@@ -41,20 +41,38 @@
       </euro-layout-separation>
       <euro-layout-separation class="teams" light name>
         <template #a>
-          <euro-team-name
-            :team="game.selection_a?.team"
-            :label="game.label_a"
-            :winner="teamAWon"
-            :competition="phase?.competition"
-          />
+          <div class="c-game__team-name-and-jersey-color">
+            <euro-team-name
+              :team="game.selection_a?.team"
+              :label="game.label_a"
+              :winner="teamAWon"
+              :competition="phase?.competition"
+            />
+            <Icon
+              icon="fluent:shirt-20-filled"
+              class="c-game__jersey-color"
+              width="20"
+              height="20"
+              :style="{ color: game.selection_a?.jersey_color }"
+            />
+          </div>
         </template>
         <template #b>
-          <euro-team-name
-            :team="game.selection_b?.team"
-            :label="game.label_b"
-            :winner="teamBWon"
-            :competition="phase?.competition"
-          />
+          <div class="c-game__team-name-and-jersey-color">
+            <euro-team-name
+              :team="game.selection_b?.team"
+              :label="game.label_b"
+              :winner="teamBWon"
+              :competition="phase?.competition"
+            />
+            <Icon
+              icon="fluent:shirt-20-filled"
+              class="c-game__jersey-color"
+              width="20"
+              height="20"
+              :style="{ color: game.selection_b?.jersey_color }"
+            />
+          </div>
         </template>
       </euro-layout-separation>
 
@@ -269,6 +287,25 @@ const showMoreLabel = computed(() => {
 
   .c-game__country-flag {
     transform: scale(2.3);
+  }
+
+  .c-game__jersey-color {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    &:deep(path) {
+      stroke: var(--euro-gray-500);
+      stroke-width: 1;
+    }
+  }
+
+  .c-game__team-name-and-jersey-color {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: var(--euro-spacing-2);
   }
 
   .c-game__more {
