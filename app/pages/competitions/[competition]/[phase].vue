@@ -12,7 +12,7 @@
       <euro-loading-indicator v-else-if="status === 'pending'" for-section />
     </section>
 
-    <section v-if="data?.games?.length && hasStandings" class="l-section">
+    <section v-if="data?.games?.length && phaseHasStandings(phaseSlug)" class="l-section">
       <euro-phase-standings :games="data.games" />
     </section>
 
@@ -37,12 +37,6 @@ const competitionSlug = computed(() => route.params.competition as string);
 const competitionId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.id);
 const phaseSlug = computed(() => route.params.phase as string);
 const phaseId = computed(() => tchoukNetSlugIdMapping.competitions?.[competitionSlug.value]?.phases?.[phaseSlug.value]);
-const hasStandings = computed(
-  () =>
-    phaseSlug.value?.includes("group") ||
-    phaseSlug.value?.includes("qualification") ||
-    phaseSlug.value?.includes("round-robin"),
-);
 
 const { data: competitionData, status: competitionStatus } = useAsyncCompetitionData(competitionId.value);
 

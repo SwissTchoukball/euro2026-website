@@ -80,7 +80,8 @@
       "for": "Marqués",
       "against": "Reçus",
       "difference": "Diff.",
-      "ineligibleExplanation": "Le pays hôte a le droit d'avoir deux équipes en lice. Toutefois, une seule peut se qualifier pour la suite de la compétition. L'équipe «{teamName}» a été désignée comme étant celle non-éligible, avant le début de la compétition. Elle est donc classée dernière au classement, quel que soit son nombre de points."
+      "ineligibleExplanation": "Le pays hôte a le droit d'avoir deux équipes en lice. Toutefois, une seule peut se qualifier pour la suite de la compétition. L'équipe «{teamName}» a été désignée comme étant celle non-éligible, avant le début de la compétition. Elle est donc classée dernière au classement, quel que soit son nombre de points.",
+      "cta": "Voir le classement de «{phaseName}»"
     },
     "team": {
       "title": "Équipe | Équipes",

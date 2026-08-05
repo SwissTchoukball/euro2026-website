@@ -80,7 +80,8 @@
       "for": "For",
       "against": "Against",
       "difference": "Diff.",
-      "ineligibleExplanation": "The host country is allowed to have two teams in the competition. However, only one of them is eligible to qualify further. The team “{teamName}” has been defined as the non-eligible one prior to the competition. It is therefore placed last in the standings, regardless of its points."
+      "ineligibleExplanation": "The host country is allowed to have two teams in the competition. However, only one of them is eligible to qualify further. The team “{teamName}” has been defined as the non-eligible one prior to the competition. It is therefore placed last in the standings, regardless of its points.",
+      "cta": "View standings of {phaseName}"
     },
     "team": {
       "title": "Team | Teams",

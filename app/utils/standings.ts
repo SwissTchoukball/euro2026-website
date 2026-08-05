@@ -40,6 +40,10 @@ const ineligibleTeamIds = [
   "1f131c23-5ec1-6c80-a238-1519de508deb", // Switzerland GE M15 Boys
 ];
 
+export function phaseHasStandings(phaseSlug: string): boolean {
+  return phaseSlug.includes("group") || phaseSlug.includes("qualification") || phaseSlug.includes("round-robin");
+}
+
 export function generateStandingsTeams(
   games: TchoukNetGame[],
   options: { system: StandingSystem } = { system: StandingSystem.FITB },

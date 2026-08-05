@@ -80,7 +80,8 @@
       "for": "Für",
       "against": "Gegen",
       "difference": "Diff.",
-      "ineligibleExplanation": "Das Gastgeberland darf zwei Teams ins Rennen schicken. Allerdings kann sich nur eines davon für die nächste Runde qualifizieren. Das Team «{teamName}» wurde vor Beginn des Wettbewerbs als nicht teilnahmeberechtigt eingestuft. Es belegt daher unabhängig von seiner Punktzahl den letzten Platz in der Rangliste."
+      "ineligibleExplanation": "Das Gastgeberland darf zwei Teams ins Rennen schicken. Allerdings kann sich nur eines davon für die nächste Runde qualifizieren. Das Team «{teamName}» wurde vor Beginn des Wettbewerbs als nicht teilnahmeberechtigt eingestuft. Es belegt daher unabhängig von seiner Punktzahl den letzten Platz in der Rangliste.",
+      "cta": "Rangliste von «{phaseName}» ansehen"
     },
     "team": {
       "title": "Team | Teams",
