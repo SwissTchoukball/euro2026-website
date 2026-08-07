@@ -19,9 +19,9 @@ export enum StandingSystem {
 
 export const standingPoints = {
   [StandingSystem.FITB]: {
-    win: 2,
-    draw: 1,
-    loss: 0,
+    win: 3,
+    draw: 2,
+    loss: 1,
     forfeit: 0,
   },
   [StandingSystem.SwissTchoukball]: {
