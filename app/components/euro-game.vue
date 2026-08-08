@@ -295,6 +295,7 @@ const showMoreLabel = computed(() => {
     height: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    flex-shrink: 0;
 
     &:deep(path) {
       stroke: var(--euro-gray-500);
