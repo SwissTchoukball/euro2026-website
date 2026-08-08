@@ -1,5 +1,5 @@
 <template>
-  <ol class="u-unstyled-list c-phase-standings">
+  <ol class="u-unstyled-list c-phase-standings" :start="numberingStart">
     <li class="c-phase-standings__row c-phase-standings__row--header">
       <div class="c-phase-standings__position-team-points">
         <span class="c-phase-standings__position"></span>
@@ -37,7 +37,7 @@
       :class="{ 'c-phase-standings__row--ineligible': row.ineligible }"
     >
       <div class="c-phase-standings__position-team-points">
-        <span class="c-phase-standings__position">{{ index + 1 }}</span>
+        <span class="c-phase-standings__position">{{ index + numberingStart }}</span>
         <span class="c-phase-standings__team-name">
           <Icon
             :name="`twemoji:flag-${getCountryFlagNameFromId(row.team?.team_entity?.countries?.[0]?.id)}`"
@@ -103,8 +103,9 @@ import { getCountryFlagNameFromId } from "~/services/tchoukNetSlugIdMapping";
 
 const { localizeCompetitionEntityName } = useI18nHelper();
 
-const { games } = defineProps<{
+const { games, numberingStart = 1 } = defineProps<{
   games: TchoukNetGame[];
+  numberingStart?: number;
 }>();
 
 const standings = computed<StandingTeam[]>(() => {

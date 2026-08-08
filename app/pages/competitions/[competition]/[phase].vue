@@ -12,8 +12,8 @@
       <euro-loading-indicator v-else-if="status === 'pending'" for-section />
     </section>
 
-    <section v-if="data?.games?.length && phaseHasStandings(phaseSlug)" class="l-section">
-      <euro-phase-standings :games="data.games" />
+    <section v-if="data?.games?.length && phaseHasStandings(phaseSlug) && phaseId" class="l-section">
+      <euro-phase-standings :games="data.games" :numbering-start="rankingGamesNumberingStart[phaseId]" />
     </section>
 
     <section v-if="sortedGames" class="l-section">

@@ -40,8 +40,17 @@ const ineligibleTeamIds = [
   "1f131c23-5ec1-6c80-a238-1519de508deb", // Switzerland GE M15 Boys
 ];
 
+export const rankingGamesNumberingStart: Record<string, number> = {
+  "1f13445c-ab5a-62de-8992-99d2b783d635": 5,
+};
+
 export function phaseHasStandings(phaseSlug: string): boolean {
-  return phaseSlug.includes("group") || phaseSlug.includes("qualification") || phaseSlug.includes("round-robin");
+  return (
+    phaseSlug.includes("group") ||
+    phaseSlug.includes("qualification") ||
+    phaseSlug.includes("round-robin") ||
+    phaseSlug.includes("ranking-games")
+  );
 }
 
 export function generateStandingsTeams(
