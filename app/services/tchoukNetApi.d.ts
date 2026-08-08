@@ -127,6 +127,7 @@ export interface TchoukNetGame {
   is_playing?: boolean;
   has_ended?: boolean;
   status: "announced" | "planned" | "started" | "ended" | "cancelled" | "forfeited";
+  delay_in_minutes?: number;
   field?: TchoukNetField;
   organisation?: TchoukNetOrganisation;
   competition_phase?: TchoukNetCompetitionPhase;

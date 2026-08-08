@@ -19,6 +19,7 @@
   </component>
   <div v-else-if="date" class="status-date">
     <b>{{ date.toLocaleTimeString(`${locale}-CH`, { hour: "2-digit", minute: "2-digit" }) }}</b>
+    <span v-if="game.delay_in_minutes" class="status-delay">+{{ game.delay_in_minutes }}’</span>
     <small v-if="!hideDate">{{ date.toLocaleDateString(`${locale}-CH`) }}</small>
   </div>
 </template>
@@ -70,6 +71,10 @@ const date = computed<Date | undefined>(() => (game.start_at ? new Date(game.sta
   align-items: baseline;
   justify-content: flex-start;
   gap: 0.25rem;
+}
+
+.status-delay {
+  color: var(--euro-red-500);
 }
 
 @keyframes blinkingAnimation {
