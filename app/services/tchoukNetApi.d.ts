@@ -82,7 +82,7 @@ export interface TchoukNetGameTeam {
     "2": number;
     "3": number;
   };
-  jersey_color: string;
+  jersey_color?: string;
   id: string;
 }
 

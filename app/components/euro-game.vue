@@ -49,11 +49,12 @@
               :competition="phase?.competition"
             />
             <Icon
+              v-if="game.selection_a?.jersey_color"
               icon="fluent:shirt-20-filled"
               class="c-game__jersey-color"
               width="20"
               height="20"
-              :style="{ color: game.selection_a?.jersey_color }"
+              :style="{ color: game.selection_a.jersey_color }"
             />
           </div>
         </template>
@@ -66,11 +67,12 @@
               :competition="phase?.competition"
             />
             <Icon
+              v-if="game.selection_b?.jersey_color"
               icon="fluent:shirt-20-filled"
               class="c-game__jersey-color"
               width="20"
               height="20"
-              :style="{ color: game.selection_b?.jersey_color }"
+              :style="{ color: game.selection_b.jersey_color }"
             />
           </div>
         </template>
