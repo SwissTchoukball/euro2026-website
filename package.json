@@ -16,28 +16,28 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@maas/vue-equipment": "^1.0.0-beta.56",
-    "@nuxt/eslint": "^1.15.2",
-    "@nuxt/icon": "^2.2.2",
-    "@nuxt/image": "^2.0.0",
-    "@nuxt/test-utils": "^4.0.3",
-    "@nuxtjs/i18n": "^10.4.0",
-    "@sindresorhus/slugify": "^3.0.0",
-    "@types/node": "^25.9.1",
-    "@vue/test-utils": "^2.4.10",
-    "@vueuse/nuxt": "^14.3.0",
-    "eslint": "^10.4.0",
+    "@maas/vue-equipment": "^1.0.0-beta.84",
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxt/icon": "^2.5.1",
+    "@nuxt/image": "^2.1.0",
+    "@nuxt/test-utils": "^4.3.2",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@sindresorhus/slugify": "^3.0.1",
+    "@types/node": "^25.9.6",
+    "@vue/test-utils": "^2.5.0",
+    "@vueuse/nuxt": "^14.4.0",
+    "eslint": "^10.10.0",
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "js-confetti": "^0.12.0",
-    "nuxt": "^4.4.6",
+    "nuxt": "^4.5.2",
     "nuxt-kirby": "^3.0.3",
-    "reka-ui": "^2.9.7",
-    "vitest": "^4.1.7",
-    "vue": "^3.5.34",
-    "vue-router": "^5.0.7"
+    "reka-ui": "^2.10.4",
+    "vitest": "^4.1.11",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
   },
   "overrides": {
-    "nuxt": "^4.4.6"
+    "nuxt": "^4.5.2"
   },
   "dependencies": {
     "sitemap": "^9.0.1",
