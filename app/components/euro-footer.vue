@@ -62,7 +62,7 @@
           </a>
         </li>
         <li>
-          <a href="https://linktr.ee/tchoukball.global" class="c-footer__sponsor c-footer__sponsor--secondary">
+          <a href="https://tchoukballglobal.com" class="c-footer__sponsor c-footer__sponsor--secondary">
             <img
               class="c-footer__sponsor-logo"
               src="/images/logo-tchoukball-global.svg"
